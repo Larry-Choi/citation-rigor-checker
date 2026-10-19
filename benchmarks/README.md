@@ -78,6 +78,8 @@ The six Korean/romanized-name and other reported regression cases are [synthetic
 
 The previous 40-entry copy-and-mutate corpus remains in this directory for parser/comparison regression testing. Its 39/40 result from the earlier release is retired as performance evidence. It does not measure the skill's added value.
 
+The B032 prefix regression is now fixed: `Deep learning` with a DOI resolving to `Human-level control through deep reinforcement learning` is an identity conflict, not a shortened-title review. Word-set inclusion was replaced by a word-boundary prefix check. [Before/after output](results/title-prefix-regression.json) records B032 as the only status change among the 40 legacy cases; all six legitimate-variant and 19 GPflow candidate-case statuses are unchanged. The current legacy replay agrees with all 40 labels, an engineering check rather than an accuracy estimate. Saved model comparisons were not re-run or altered for this helper-only fix.
+
 ## Reproduce checks and scores
 
 From the repository root, using Python 3.10+:

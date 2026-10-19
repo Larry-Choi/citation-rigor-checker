@@ -121,6 +121,8 @@ python scripts/bibliography.py references.bib --live --max-requests 40 --out pre
 
 [출처 안내](references/sources.md)에는 ML/CS 자료 외에도 국문 KCI/RISS/DBpia, 의생명 PubMed, 도서·학위논문 조회 경로가 있습니다. 자동 조회 도구가 지원하는 서비스는 **Crossref와 arXiv**입니다. 국문 출처 경로가 있다는 사실이 국문 논문 정확도의 실증 검증을 의미하지는 않습니다.
 
+국문 참고문헌은 대체로 수동 출처 확인이 필요합니다. 헬퍼는 KCI·RISS·DBpia를 조회하지 않으며, Crossref 레코드가 없거나 불완전하면 unresolved/review가 나올 수 있습니다. 이는 확인할 목록이지 잘못된 인용이라는 증거가 아닙니다. 결과는 1차 검토 보조로 사용하고 핵심 주장의 인용은 원문의 문맥을 직접 확인하세요. 긴 원고에서 과장 인용을 얼마나 찾아내는지는 검증하지 않았습니다.
+
 ## 검증 현황
 
 실제 GPflow BibTeX 9개와 별도로 확인한 학술 레코드를 바탕으로 한 서지 사례, 여섯 의미 상태를 포함한 발췌문 사례를 제공합니다. 기존 40개 복사·변형 자료는 도구 회귀 점검용으로 보존합니다.

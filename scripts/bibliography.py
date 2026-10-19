@@ -228,9 +228,9 @@ def title_relation(submitted, record):
         return 'exact', 1.0
     ratio = max(difflib.SequenceMatcher(None, title, v).ratio() for v in variants)
     for variant in variants:
-        a, b = set(title.split()), set(variant.split())
         shortest = min((title, variant), key=len)
-        if (len(shortest.split()) >= 2 or len(shortest) >= 8) and (a <= b or b <= a):
+        if (len(shortest.split()) >= 2 or len(shortest) >= 8) and (
+                title.startswith(variant + ' ') or variant.startswith(title + ' ')):
             return 'abbreviated', ratio
     return ('similar' if ratio >= 0.85 else 'different'), ratio
 

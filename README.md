@@ -121,6 +121,8 @@ Fixed inputs and a frozen metadata snapshot enable deterministic replay. Live se
 
 The workflow can route to publisher records, subject indexes, and institutional repositories. [Source routing](references/sources.md) includes Korean-language KCI/RISS/DBpia checks, biomedical PubMed checks, and books/theses alongside ML/CS sources. The bundled API helper automates **Crossref and arXiv**.
 
+Korean references generally need manual source checks: the helper does not query KCI, RISS, or DBpia. Missing or incomplete Crossref records can produce unresolved/review results; these are review queues, not evidence that a citation is wrong. Use outputs as a first-pass review aid and inspect the primary-source context yourself for central claims. Long-manuscript overclaim detection remains unvalidated.
+
 ## Validation status
 
 The first pilot's lower skill score involved benign-formatting labels and an invalid unavailable-record control. [Case-by-case diagnosis in Korean](benchmarks/DIAGNOSIS.ko.md) separates actual entry defects from ambiguous labels and evidence-design errors; all original runs remain public.

@@ -1,0 +1,254 @@
+{
+  "scope": "Deterministic engineering regressions only; no model calls, retrieval, or semantic evaluation.",
+  "before_commit": "ea6e70f",
+  "before_implementation_sha256": "4d5ad1f150ac8e5f36e0cbd7029e6385f91296ab6130e76c84324888342f3bc0",
+  "implementation_sha256": "cb027df9bf17aeafc4d7a0e9d310ba54e52b52451e8cd1f46bf40df5e4762cb1",
+  "input_sha256": "5772e7190d8361a1b3c4ddc90c69a6f4911716e1d0fde141541fa8c30a483c5d",
+  "snapshot_sha256": "b550c1d64fd5e96aedc6e266d19a65f9c2af323ec2c95f14b9a8fdd9e57bc635",
+  "legacy_count": 40,
+  "changed_cases": [
+    {
+      "id": "B032",
+      "before": "metadata_review",
+      "after": "identity_conflict"
+    }
+  ],
+  "B032": {
+    "before": {
+      "status": "metadata_review",
+      "title_similarity": 0.38235294117647056,
+      "reasons": [
+        "Title is shortened, differs, or may be translated; review the complete title/subtitle",
+        "Author list differs, is abbreviated, or has unresolved naming/transliteration differences"
+      ],
+      "record": {
+        "doi": "10.1038/nature14236",
+        "title": "Human-level control through deep reinforcement learning",
+        "authors": [
+          "Mnih",
+          "Kavukcuoglu",
+          "Silver",
+          "Rusu",
+          "Veness",
+          "Bellemare",
+          "Graves",
+          "Riedmiller",
+          "Fidjeland",
+          "Ostrovski",
+          "Petersen",
+          "Beattie",
+          "Sadik",
+          "Antonoglou",
+          "King",
+          "Kumaran",
+          "Wierstra",
+          "Legg",
+          "Hassabis"
+        ],
+        "author_bibtex": "Mnih, Volodymyr and Kavukcuoglu, Koray and Silver, David and Rusu, Andrei A. and Veness, Joel and Bellemare, Marc G. and Graves, Alex and Riedmiller, Martin and Fidjeland, Andreas K. and Ostrovski, Georg and Petersen, Stig and Beattie, Charles and Sadik, Amir and Antonoglou, Ioannis and King, Helen and Kumaran, Dharshan and Wierstra, Daan and Legg, Shane and Hassabis, Demis",
+        "years": [
+          2015
+        ],
+        "venue": "Nature",
+        "volume": "518",
+        "pages": "529-533",
+        "source_url": "https://api.crossref.org/works/10.1038/nature14236",
+        "retrieved_at": "2026-10-19T03:10:10.822154+00:00"
+      },
+      "candidates": [],
+      "id": "B032",
+      "submitted": {
+        "id": "B032",
+        "entry_type": "article",
+        "title": "Deep learning",
+        "author": "LeCun, Yann and Bengio, Yoshua and Hinton, Geoffrey",
+        "year": "2015",
+        "journal": "Nature",
+        "doi": "10.1038/nature14236"
+      },
+      "semantic_status": "not_assessed"
+    },
+    "after": {
+      "status": "identity_conflict",
+      "title_similarity": 0.38235294117647056,
+      "reasons": [
+        "Both title and first-author signals conflict with the resolved record; inspect versions/names manually"
+      ],
+      "record": {
+        "doi": "10.1038/nature14236",
+        "title": "Human-level control through deep reinforcement learning",
+        "authors": [
+          "Mnih",
+          "Kavukcuoglu",
+          "Silver",
+          "Rusu",
+          "Veness",
+          "Bellemare",
+          "Graves",
+          "Riedmiller",
+          "Fidjeland",
+          "Ostrovski",
+          "Petersen",
+          "Beattie",
+          "Sadik",
+          "Antonoglou",
+          "King",
+          "Kumaran",
+          "Wierstra",
+          "Legg",
+          "Hassabis"
+        ],
+        "author_bibtex": "Mnih, Volodymyr and Kavukcuoglu, Koray and Silver, David and Rusu, Andrei A. and Veness, Joel and Bellemare, Marc G. and Graves, Alex and Riedmiller, Martin and Fidjeland, Andreas K. and Ostrovski, Georg and Petersen, Stig and Beattie, Charles and Sadik, Amir and Antonoglou, Ioannis and King, Helen and Kumaran, Dharshan and Wierstra, Daan and Legg, Shane and Hassabis, Demis",
+        "years": [
+          2015
+        ],
+        "venue": "Nature",
+        "volume": "518",
+        "pages": "529-533",
+        "source_url": "https://api.crossref.org/works/10.1038/nature14236",
+        "retrieved_at": "2026-10-19T03:10:10.822154+00:00"
+      },
+      "candidates": [],
+      "id": "B032",
+      "submitted": {
+        "id": "B032",
+        "entry_type": "article",
+        "title": "Deep learning",
+        "author": "LeCun, Yann and Bengio, Yoshua and Hinton, Geoffrey",
+        "year": "2015",
+        "journal": "Nature",
+        "doi": "10.1038/nature14236"
+      },
+      "semantic_status": "not_assessed"
+    }
+  },
+  "legitimate_variants": [
+    {
+      "id": "accent",
+      "before": "matched_metadata",
+      "after": "matched_metadata"
+    },
+    {
+      "id": "particle",
+      "before": "matched_metadata",
+      "after": "matched_metadata"
+    },
+    {
+      "id": "transliteration",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    },
+    {
+      "id": "unsegmented_korean",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    },
+    {
+      "id": "omitted_subtitle",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    },
+    {
+      "id": "venue_abbreviation",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    }
+  ],
+  "gpflow_candidate_cases": [
+    {
+      "id": "R001",
+      "before": "matched_metadata",
+      "after": "matched_metadata"
+    },
+    {
+      "id": "R002",
+      "before": "matched_metadata",
+      "after": "matched_metadata"
+    },
+    {
+      "id": "R003",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    },
+    {
+      "id": "R004",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    },
+    {
+      "id": "R005",
+      "before": "matched_metadata",
+      "after": "matched_metadata"
+    },
+    {
+      "id": "R006",
+      "before": "matched_metadata",
+      "after": "matched_metadata"
+    },
+    {
+      "id": "R007",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    },
+    {
+      "id": "R008",
+      "before": "matched_metadata",
+      "after": "matched_metadata"
+    },
+    {
+      "id": "R009",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    },
+    {
+      "id": "R010",
+      "before": "matched_metadata",
+      "after": "matched_metadata"
+    },
+    {
+      "id": "R011",
+      "before": "matched_metadata",
+      "after": "matched_metadata"
+    },
+    {
+      "id": "R012",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    },
+    {
+      "id": "R013",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    },
+    {
+      "id": "R014",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    },
+    {
+      "id": "R015",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    },
+    {
+      "id": "R016",
+      "before": "identity_conflict",
+      "after": "identity_conflict"
+    },
+    {
+      "id": "R017",
+      "before": "identity_conflict",
+      "after": "identity_conflict"
+    },
+    {
+      "id": "R018",
+      "before": "metadata_review",
+      "after": "metadata_review"
+    },
+    {
+      "id": "R019",
+      "before": "unresolved",
+      "after": "unresolved"
+    }
+  ]
+}

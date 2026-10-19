@@ -1279,11 +1279,10 @@
       "semantic_status": "not_assessed"
     },
     {
-      "status": "metadata_review",
+      "status": "identity_conflict",
       "title_similarity": 0.38235294117647056,
       "reasons": [
-        "Title is shortened, differs, or may be translated; review the complete title/subtitle",
-        "Author list differs, is abbreviated, or has unresolved naming/transliteration differences"
+        "Both title and first-author signals conflict with the resolved record; inspect versions/names manually"
       ],
       "record": {
         "doi": "10.1038/nature14236",
@@ -1709,7 +1708,7 @@
   "request_log": [],
   "warning": "matched_metadata is a provisional field comparison, not final verification or semantic support. Snapshot misses and API failures do not prove nonexistence.",
   "input_sha256": "5772e7190d8361a1b3c4ddc90c69a6f4911716e1d0fde141541fa8c30a483c5d",
-  "implementation_sha256": "4d5ad1f150ac8e5f36e0cbd7029e6385f91296ab6130e76c84324888342f3bc0",
+  "implementation_sha256": "cb027df9bf17aeafc4d7a0e9d310ba54e52b52451e8cd1f46bf40df5e4762cb1",
   "python_version": "3.12.14",
   "snapshot_sha256": "b550c1d64fd5e96aedc6e266d19a65f9c2af323ec2c95f14b9a8fdd9e57bc635"
 }

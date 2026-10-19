@@ -11,7 +11,7 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 sys.path.insert(0, str(ROOT / 'benchmarks'))
-from bibliography import BibError, Resolver, arxiv_value, audit, author_families, compare, doi_value, parse_bibtex
+from bibliography import BibError, Resolver, arxiv_value, audit, author_families, compare, doi_value, parse_bibtex, title_relation
 from evaluate import export_prompts, load_gold, metrics, score_views
 
 
@@ -90,6 +90,15 @@ class ComparisonTests(unittest.TestCase):
         self.record['subtitle'] = ['Methods and Results']
         self.entry['title'] = 'A study of evidence: Methods and Results'
         self.assertEqual(compare(self.entry, self.record)['status'], 'matched_metadata')
+
+    def test_title_token_subset_is_not_necessarily_a_shortened_prefix(self):
+        self.assertEqual(title_relation('Attention Is All You Need',
+            {'title':'Gaussian Process Attention Is All You Need for Regression'})[0], 'different')
+
+    def test_shortened_prefix_preserves_word_boundaries_and_subtitles(self):
+        self.assertEqual(title_relation('Evidence Learning', {'title':'Evidence Learning: Methods and Results'})[0], 'abbreviated')
+        self.assertEqual(title_relation('Evidence Learning: Methods and Results', {'title':'Evidence Learning'})[0], 'abbreviated')
+        self.assertNotEqual(title_relation('Evidence Learning', {'title':'Evidence Learnings Across Many Unrelated Domains'})[0], 'abbreviated')
 
     def test_title_only_disagreement_is_review(self):
         self.entry['title'] = 'An entirely different topic'
@@ -184,6 +193,15 @@ class ResolverTests(unittest.TestCase):
 
 
 class SnapshotRegressionTests(unittest.TestCase):
+    def test_b032_wrong_doi_is_identity_conflict_not_title_shortening(self):
+        directory = ROOT/'benchmarks'
+        entries = parse_bibtex((directory/'references.bib').read_text(encoding='utf-8'))
+        snapshot = json.loads((directory/'sources.json').read_text(encoding='utf-8'))
+        result = audit([e for e in entries if e['id']=='B032'],Resolver(snapshot=snapshot))['results'][0]
+        self.assertEqual(result['status'],'identity_conflict')
+        self.assertTrue(any('Both title and first-author' in reason for reason in result['reasons']))
+        self.assertFalse(any('shortened' in reason for reason in result['reasons']))
+
     def test_frozen_corpus_coverage_repeatability_and_known_review(self):
         directory = ROOT / 'benchmarks'
         entries = parse_bibtex((directory / 'references.bib').read_text(encoding='utf-8'))

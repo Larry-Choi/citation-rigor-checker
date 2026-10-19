@@ -23,7 +23,7 @@ Accepts ordinary entries with braced, quoted, or numeric values, nested braces, 
 - `identity_conflict`: Both the title and leading-author signals conflict with the candidate record. A difference in only one signal goes to metadata review.
 - `unresolved`: No usable record, discovery candidates only, invalid identifier, API failure, cache miss, or exhausted request budget.
 
-Title comparison uses normalized complete titles, Crossref subtitles, recognizable prefix/token subsets, and fuzzy similarity. A similarity below 0.85 is only one disagreement signal; it cannot trigger identity conflict by itself. Shortened titles remain reviewable. No-ID live queries return up to three discovery candidates for manual resolution.
+Title comparison uses normalized complete titles, Crossref subtitles, word-boundary prefixes, and fuzzy similarity. Sharing a subset of words in a different position or order does not establish a shortened title. A similarity below 0.85 is only one disagreement signal; it cannot trigger identity conflict by itself. Shortened titles remain reviewable. No-ID live queries return up to three discovery candidates for manual resolution.
 
 Use fixed snapshots for exact replay. Live API contents can change; caches can become stale. Keep input/snapshot hashes, retrieval dates, and manual adjudications when reporting an audit. A request count is a network count, not a count of references verified. Parsing failure exits with code 2; a completed report can contain unresolved cases and exits with code 0, so inspect the statuses rather than using the exit code as an approval signal.
 
