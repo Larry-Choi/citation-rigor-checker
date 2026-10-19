@@ -1,0 +1,62 @@
+[
+  {
+    "id": "S001",
+    "task": "semantic",
+    "claim": "The cited architecture uses convolutional encoder and decoder blocks.",
+    "source_url": "https://arxiv.org/pdf/1705.03122v2",
+    "locator": "Section 3, PDF page 2",
+    "supplied_evidence": "Maintainer paraphrase of the inspected section: encoder and decoder states are computed with CNNs in a fully convolutional architecture.",
+    "status": "supported",
+    "rationale": "The limited architectural proposition matches the supplied source passage."
+  },
+  {
+    "id": "S002",
+    "task": "semantic",
+    "claim": "The cited encoder and decoder consist solely of recurrent blocks, with no convolutions.",
+    "source_url": "https://arxiv.org/pdf/1705.03122v2",
+    "locator": "Section 3, PDF page 2",
+    "supplied_evidence": "Maintainer paraphrase of the inspected section: encoder and decoder states are computed with CNNs in a fully convolutional architecture.",
+    "status": "contradicted",
+    "rationale": "The synthetic claim directly reverses the stated architectural choice."
+  },
+  {
+    "id": "S003",
+    "task": "semantic",
+    "claim": "The cited Adam algorithm lists beta_2 = 0.999 among its suggested defaults.",
+    "source_url": "https://arxiv.org/pdf/1412.6980v9",
+    "locator": "Algorithm 1, PDF page 2",
+    "supplied_evidence": "Maintainer paraphrase of the algorithm header: its suggested settings include beta_1=0.9, beta_2=0.999, epsilon=1e-8.",
+    "status": "supported",
+    "rationale": "The numerical claim is restricted to a listed default."
+  },
+  {
+    "id": "S004",
+    "task": "semantic",
+    "claim": "The original Adam paper lists beta_2 = 0.98 as its default.",
+    "source_url": "https://arxiv.org/pdf/1412.6980v9",
+    "locator": "Algorithm 1, PDF page 2",
+    "supplied_evidence": "Maintainer paraphrase of the algorithm header: its suggested settings include beta_1=0.9, beta_2=0.999, epsilon=1e-8.",
+    "status": "contradicted",
+    "rationale": "A user's adaptation is incorrectly attributed as the original default."
+  },
+  {
+    "id": "S005",
+    "task": "semantic",
+    "claim": "The cited source proves this estimator unbiased for all populations.",
+    "source_url": null,
+    "locator": "Unprovided appendix",
+    "supplied_evidence": "No source text or bibliographic record is available. Network access is disabled for this evaluation.",
+    "status": "unresolved",
+    "rationale": "The absence of usable evidence cannot establish either support or contradiction."
+  },
+  {
+    "id": "S006",
+    "task": "semantic",
+    "claim": "The manuscript's epsilon term exactly matches the cited equation.",
+    "source_url": null,
+    "locator": "Unrenderable equation image",
+    "supplied_evidence": "Only an OCR string is available, with an unresolved epsilon/eta ambiguity. The source equation and rendered pages cannot be inspected.",
+    "status": "unresolved",
+    "rationale": "The equation comparison is blocked by extraction and access limitations."
+  }
+]

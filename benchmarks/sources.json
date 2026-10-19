@@ -1,0 +1,210 @@
+{
+  "provenance": "Selected Crossref member-deposited bibliographic fields; no abstracts or full texts. Frozen public metadata, not a complete scholarly index.",
+  "records": [
+    {
+      "doi": "10.1038/nature14539",
+      "title": "Deep learning",
+      "authors": [
+        "LeCun",
+        "Bengio",
+        "Hinton"
+      ],
+      "author_bibtex": "LeCun, Yann and Bengio, Yoshua and Hinton, Geoffrey",
+      "years": [
+        2015
+      ],
+      "venue": "Nature",
+      "volume": "521",
+      "pages": "436-444",
+      "source_url": "https://api.crossref.org/works/10.1038/nature14539",
+      "retrieved_at": "2026-10-19T03:10:07.757950+00:00"
+    },
+    {
+      "doi": "10.1038/nature14236",
+      "title": "Human-level control through deep reinforcement learning",
+      "authors": [
+        "Mnih",
+        "Kavukcuoglu",
+        "Silver",
+        "Rusu",
+        "Veness",
+        "Bellemare",
+        "Graves",
+        "Riedmiller",
+        "Fidjeland",
+        "Ostrovski",
+        "Petersen",
+        "Beattie",
+        "Sadik",
+        "Antonoglou",
+        "King",
+        "Kumaran",
+        "Wierstra",
+        "Legg",
+        "Hassabis"
+      ],
+      "author_bibtex": "Mnih, Volodymyr and Kavukcuoglu, Koray and Silver, David and Rusu, Andrei A. and Veness, Joel and Bellemare, Marc G. and Graves, Alex and Riedmiller, Martin and Fidjeland, Andreas K. and Ostrovski, Georg and Petersen, Stig and Beattie, Charles and Sadik, Amir and Antonoglou, Ioannis and King, Helen and Kumaran, Dharshan and Wierstra, Daan and Legg, Shane and Hassabis, Demis",
+      "years": [
+        2015
+      ],
+      "venue": "Nature",
+      "volume": "518",
+      "pages": "529-533",
+      "source_url": "https://api.crossref.org/works/10.1038/nature14236",
+      "retrieved_at": "2026-10-19T03:10:10.822154+00:00"
+    },
+    {
+      "doi": "10.1038/nature16961",
+      "title": "Mastering the game of Go with deep neural networks and tree search",
+      "authors": [
+        "Silver",
+        "Huang",
+        "Maddison",
+        "Guez",
+        "Sifre",
+        "van den Driessche",
+        "Schrittwieser",
+        "Antonoglou",
+        "Panneershelvam",
+        "Lanctot",
+        "Dieleman",
+        "Grewe",
+        "Nham",
+        "Kalchbrenner",
+        "Sutskever",
+        "Lillicrap",
+        "Leach",
+        "Kavukcuoglu",
+        "Graepel",
+        "Hassabis"
+      ],
+      "author_bibtex": "Silver, David and Huang, Aja and Maddison, Chris J. and Guez, Arthur and Sifre, Laurent and van den Driessche, George and Schrittwieser, Julian and Antonoglou, Ioannis and Panneershelvam, Veda and Lanctot, Marc and Dieleman, Sander and Grewe, Dominik and Nham, John and Kalchbrenner, Nal and Sutskever, Ilya and Lillicrap, Timothy and Leach, Madeleine and Kavukcuoglu, Koray and Graepel, Thore and Hassabis, Demis",
+      "years": [
+        2016
+      ],
+      "venue": "Nature",
+      "volume": "529",
+      "pages": "484-489",
+      "source_url": "https://api.crossref.org/works/10.1038/nature16961",
+      "retrieved_at": "2026-10-19T03:10:12.790392+00:00"
+    },
+    {
+      "doi": "10.1038/s41586-021-03819-2",
+      "title": "Highly accurate protein structure prediction with AlphaFold",
+      "authors": [
+        "Jumper",
+        "Evans",
+        "Pritzel",
+        "Green",
+        "Figurnov",
+        "Ronneberger",
+        "Tunyasuvunakool",
+        "Bates",
+        "Žídek",
+        "Potapenko",
+        "Bridgland",
+        "Meyer",
+        "Kohl",
+        "Ballard",
+        "Cowie",
+        "Romera-Paredes",
+        "Nikolov",
+        "Jain",
+        "Adler",
+        "Back",
+        "Petersen",
+        "Reiman",
+        "Clancy",
+        "Zielinski",
+        "Steinegger",
+        "Pacholska",
+        "Berghammer",
+        "Bodenstein",
+        "Silver",
+        "Vinyals",
+        "Senior",
+        "Kavukcuoglu",
+        "Kohli",
+        "Hassabis"
+      ],
+      "author_bibtex": "Jumper, John and Evans, Richard and Pritzel, Alexander and Green, Tim and Figurnov, Michael and Ronneberger, Olaf and Tunyasuvunakool, Kathryn and Bates, Russ and Žídek, Augustin and Potapenko, Anna and Bridgland, Alex and Meyer, Clemens and Kohl, Simon A. A. and Ballard, Andrew J. and Cowie, Andrew and Romera-Paredes, Bernardino and Nikolov, Stanislav and Jain, Rishub and Adler, Jonas and Back, Trevor and Petersen, Stig and Reiman, David and Clancy, Ellen and Zielinski, Michal and Steinegger, Martin and Pacholska, Michalina and Berghammer, Tamas and Bodenstein, Sebastian and Silver, David and Vinyals, Oriol and Senior, Andrew W. and Kavukcuoglu, Koray and Kohli, Pushmeet and Hassabis, Demis",
+      "years": [
+        2021
+      ],
+      "venue": "Nature",
+      "volume": "596",
+      "pages": "583-589",
+      "source_url": "https://api.crossref.org/works/10.1038/s41586-021-03819-2",
+      "retrieved_at": "2026-10-19T03:10:15.240530+00:00"
+    },
+    {
+      "doi": "10.1371/journal.pmed.1000097",
+      "title": "Preferred Reporting Items for Systematic Reviews and Meta-Analyses: The PRISMA Statement",
+      "authors": [
+        "Moher",
+        "Liberati",
+        "Tetzlaff",
+        "Altman",
+        "The PRISMA Group"
+      ],
+      "author_bibtex": "Moher, David and Liberati, Alessandro and Tetzlaff, Jennifer and Altman, Douglas G. and The PRISMA Group",
+      "years": [
+        2009
+      ],
+      "venue": "PLoS Medicine",
+      "volume": "6",
+      "pages": "e1000097",
+      "source_url": "https://api.crossref.org/works/10.1371/journal.pmed.1000097",
+      "retrieved_at": "2026-10-19T03:10:17.058224+00:00"
+    },
+    {
+      "doi": "10.1371/journal.pmed.0020124",
+      "title": "Why Most Published Research Findings Are False",
+      "authors": [
+        "Ioannidis"
+      ],
+      "author_bibtex": "Ioannidis, John P. A.",
+      "years": [
+        2005
+      ],
+      "venue": "PLoS Medicine",
+      "volume": "2",
+      "pages": "e124",
+      "source_url": "https://api.crossref.org/works/10.1371/journal.pmed.0020124",
+      "retrieved_at": "2026-10-19T03:10:18.832921+00:00"
+    },
+    {
+      "doi": "10.1098/rstb.1952.0012",
+      "title": "The chemical basis of morphogenesis",
+      "authors": [
+        "Turing"
+      ],
+      "author_bibtex": "Turing, Alan Mathison",
+      "years": [
+        1952
+      ],
+      "venue": "Philosophical Transactions of the Royal Society of London. Series B, Biological Sciences",
+      "volume": "237",
+      "pages": "37-72",
+      "source_url": "https://api.crossref.org/works/10.1098/rstb.1952.0012",
+      "retrieved_at": "2026-10-19T03:10:20.590378+00:00"
+    },
+    {
+      "doi": "10.1038/171737a0",
+      "title": "Molecular Structure of Nucleic Acids: A Structure for Deoxyribose Nucleic Acid",
+      "authors": [
+        "WATSON",
+        "CRICK"
+      ],
+      "author_bibtex": "WATSON, J. D. and CRICK, F. H. C.",
+      "years": [
+        1953
+      ],
+      "venue": "Nature",
+      "volume": "171",
+      "pages": "737-738",
+      "source_url": "https://api.crossref.org/works/10.1038/171737a0",
+      "retrieved_at": "2026-10-19T03:10:22.317817+00:00"
+    }
+  ]
+}

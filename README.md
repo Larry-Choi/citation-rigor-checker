@@ -1,128 +1,132 @@
 # Citation Rigor Checker
 
-**Check whether a reference exists—and whether it supports what your manuscript says.**
+**A real paper can still be the wrong citation. Check both existence and claim support.**
 
-An instruction-only [Agent Skill](https://agentskills.io/specification) for evidence-based academic citation audits. It separates bibliographic verification from claim-level review and makes missing evidence explicit.
+An [Agent Skill](https://agentskills.io/specification) that audits references against scholarly records and maps manuscript claims to the passages that support—or fail to support—them.
 
-The workflow lives in a single [`SKILL.md`](SKILL.md). No custom scripts, packages, or project-specific API keys are required. Your agent supplies the model, search tools, and document access; its normal usage costs and access limits still apply.
+Start with a quick **lite report**, request a **full reviewer audit**, or use the optional Python helper for cached metadata preflight. The instruction workflow also works without scripts.
 
-## What it checks
+[Read an executed public-paper audit](examples/attention-audit.md) · [Inspect the benchmark and results](benchmarks/README.md) · [Open the skill](SKILL.md)
 
-- **Bibliographic identity:** Titles, authors, identifiers, venues, tracks, dates, versions, and page ranges.
-- **Claim support:** Whether each citation occurrence supports the manuscript's specific proposition—not just a related topic.
-- **Method fidelity:** Equations, algorithms, assumptions, domain adaptations, and attribution.
-- **Experimental context:** Datasets versus simulators, static replay versus interaction, metrics, and evaluation protocols.
-- **Citation mapping:** Repeated citations, grouped references, numbering, missing entries, and ambiguous keys.
-- **Evidence limits:** Primary-source evidence, confidence, access gaps, and unresolved questions.
+## What you get
 
-It also handles high PMLR page numbers, main-track poster labels versus workshop publication status, event/publication year differences, and PDF extraction artifacts without treating these as automatic errors.
+- Separate answers to **“Does this reference match a real work?”** and **“Does it support this claim?”**
+- Citation-by-citation mapping, including repeated and grouped citations.
+- Checks for altered methods, misleading result attribution, and dataset/simulator confusion.
+- A bounded work queue: full-list bibliographic preflight first, then central claims, borrowed methods, comparative results, and background.
+- Evidence locators, precise revision suggestions, and a visible list of unchecked items.
 
-## Install for local use
+High PMLR pagination, main-track poster labels, publication-year differences, and ambiguous PDF symbols receive source checks rather than automatic error flags.
 
-Download this repository using GitHub's **Code → Download ZIP**, then extract it. Keep the skill folder named `citation-rigor-checker`.
+## Install
 
-For Codex, copy the folder into one of these locations:
+Download **Code → Download ZIP**, extract it, and rename the extracted folder `citation-rigor-checker`. Copy that folder to a local skill location below. Keep `SKILL.md` directly inside it; include `scripts/` and `references/` for the optional helper and extended guidance, and retain `LICENSE`.
 
-- **Personal:** `~/.agents/skills/citation-rigor-checker/`
-- **Project:** `<your-project>/.agents/skills/citation-rigor-checker/`
-- **Windows personal:** `%USERPROFILE%\.agents\skills\citation-rigor-checker\`
+### Codex
 
-The resulting folder must contain `SKILL.md` directly. Retain `LICENSE` when copying or redistributing the skill; `README.md` is useful documentation but is not needed for execution. Avoid accidental extra nesting such as `citation-rigor-checker/citation-rigor-checker/SKILL.md`.
+- Personal: `~/.agents/skills/citation-rigor-checker/`
+- Project: `<project>/.agents/skills/citation-rigor-checker/`
+- Windows personal: `%USERPROFILE%\.agents\skills\citation-rigor-checker\`
 
-In Codex CLI or the IDE extension, type `$citation-rigor-checker` or use `/skills` to select it. If it does not appear, restart Codex. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills) for current discovery paths and host-specific invocation. GitHub hosting alone does not install a skill. This repository is a standalone skill, not a plugin-directory package.
+Invoke with `$citation-rigor-checker` in Codex CLI/IDE, or select it from `/skills`. Restart if a newly installed skill does not appear. See [OpenAI's skill documentation](https://learn.chatgpt.com/docs/build-skills).
 
-For another Agent Skills-compatible host, follow that host's installation instructions. Format compatibility does not guarantee identical tools or audit quality. You can also provide `SKILL.md` as workflow instructions in an assistant conversation, but that does not constitute a native skill installation.
+### Claude Code
 
-## Usage examples
+- Personal: `~/.claude/skills/citation-rigor-checker/`
+- Project: `<project>/.claude/skills/citation-rigor-checker/`
+- Windows personal: `%USERPROFILE%\.claude\skills\citation-rigor-checker\`
 
-Attach or provide access to the files mentioned in each example. Example filenames are illustrative. Reports follow the user's requested language.
+Invoke with `/citation-rigor-checker`. See [Claude Code's skill documentation](https://code.claude.com/docs/en/skills) for discovery, reload behavior, and cloud-session differences.
 
-### Verify a reference list
+This is a standalone skill for local installation, not a plugin-directory package. Other Agent Skills hosts may load it using their own installation and invocation conventions. Compatibility is a packaging claim; end-to-end behavior has not been validated across hosts. GitHub hosting alone does not install the skill.
 
-```text
-$citation-rigor-checker
-Audit the attached references.bib for existence and bibliographic accuracy.
-Use authoritative records and provide evidence links for your findings.
-Keep unresolved references separate from identity mismatches.
-Do not assess semantic alignment because no manuscript is provided.
-```
+## Try it
 
-### Audit a manuscript
+Attach the files or make them accessible to your agent. These examples use Codex invocation; in Claude Code replace the first line with `/citation-rigor-checker`.
+
+### Quick reference check
 
 ```text
 $citation-rigor-checker
-Audit the attached manuscript.pdf and references.bib.
-Map each citation occurrence to its reference and check the specific claim.
-Separate bibliographic status from semantic support. Prioritize central
-claims and report any unassessed material explicitly.
-For major issues, suggest precise revisions with source locators.
+Use lite mode on the attached references.bib.
+Check every entry's identity and metadata within a 40-request budget.
+Show evidence links and what remains unchecked. No manuscript is supplied,
+so mark claim support Not assessed. Report in Korean.
 ```
 
-### Review a methodological adaptation
+### Reviewer audit with an explicit budget
 
 ```text
 $citation-rigor-checker
-Compare Section 3 of my draft with the attached source paper.
-Check whether weighting acquisition functions is accurately described as
-the source's posterior-ensemble method. Compare both equations and their
-assumptions. Explain the adaptation boundary and suggest accurate wording.
+Use full mode on manuscript.pdf and references.bib.
+Inventory all references and citation occurrences. Attempt bibliographic
+preflight across the reference list, then prioritize contribution claims,
+borrowed methods/equations, and comparative experimental claims.
+Use at most 60 external requests and 10 distinct source full texts.
+Save a coverage checkpoint and suggest precise revisions for major issues.
 ```
 
-### Work with limited access
+### Check an adaptation
 
 ```text
 $citation-rigor-checker
-Review only the supplied excerpts. Network access is unavailable.
-Check citation mapping and internal consistency. Clearly distinguish what
-the excerpts establish from what needs publisher records or full text.
-Report in Korean. Do not infer fabrication from missing resources.
+Compare Section 3 of my draft with the attached source.
+Check whether changes to the estimator and assumptions are disclosed
+accurately. Distinguish the original contribution from our adaptation.
 ```
 
-## What a report contains
-
-1. Scope, input version, coverage counts, and a qualified verdict.
-2. A reference register with identity, publication type, and metadata findings.
-3. An occurrence audit linking manuscript claims to source evidence.
-4. Prioritized reviewer questions and evidence-backed wording revisions.
-5. An evidence ledger, access/search limitations, and next checks.
-
-**Illustrative finding, not a real paper audit:**
-
-> O002 · Section 4 · R001  
-> Bibliographic status: Verified.  
-> Semantic status: Not supported by inspected evidence.  
-> The draft claims interactive simulator use, while the inspected source
-> passage describes static dataset evaluation. Evidence: E004, Methods,
-> paragraph 2. State the actual evaluation setup or supply evidence for
-> interactive use.
-
-Bibliographic results are counted per reference; semantic results are counted per proposition–source link. These totals need not match.
-
-## Limits and responsible use
-
-This is a review workflow, not a scholarly database, plagiarism detector, or guarantee of correctness. It does not establish who created a citation error or whether AI was involved. Search failure is not proof of fabrication. Verifying a DOI does not establish semantic support, and inspecting an abstract does not validate detailed equations.
-
-Results depend on the host model, available tools, source access, and document quality. No full-text access means no claim of full-text verification. OCR ambiguities remain unresolved until checked against the rendered page or original source. Human authors remain responsible for final citation decisions.
-
-Do not include confidential manuscripts, reviewer material, credentials, or personal data in public issues. Check your host's data handling before supplying unpublished work. A citation-audit request does not authorize publishing the manuscript or contacting its authors.
-
-## Validation and contributions
-
-`SKILL.md` includes eight synthetic behavioral acceptance examples covering publication edge cases, incorrect identifiers, repeated/grouped citations, method adaptations, OCR ambiguity, access limits, and suspected conflation.
-
-These are expected-behavior fixtures, not an automated test suite or a measured accuracy benchmark. Packaging and required metadata have been checked; cross-host behavior and end-to-end citation accuracy have not been benchmarked.
-
-Issues and pull requests are welcome. For a reproducible issue, include the host/model, a minimal public or synthetic input, actual versus expected behavior, and relevant source links. Do not submit private manuscripts or label real authors dishonest on the basis of an unresolved search.
-
-## Repository layout
+### Offline review
 
 ```text
-citation-rigor-checker/
-├── SKILL.md
-├── README.md
-└── LICENSE
+$citation-rigor-checker
+Review the supplied excerpts only. Network access is unavailable.
+Check citation mapping and internal consistency. Explain which claims
+need additional source passages; leave unavailable evidence unresolved.
 ```
+
+Lite reports keep two axes—bibliography and claim support—with short findings and evidence locators. Full reports add the reference register, occurrence audit, source ledger, and reviewer notes. Both state actual coverage. See the [worked example](examples/attention-audit.md).
+
+## Optional metadata helper
+
+Python 3.10+, standard library only. Run from this directory:
+
+```bash
+# Replay frozen public metadata without network access:
+python scripts/bibliography.py benchmarks/references.bib --snapshot benchmarks/sources.json --out preflight.json
+
+# Explicit live lookups, with request budget and cached responses:
+python scripts/bibliography.py references.bib --live --max-requests 40 --out preflight.json
+```
+
+The helper parses a documented BibTeX subset, resolves Crossref DOIs and arXiv eprints, compares fields, and returns no-ID title-search candidates. Unsupported BibTeX macros/inheritance fail explicitly. It does not verify semantic support; a metadata match is provisional. See [helper behavior and limitations](references/helper.md).
+
+Fixed inputs and a frozen metadata snapshot enable deterministic replay. Live search results and model judgments can vary. The instruction workflow needs no Python; actual searches and source reading use the host's tools and normal usage limits.
+
+## Scope by discipline and language
+
+The workflow can route to publisher records, subject indexes, and institutional repositories. [Source routing](references/sources.md) includes Korean-language KCI/RISS/DBpia checks, biomedical PubMed checks, and books/theses alongside ML/CS sources. These are guidance routes; the bundled API helper automates **Crossref and arXiv only**. Multilingual and domain-specific accuracy has not been benchmarked.
+
+## Validation status
+
+The repository includes executable engineering tests, 40 synthetic metadata cases built from eight frozen public records, six semantic evaluation cases, a per-status precision/recall scorer, and paired baseline/skill prompt export.
+
+The measured metadata preflight run agreed with intended routing labels on **39/40** cases. The disagreement and per-status metrics are published in the [benchmark report](benchmarks/README.md). This small development-set result is not an estimate of real-world audit accuracy. **Baseline-versus-skill model comparisons have not been run**, and no semantic-model score or accuracy advantage is claimed.
+
+```bash
+python -m unittest discover -s tests -v
+python benchmarks/evaluate.py --export-prompts benchmarks/runs/prompts
+```
+
+The [public-paper example](examples/attention-audit.md) inspects two references and three selected citation links in *Attention Is All You Need*. It demonstrates execution and scope reporting; it is not a full-paper audit or independent validation.
+
+## Evidence and privacy
+
+An unavailable record or failed search does not prove fabrication. Detailed semantic checks need the relevant source text; OCR ambiguity needs visual/source confirmation. Human authors make the final citation decisions. Keep confidential manuscripts, reviewer material, and personal data out of public issues and unauthorized external services.
+
+## Contribute
+
+Useful contributions include independently adjudicated cases, harder negatives, additional languages, host compatibility reports, and paired model runs with complete settings and evidence. For bugs, provide a minimal public/synthetic input, actual versus expected behavior, and the host/model or Python version. See the [evaluation protocol](benchmarks/README.md) before claiming a performance improvement.
 
 ## License
 
-[MIT](LICENSE). You may use, modify, and redistribute this workflow, including commercially, subject to the license conditions. Preserve the copyright and permission notice. The license covers this repository's material; it does not grant rights to third-party papers, datasets, or manuscript content used during an audit.
+[MIT](LICENSE). Preserve the copyright and permission notice when reusing this repository's material. Referenced papers, datasets, and manuscripts retain their own rights and terms.

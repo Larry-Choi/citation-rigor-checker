@@ -1,0 +1,102 @@
+{
+  "run": {
+    "condition": "deterministic_preflight",
+    "model": null,
+    "semantic_run": false
+  },
+  "metrics": {
+    "bibliographic": {
+      "total": 40,
+      "predicted": 40,
+      "coverage": 1.0,
+      "correct": 39,
+      "accuracy": 0.975,
+      "macro_f1": 0.9757575757575758,
+      "per_status": {
+        "identity_conflict": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 12
+        },
+        "matched_metadata": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.875,
+          "f1": 0.9333333333333333,
+          "support": 8
+        },
+        "metadata_review": {
+          "tp": 16,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.9411764705882353,
+          "recall": 1.0,
+          "f1": 0.9696969696969697,
+          "support": 16
+        },
+        "unresolved": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        }
+      },
+      "missing_ids": []
+    },
+    "semantic": {
+      "total": 6,
+      "predicted": 0,
+      "coverage": 0.0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "per_status": {
+        "contradicted": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        },
+        "supported": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        },
+        "unresolved": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        }
+      },
+      "missing_ids": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006"
+      ]
+    }
+  },
+  "note": "Development-set results only. Missing cases are penalized. Zero predicted positives use precision=0. No evidence of a prompt advantage without actual matched model runs."
+}

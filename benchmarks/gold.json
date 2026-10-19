@@ -1,0 +1,282 @@
+[
+  {
+    "id": "B001",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "mutation": "clean",
+    "source_doi": "10.1038/171737a0"
+  },
+  {
+    "id": "B002",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_venue",
+    "source_doi": "10.1038/nature14539"
+  },
+  {
+    "id": "B003",
+    "task": "bibliographic",
+    "status": "unresolved",
+    "mutation": "invented_fixture",
+    "source_doi": null
+  },
+  {
+    "id": "B004",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "mutation": "clean",
+    "source_doi": "10.1371/journal.pmed.0020124"
+  },
+  {
+    "id": "B005",
+    "task": "bibliographic",
+    "status": "unresolved",
+    "mutation": "invented_fixture",
+    "source_doi": null
+  },
+  {
+    "id": "B006",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "mutation": "wrong_doi",
+    "source_doi": "10.1038/171737a0"
+  },
+  {
+    "id": "B007",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "mutation": "wrong_doi",
+    "source_doi": "10.1371/journal.pmed.1000097"
+  },
+  {
+    "id": "B008",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_year",
+    "source_doi": "10.1371/journal.pmed.0020124"
+  },
+  {
+    "id": "B009",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "mutation": "wrong_doi",
+    "source_doi": "10.1038/s41586-021-03819-2"
+  },
+  {
+    "id": "B010",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_venue",
+    "source_doi": "10.1371/journal.pmed.0020124"
+  },
+  {
+    "id": "B011",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "mutation": "clean",
+    "source_doi": "10.1038/nature14236"
+  },
+  {
+    "id": "B012",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "mutation": "wrong_doi",
+    "source_doi": "10.1038/nature14236"
+  },
+  {
+    "id": "B013",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_venue",
+    "source_doi": "10.1098/rstb.1952.0012"
+  },
+  {
+    "id": "B014",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "mutation": "wrong_doi",
+    "source_doi": "10.1098/rstb.1952.0012"
+  },
+  {
+    "id": "B015",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "mutation": "clean",
+    "source_doi": "10.1038/s41586-021-03819-2"
+  },
+  {
+    "id": "B016",
+    "task": "bibliographic",
+    "status": "unresolved",
+    "mutation": "invented_fixture",
+    "source_doi": null
+  },
+  {
+    "id": "B017",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_year",
+    "source_doi": "10.1371/journal.pmed.1000097"
+  },
+  {
+    "id": "B018",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_year",
+    "source_doi": "10.1038/nature16961"
+  },
+  {
+    "id": "B019",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "mutation": "composite_authors",
+    "source_doi": "10.1038/s41586-021-03819-2"
+  },
+  {
+    "id": "B020",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_year",
+    "source_doi": "10.1038/nature14539"
+  },
+  {
+    "id": "B021",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "mutation": "clean",
+    "source_doi": "10.1038/nature16961"
+  },
+  {
+    "id": "B022",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "mutation": "wrong_doi",
+    "source_doi": "10.1371/journal.pmed.0020124"
+  },
+  {
+    "id": "B023",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_venue",
+    "source_doi": "10.1038/nature14236"
+  },
+  {
+    "id": "B024",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_venue",
+    "source_doi": "10.1038/171737a0"
+  },
+  {
+    "id": "B025",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "mutation": "composite_authors",
+    "source_doi": "10.1038/nature16961"
+  },
+  {
+    "id": "B026",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "mutation": "composite_authors",
+    "source_doi": "10.1038/nature14236"
+  },
+  {
+    "id": "B027",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_year",
+    "source_doi": "10.1098/rstb.1952.0012"
+  },
+  {
+    "id": "B028",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_venue",
+    "source_doi": "10.1371/journal.pmed.1000097"
+  },
+  {
+    "id": "B029",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "mutation": "clean",
+    "source_doi": "10.1038/nature14539"
+  },
+  {
+    "id": "B030",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "mutation": "composite_authors",
+    "source_doi": "10.1038/nature14539"
+  },
+  {
+    "id": "B031",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "mutation": "wrong_doi",
+    "source_doi": "10.1038/nature16961"
+  },
+  {
+    "id": "B032",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "mutation": "wrong_doi",
+    "source_doi": "10.1038/nature14539"
+  },
+  {
+    "id": "B033",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_year",
+    "source_doi": "10.1038/s41586-021-03819-2"
+  },
+  {
+    "id": "B034",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_venue",
+    "source_doi": "10.1038/s41586-021-03819-2"
+  },
+  {
+    "id": "B035",
+    "task": "bibliographic",
+    "status": "unresolved",
+    "mutation": "invented_fixture",
+    "source_doi": null
+  },
+  {
+    "id": "B036",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "mutation": "clean",
+    "source_doi": "10.1098/rstb.1952.0012"
+  },
+  {
+    "id": "B037",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_venue",
+    "source_doi": "10.1038/nature16961"
+  },
+  {
+    "id": "B038",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_year",
+    "source_doi": "10.1038/nature14236"
+  },
+  {
+    "id": "B039",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "mutation": "clean",
+    "source_doi": "10.1371/journal.pmed.1000097"
+  },
+  {
+    "id": "B040",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "mutation": "wrong_year",
+    "source_doi": "10.1038/171737a0"
+  }
+]
