@@ -1,0 +1,133 @@
+{
+  "chu2005gaussian": {
+    "title": "Gaussian Processes for Ordinal Regression",
+    "authors": [
+      "Chu",
+      "Ghahramani"
+    ],
+    "years": [
+      2005
+    ],
+    "venue": "Journal of Machine Learning Research",
+    "source_url": "https://jmlr.org/papers/v6/chu05a.html",
+    "inspected_date": "2026-10-19"
+  },
+  "GPflow2017": {
+    "title": "GPflow: A Gaussian Process Library using TensorFlow",
+    "authors": [
+      "Matthews",
+      "van der Wilk",
+      "Nickson",
+      "Fujii",
+      "Boukouvalas",
+      "León-Villagrá",
+      "Ghahramani",
+      "Hensman"
+    ],
+    "years": [
+      2017
+    ],
+    "venue": "Journal of Machine Learning Research",
+    "source_url": "https://jmlr.org/papers/v18/16-537.html",
+    "inspected_date": "2026-10-19"
+  },
+  "GPflow2020multioutput": {
+    "title": "A Framework for Interdomain and Multioutput Gaussian Processes",
+    "authors": [
+      "van der Wilk",
+      "Dutordoir",
+      "John",
+      "Artemev",
+      "Adam",
+      "Hensman"
+    ],
+    "years": [
+      2020
+    ],
+    "venue": "arXiv",
+    "source_url": "https://arxiv.org/abs/2003.01115",
+    "inspected_date": "2026-10-19"
+  },
+  "hensman2013gaussian": {
+    "title": "Gaussian Processes for Big Data",
+    "authors": [
+      "Hensman",
+      "Fusi",
+      "Lawrence"
+    ],
+    "years": [
+      2013
+    ],
+    "venue": "arXiv",
+    "source_url": "https://arxiv.org/abs/1309.6835",
+    "inspected_date": "2026-10-19"
+  },
+  "NIPS2009_3876": {
+    "title": "Inter-domain Gaussian Processes for Sparse Inference using Inducing Features",
+    "authors": [
+      "Lázaro-Gredilla",
+      "Figueiras-Vidal"
+    ],
+    "years": [
+      2009
+    ],
+    "venue": "Advances in Neural Information Processing Systems 22",
+    "source_url": "https://proceedings.neurips.cc/paper/2009/hash/5ea1649a31336092c05438df996a3e59-Abstract.html",
+    "inspected_date": "2026-10-19"
+  },
+  "pmlr-v139-artemev21a": {
+    "title": "Tighter Bounds on the Log Marginal Likelihood of Gaussian Process Regression Using Conjugate Gradients",
+    "authors": [
+      "Artemev",
+      "Burt",
+      "van der Wilk"
+    ],
+    "years": [
+      2021
+    ],
+    "venue": "Proceedings of the 38th International Conference on Machine Learning",
+    "source_url": "https://proceedings.mlr.press/v139/artemev21a.html",
+    "inspected_date": "2026-10-19"
+  },
+  "titsias2009variational": {
+    "title": "Variational Learning of Inducing Variables in Sparse Gaussian Processes",
+    "authors": [
+      "Titsias"
+    ],
+    "years": [
+      2009
+    ],
+    "venue": "Proceedings of the Twelfth International Conference on Artificial Intelligence and Statistics",
+    "source_url": "https://proceedings.mlr.press/v5/titsias09a.html",
+    "inspected_date": "2026-10-19"
+  },
+  "vdw2017convgp": {
+    "title": "Convolutional Gaussian Processes",
+    "authors": [
+      "van der Wilk",
+      "Rasmussen",
+      "Hensman"
+    ],
+    "years": [
+      2017
+    ],
+    "venue": "Advances in Neural Information Processing Systems 30",
+    "source_url": "https://proceedings.neurips.cc/paper/2017/hash/1c54985e4f95b7819ca0357c0cb9a09f-Abstract.html",
+    "inspected_date": "2026-10-19"
+  },
+  "hensman2015mcmc": {
+    "title": "MCMC for Variationally Sparse Gaussian Processes",
+    "authors": [
+      "Hensman",
+      "Matthews",
+      "Filippone",
+      "Ghahramani"
+    ],
+    "years": [
+      2015
+    ],
+    "venue": "Advances in Neural Information Processing Systems 28",
+    "source_url": "https://proceedings.neurips.cc/paper/2015/hash/6b180037abbebea991d8b1232f8a8ca9-Abstract.html",
+    "inspected_date": "2026-10-19"
+  }
+}

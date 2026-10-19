@@ -1,6 +1,46 @@
 # Evaluation: real BibTeX, normalization regressions, and paired model runs
 
-## Findings
+## V2: diagnose first, then compare all three conditions
+
+The original lower skill score was not sufficient evidence of worse citation judgment. See the [Korean case-by-case diagnosis](DIAGNOSIS.ko.md) and [reproducible decomposition](diagnosis-v1.json). Both conditions had exactly 13/14/13 correct bibliography labels. R003/R004 penalized equivalent arXiv representations; R007/R014 were venue-style boundaries; R002/R012 permit defensible alternative labels. R019 was labelled unavailable even though its matching record was in the packet. Removing only R019 reverses the original macro-F1 ranking: baseline 0.7079, skill 0.7908. That sensitivity analysis does not establish a skill advantage.
+
+The actual title typo, year discrepancy, shortened substantive title, and two wrong-candidate cases were caught by both conditions on every repeat. Both noticed the author-only discrepancy; they used different severity labels. The baseline had never received the conservative label definition. V2 gives every condition the same operational definitions, resolves the evidence-availability bug, excludes two ambiguous IDs from primary scoring, and tests the unchanged original skill alongside the revision. The skill revision resolves contradictory abbreviation guidance and distinguishes missing links from unavailable evidence.
+
+**Nine fresh model runs completed, three per condition**, gpt-6.1-sol, medium reasoning. Primary bibliography has **18 cases** (R002/R012 excluded before execution); all 15 semantic cases are retained:
+
+- **Baseline:** bibliography [18, 18, 18] / 18, mean macro-F1 **1.0000**; semantics [15, 15, 15] / 15, mean macro-F1 **1.0000**. Mean wall time 22.25s; input/output tokens 19005/1115.
+- **Original skill:** bibliography [18, 18, 18] / 18, mean macro-F1 **1.0000**; semantics [15, 15, 15] / 15, mean macro-F1 **1.0000**. Mean wall time 24.06s; input/output tokens 23607/1330.
+- **Revised skill:** bibliography [18, 18, 18] / 18, mean macro-F1 **1.0000**; semantics [15, 15, 15] / 15, mean macro-F1 **1.0000**. Mean wall time 24.57s; input/output tokens 23802/1437.
+
+Secondary sensitivity uses all 20 bibliography cases, including both ambiguous IDs:
+
+- Baseline: all-case strict macro-F1 1.0000; acceptable-set macro-F1 1.0000.
+- Original skill: all-case strict macro-F1 1.0000; acceptable-set macro-F1 1.0000.
+- Revised skill: all-case strict macro-F1 1.0000; acceptable-set macro-F1 1.0000.
+
+Every run returned all 35 predictions, with no observed tool events or runtime errors. Per-status precision/recall/F1, all repeats, and paired differences are in [summary.json](comparison-v2/summary.json); [run-manifest.json](comparison-v2/run-manifest.json) records settings/hashes, timing, and usage. Original and revised skills were frozen before execution; [the protocol](adjudicated-v2/PROTOCOL.md) specifies the balanced three-condition order. Cases are related and repeats are not independent new papers.
+
+The common rubric makes this a comparison **beyond explicit task/label definitions**, not against an entirely unguided baseline. Changes to the rubric/dataset prevent causal before-versus-after claims from v1. The old-skill control measures the incremental revision under v2 conditions. Identical scores do not prove identical reasoning or universal equivalence. Semantic ceiling effects persist; longer documents, retrieval and independently annotated held-out cases remain untested.
+
+### Reproduce V2
+
+```bash
+python -m unittest discover -s tests -v
+python benchmarks/diagnose.py
+python benchmarks/summarize.py --dataset adjudicated-v2 --directory benchmarks/comparison-v2 --include-old-skill
+```
+
+To perform new model calls rather than re-score saved predictions, choose fresh directories:
+
+```bash
+python benchmarks/evaluate.py --dataset adjudicated-v2 --export-prompts benchmarks/runs/v2-prompts
+python benchmarks/run_codex.py --prompts benchmarks/runs/v2-prompts --out benchmarks/runs/v2-comparison --raw benchmarks/runs/v2-raw --isolation-dir benchmarks/runs/v2-empty --model gpt-6.1-sol --reasoning-effort medium --include-old-skill
+python benchmarks/summarize.py --dataset adjudicated-v2 --directory benchmarks/runs/v2-comparison --include-old-skill
+```
+
+The runner consumes the signed-in account's model allowance. The exporter makes no model calls. Gold/accepted sets are excluded from all prompts. `comparison/SKILL.original.txt` preserves the exact v1 skill hash; root `SKILL.md` is the revision. [Adjudication changes](adjudicated-v2/adjudication.json) explain every revised label. R019 tests recovery from the available packet; new synthetic R020 tests genuinely missing evidence without claiming fabrication. The candidate comparison helper remains a conservative preflight and is not an implementation of this model task's packet-wide link recovery.
+
+## V1 historical scores under the original rubric
 
 The corrected helper routes the six reported formatting cases from **5 identity-conflict flags to 0**. [Before/after output](results/normalization-regression.json).
 
@@ -14,7 +54,7 @@ The paired model pilot completed on **2026-10-19**, with `gpt-6.1-sol`, medium r
 - **Mean wall time:** 23.08 seconds baseline; 27.25 seconds skill.
 - **Mean input/output tokens:** baseline 19,103 / 1,183; skill 23,265 / 1,386. Cached-input tokens are recorded separately in the run files.
 
-**This pilot did not demonstrate an overall advantage for the skill.** Bibliographic identity-conflict precision improved from 0.667 to 1.000, but other routing decisions worsened; that isolated improvement does not overturn the overall result. All repeats and disagreements are retained.
+**This pilot did not demonstrate an overall advantage for the skill.** Bibliographic identity-conflict precision was 0.667 versus 1.000, but the original routing labels and R019 access control were subsequently found to be flawed. The V2 diagnosis above supersedes the original interpretation of a skill loss. All repeats and disagreements are retained.
 
 [Aggregate results](comparison/summary.json) · [Run manifest](comparison/run-manifest.json) · [Raw baseline response](comparison/baseline-1.json) · [Raw skill response](comparison/skill-1.json)
 

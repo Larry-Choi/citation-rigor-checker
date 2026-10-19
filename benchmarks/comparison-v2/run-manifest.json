@@ -1,0 +1,375 @@
+{
+  "order": [
+    [
+      "baseline",
+      1
+    ],
+    [
+      "old_skill",
+      1
+    ],
+    [
+      "skill",
+      1
+    ],
+    [
+      "old_skill",
+      2
+    ],
+    [
+      "skill",
+      2
+    ],
+    [
+      "baseline",
+      2
+    ],
+    [
+      "skill",
+      3
+    ],
+    [
+      "baseline",
+      3
+    ],
+    [
+      "old_skill",
+      3
+    ]
+  ],
+  "runs": [
+    {
+      "condition": "baseline",
+      "repeat": 1,
+      "model_alias": "gpt-6.1-sol",
+      "reasoning_effort": "medium",
+      "cli_version": "codex-cli 0.163.0-alpha.10.2",
+      "started_at": "2026-10-19T03:44:33.597938+00:00",
+      "wall_seconds": 21.703,
+      "returncode": 0,
+      "timed_out": false,
+      "observed_tool_events": [],
+      "usage": {
+        "input_tokens": 19005,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1092,
+        "reasoning_output_tokens": 18
+      },
+      "prompt_sha256": "79d509fe19805ee2b8a1d8e7d7aea0ea31bb99fab69e88a9eb3e85790b8dc390",
+      "manifest": {
+        "dataset": "adjudicated-v2",
+        "case_count": 35,
+        "skill_sha256": "5e5213f96fe4d492db636cb9c7d54be41e08e328533f754959c5baa7103a657a",
+        "inputs_sha256": {
+          "bibliographic_cases.json": "0b97cb243b3ecb65d00f5016502878a51c07eb10479103ce8a9caa713a4636bb",
+          "records.json": "35a8db98e3b9a5823a60274aeeeda40a88637130c4765f779a1e89f31fe3ebf4",
+          "semantic_cases.json": "5319978e8e868a9c5ced4ce759af9f1e629faf6aff555f8439f031423ad99971",
+          "evidence.json": "94f12db2593d7209ecbdfb0d42e6364618bd174bbbe464101c75a59bcddf9e84"
+        },
+        "gold_excluded": true,
+        "model_runs_performed_by_exporter": 0,
+        "rubric_sha256": "35da83405ec05eedc337dc653fd9b9be938e872f2e42562212023d27e31ee900",
+        "original_skill_sha256": "69ee0bba22b0adbc913df6b0fe6c536439f614051cc2d8bf3465bd3f0e01f58b"
+      },
+      "valid_tool_free_run": true,
+      "runtime_errors": []
+    },
+    {
+      "condition": "old_skill",
+      "repeat": 1,
+      "model_alias": "gpt-6.1-sol",
+      "reasoning_effort": "medium",
+      "cli_version": "codex-cli 0.163.0-alpha.10.2",
+      "started_at": "2026-10-19T03:44:55.309371+00:00",
+      "wall_seconds": 23.531,
+      "returncode": 0,
+      "timed_out": false,
+      "observed_tool_events": [],
+      "usage": {
+        "input_tokens": 23607,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1304,
+        "reasoning_output_tokens": 33
+      },
+      "prompt_sha256": "53fef6e1806fe9fd7680de1e4dc27a8ddb716d098cf5ff537e35b394a3724423",
+      "manifest": {
+        "dataset": "adjudicated-v2",
+        "case_count": 35,
+        "skill_sha256": "5e5213f96fe4d492db636cb9c7d54be41e08e328533f754959c5baa7103a657a",
+        "inputs_sha256": {
+          "bibliographic_cases.json": "0b97cb243b3ecb65d00f5016502878a51c07eb10479103ce8a9caa713a4636bb",
+          "records.json": "35a8db98e3b9a5823a60274aeeeda40a88637130c4765f779a1e89f31fe3ebf4",
+          "semantic_cases.json": "5319978e8e868a9c5ced4ce759af9f1e629faf6aff555f8439f031423ad99971",
+          "evidence.json": "94f12db2593d7209ecbdfb0d42e6364618bd174bbbe464101c75a59bcddf9e84"
+        },
+        "gold_excluded": true,
+        "model_runs_performed_by_exporter": 0,
+        "rubric_sha256": "35da83405ec05eedc337dc653fd9b9be938e872f2e42562212023d27e31ee900",
+        "original_skill_sha256": "69ee0bba22b0adbc913df6b0fe6c536439f614051cc2d8bf3465bd3f0e01f58b"
+      },
+      "valid_tool_free_run": true,
+      "runtime_errors": []
+    },
+    {
+      "condition": "skill",
+      "repeat": 1,
+      "model_alias": "gpt-6.1-sol",
+      "reasoning_effort": "medium",
+      "cli_version": "codex-cli 0.163.0-alpha.10.2",
+      "started_at": "2026-10-19T03:45:18.858379+00:00",
+      "wall_seconds": 23.109,
+      "returncode": 0,
+      "timed_out": false,
+      "observed_tool_events": [],
+      "usage": {
+        "input_tokens": 23802,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1418,
+        "reasoning_output_tokens": 30
+      },
+      "prompt_sha256": "9cfcc9bca239dbb52ece2cd32da470a16b2ad7e49fc88d721db79edbc038891c",
+      "manifest": {
+        "dataset": "adjudicated-v2",
+        "case_count": 35,
+        "skill_sha256": "5e5213f96fe4d492db636cb9c7d54be41e08e328533f754959c5baa7103a657a",
+        "inputs_sha256": {
+          "bibliographic_cases.json": "0b97cb243b3ecb65d00f5016502878a51c07eb10479103ce8a9caa713a4636bb",
+          "records.json": "35a8db98e3b9a5823a60274aeeeda40a88637130c4765f779a1e89f31fe3ebf4",
+          "semantic_cases.json": "5319978e8e868a9c5ced4ce759af9f1e629faf6aff555f8439f031423ad99971",
+          "evidence.json": "94f12db2593d7209ecbdfb0d42e6364618bd174bbbe464101c75a59bcddf9e84"
+        },
+        "gold_excluded": true,
+        "model_runs_performed_by_exporter": 0,
+        "rubric_sha256": "35da83405ec05eedc337dc653fd9b9be938e872f2e42562212023d27e31ee900",
+        "original_skill_sha256": "69ee0bba22b0adbc913df6b0fe6c536439f614051cc2d8bf3465bd3f0e01f58b"
+      },
+      "valid_tool_free_run": true,
+      "runtime_errors": []
+    },
+    {
+      "condition": "old_skill",
+      "repeat": 2,
+      "model_alias": "gpt-6.1-sol",
+      "reasoning_effort": "medium",
+      "cli_version": "codex-cli 0.163.0-alpha.10.2",
+      "started_at": "2026-10-19T03:45:41.974734+00:00",
+      "wall_seconds": 24.922,
+      "returncode": 0,
+      "timed_out": false,
+      "observed_tool_events": [],
+      "usage": {
+        "input_tokens": 23607,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1319,
+        "reasoning_output_tokens": 31
+      },
+      "prompt_sha256": "53fef6e1806fe9fd7680de1e4dc27a8ddb716d098cf5ff537e35b394a3724423",
+      "manifest": {
+        "dataset": "adjudicated-v2",
+        "case_count": 35,
+        "skill_sha256": "5e5213f96fe4d492db636cb9c7d54be41e08e328533f754959c5baa7103a657a",
+        "inputs_sha256": {
+          "bibliographic_cases.json": "0b97cb243b3ecb65d00f5016502878a51c07eb10479103ce8a9caa713a4636bb",
+          "records.json": "35a8db98e3b9a5823a60274aeeeda40a88637130c4765f779a1e89f31fe3ebf4",
+          "semantic_cases.json": "5319978e8e868a9c5ced4ce759af9f1e629faf6aff555f8439f031423ad99971",
+          "evidence.json": "94f12db2593d7209ecbdfb0d42e6364618bd174bbbe464101c75a59bcddf9e84"
+        },
+        "gold_excluded": true,
+        "model_runs_performed_by_exporter": 0,
+        "rubric_sha256": "35da83405ec05eedc337dc653fd9b9be938e872f2e42562212023d27e31ee900",
+        "original_skill_sha256": "69ee0bba22b0adbc913df6b0fe6c536439f614051cc2d8bf3465bd3f0e01f58b"
+      },
+      "valid_tool_free_run": true,
+      "runtime_errors": []
+    },
+    {
+      "condition": "skill",
+      "repeat": 2,
+      "model_alias": "gpt-6.1-sol",
+      "reasoning_effort": "medium",
+      "cli_version": "codex-cli 0.163.0-alpha.10.2",
+      "started_at": "2026-10-19T03:46:06.889811+00:00",
+      "wall_seconds": 25.969,
+      "returncode": 0,
+      "timed_out": false,
+      "observed_tool_events": [],
+      "usage": {
+        "input_tokens": 23802,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1476,
+        "reasoning_output_tokens": 40
+      },
+      "prompt_sha256": "9cfcc9bca239dbb52ece2cd32da470a16b2ad7e49fc88d721db79edbc038891c",
+      "manifest": {
+        "dataset": "adjudicated-v2",
+        "case_count": 35,
+        "skill_sha256": "5e5213f96fe4d492db636cb9c7d54be41e08e328533f754959c5baa7103a657a",
+        "inputs_sha256": {
+          "bibliographic_cases.json": "0b97cb243b3ecb65d00f5016502878a51c07eb10479103ce8a9caa713a4636bb",
+          "records.json": "35a8db98e3b9a5823a60274aeeeda40a88637130c4765f779a1e89f31fe3ebf4",
+          "semantic_cases.json": "5319978e8e868a9c5ced4ce759af9f1e629faf6aff555f8439f031423ad99971",
+          "evidence.json": "94f12db2593d7209ecbdfb0d42e6364618bd174bbbe464101c75a59bcddf9e84"
+        },
+        "gold_excluded": true,
+        "model_runs_performed_by_exporter": 0,
+        "rubric_sha256": "35da83405ec05eedc337dc653fd9b9be938e872f2e42562212023d27e31ee900",
+        "original_skill_sha256": "69ee0bba22b0adbc913df6b0fe6c536439f614051cc2d8bf3465bd3f0e01f58b"
+      },
+      "valid_tool_free_run": true,
+      "runtime_errors": []
+    },
+    {
+      "condition": "baseline",
+      "repeat": 2,
+      "model_alias": "gpt-6.1-sol",
+      "reasoning_effort": "medium",
+      "cli_version": "codex-cli 0.163.0-alpha.10.2",
+      "started_at": "2026-10-19T03:46:32.887322+00:00",
+      "wall_seconds": 26.578,
+      "returncode": 0,
+      "timed_out": false,
+      "observed_tool_events": [],
+      "usage": {
+        "input_tokens": 19005,
+        "cached_input_tokens": 12160,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1148,
+        "reasoning_output_tokens": 36
+      },
+      "prompt_sha256": "79d509fe19805ee2b8a1d8e7d7aea0ea31bb99fab69e88a9eb3e85790b8dc390",
+      "manifest": {
+        "dataset": "adjudicated-v2",
+        "case_count": 35,
+        "skill_sha256": "5e5213f96fe4d492db636cb9c7d54be41e08e328533f754959c5baa7103a657a",
+        "inputs_sha256": {
+          "bibliographic_cases.json": "0b97cb243b3ecb65d00f5016502878a51c07eb10479103ce8a9caa713a4636bb",
+          "records.json": "35a8db98e3b9a5823a60274aeeeda40a88637130c4765f779a1e89f31fe3ebf4",
+          "semantic_cases.json": "5319978e8e868a9c5ced4ce759af9f1e629faf6aff555f8439f031423ad99971",
+          "evidence.json": "94f12db2593d7209ecbdfb0d42e6364618bd174bbbe464101c75a59bcddf9e84"
+        },
+        "gold_excluded": true,
+        "model_runs_performed_by_exporter": 0,
+        "rubric_sha256": "35da83405ec05eedc337dc653fd9b9be938e872f2e42562212023d27e31ee900",
+        "original_skill_sha256": "69ee0bba22b0adbc913df6b0fe6c536439f614051cc2d8bf3465bd3f0e01f58b"
+      },
+      "valid_tool_free_run": true,
+      "runtime_errors": []
+    },
+    {
+      "condition": "skill",
+      "repeat": 3,
+      "model_alias": "gpt-6.1-sol",
+      "reasoning_effort": "medium",
+      "cli_version": "codex-cli 0.163.0-alpha.10.2",
+      "started_at": "2026-10-19T03:46:59.475210+00:00",
+      "wall_seconds": 24.64,
+      "returncode": 0,
+      "timed_out": false,
+      "observed_tool_events": [],
+      "usage": {
+        "input_tokens": 23802,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1417,
+        "reasoning_output_tokens": 22
+      },
+      "prompt_sha256": "9cfcc9bca239dbb52ece2cd32da470a16b2ad7e49fc88d721db79edbc038891c",
+      "manifest": {
+        "dataset": "adjudicated-v2",
+        "case_count": 35,
+        "skill_sha256": "5e5213f96fe4d492db636cb9c7d54be41e08e328533f754959c5baa7103a657a",
+        "inputs_sha256": {
+          "bibliographic_cases.json": "0b97cb243b3ecb65d00f5016502878a51c07eb10479103ce8a9caa713a4636bb",
+          "records.json": "35a8db98e3b9a5823a60274aeeeda40a88637130c4765f779a1e89f31fe3ebf4",
+          "semantic_cases.json": "5319978e8e868a9c5ced4ce759af9f1e629faf6aff555f8439f031423ad99971",
+          "evidence.json": "94f12db2593d7209ecbdfb0d42e6364618bd174bbbe464101c75a59bcddf9e84"
+        },
+        "gold_excluded": true,
+        "model_runs_performed_by_exporter": 0,
+        "rubric_sha256": "35da83405ec05eedc337dc653fd9b9be938e872f2e42562212023d27e31ee900",
+        "original_skill_sha256": "69ee0bba22b0adbc913df6b0fe6c536439f614051cc2d8bf3465bd3f0e01f58b"
+      },
+      "valid_tool_free_run": true,
+      "runtime_errors": []
+    },
+    {
+      "condition": "baseline",
+      "repeat": 3,
+      "model_alias": "gpt-6.1-sol",
+      "reasoning_effort": "medium",
+      "cli_version": "codex-cli 0.163.0-alpha.10.2",
+      "started_at": "2026-10-19T03:47:24.121664+00:00",
+      "wall_seconds": 18.469,
+      "returncode": 0,
+      "timed_out": false,
+      "observed_tool_events": [],
+      "usage": {
+        "input_tokens": 19005,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1105,
+        "reasoning_output_tokens": 23
+      },
+      "prompt_sha256": "79d509fe19805ee2b8a1d8e7d7aea0ea31bb99fab69e88a9eb3e85790b8dc390",
+      "manifest": {
+        "dataset": "adjudicated-v2",
+        "case_count": 35,
+        "skill_sha256": "5e5213f96fe4d492db636cb9c7d54be41e08e328533f754959c5baa7103a657a",
+        "inputs_sha256": {
+          "bibliographic_cases.json": "0b97cb243b3ecb65d00f5016502878a51c07eb10479103ce8a9caa713a4636bb",
+          "records.json": "35a8db98e3b9a5823a60274aeeeda40a88637130c4765f779a1e89f31fe3ebf4",
+          "semantic_cases.json": "5319978e8e868a9c5ced4ce759af9f1e629faf6aff555f8439f031423ad99971",
+          "evidence.json": "94f12db2593d7209ecbdfb0d42e6364618bd174bbbe464101c75a59bcddf9e84"
+        },
+        "gold_excluded": true,
+        "model_runs_performed_by_exporter": 0,
+        "rubric_sha256": "35da83405ec05eedc337dc653fd9b9be938e872f2e42562212023d27e31ee900",
+        "original_skill_sha256": "69ee0bba22b0adbc913df6b0fe6c536439f614051cc2d8bf3465bd3f0e01f58b"
+      },
+      "valid_tool_free_run": true,
+      "runtime_errors": []
+    },
+    {
+      "condition": "old_skill",
+      "repeat": 3,
+      "model_alias": "gpt-6.1-sol",
+      "reasoning_effort": "medium",
+      "cli_version": "codex-cli 0.163.0-alpha.10.2",
+      "started_at": "2026-10-19T03:47:42.590483+00:00",
+      "wall_seconds": 23.719,
+      "returncode": 0,
+      "timed_out": false,
+      "observed_tool_events": [],
+      "usage": {
+        "input_tokens": 23607,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1367,
+        "reasoning_output_tokens": 43
+      },
+      "prompt_sha256": "53fef6e1806fe9fd7680de1e4dc27a8ddb716d098cf5ff537e35b394a3724423",
+      "manifest": {
+        "dataset": "adjudicated-v2",
+        "case_count": 35,
+        "skill_sha256": "5e5213f96fe4d492db636cb9c7d54be41e08e328533f754959c5baa7103a657a",
+        "inputs_sha256": {
+          "bibliographic_cases.json": "0b97cb243b3ecb65d00f5016502878a51c07eb10479103ce8a9caa713a4636bb",
+          "records.json": "35a8db98e3b9a5823a60274aeeeda40a88637130c4765f779a1e89f31fe3ebf4",
+          "semantic_cases.json": "5319978e8e868a9c5ced4ce759af9f1e629faf6aff555f8439f031423ad99971",
+          "evidence.json": "94f12db2593d7209ecbdfb0d42e6364618bd174bbbe464101c75a59bcddf9e84"
+        },
+        "gold_excluded": true,
+        "model_runs_performed_by_exporter": 0,
+        "rubric_sha256": "35da83405ec05eedc337dc653fd9b9be938e872f2e42562212023d27e31ee900",
+        "original_skill_sha256": "69ee0bba22b0adbc913df6b0fe6c536439f614051cc2d8bf3465bd3f0e01f58b"
+      },
+      "valid_tool_free_run": true,
+      "runtime_errors": []
+    }
+  ]
+}

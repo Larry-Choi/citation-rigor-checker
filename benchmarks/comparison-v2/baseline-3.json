@@ -1,0 +1,216 @@
+{
+  "run": {
+    "condition": "baseline",
+    "repeat": 3,
+    "model_alias": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "cli_version": "codex-cli 0.163.0-alpha.10.2",
+    "started_at": "2026-10-19T03:47:24.121664+00:00",
+    "wall_seconds": 18.469,
+    "returncode": 0,
+    "timed_out": false,
+    "observed_tool_events": [],
+    "usage": {
+      "input_tokens": 19005,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1105,
+      "reasoning_output_tokens": 23
+    },
+    "prompt_sha256": "79d509fe19805ee2b8a1d8e7d7aea0ea31bb99fab69e88a9eb3e85790b8dc390",
+    "manifest": {
+      "dataset": "adjudicated-v2",
+      "case_count": 35,
+      "skill_sha256": "5e5213f96fe4d492db636cb9c7d54be41e08e328533f754959c5baa7103a657a",
+      "inputs_sha256": {
+        "bibliographic_cases.json": "0b97cb243b3ecb65d00f5016502878a51c07eb10479103ce8a9caa713a4636bb",
+        "records.json": "35a8db98e3b9a5823a60274aeeeda40a88637130c4765f779a1e89f31fe3ebf4",
+        "semantic_cases.json": "5319978e8e868a9c5ced4ce759af9f1e629faf6aff555f8439f031423ad99971",
+        "evidence.json": "94f12db2593d7209ecbdfb0d42e6364618bd174bbbe464101c75a59bcddf9e84"
+      },
+      "gold_excluded": true,
+      "model_runs_performed_by_exporter": 0,
+      "rubric_sha256": "35da83405ec05eedc337dc653fd9b9be938e872f2e42562212023d27e31ee900",
+      "original_skill_sha256": "69ee0bba22b0adbc913df6b0fe6c536439f614051cc2d8bf3465bd3f0e01f58b"
+    },
+    "valid_tool_free_run": true,
+    "runtime_errors": []
+  },
+  "predictions": [
+    {
+      "id": "R001",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and venue agree with the assigned record."
+    },
+    {
+      "id": "R002",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and venue agree after normalizing TeX accents and formatting."
+    },
+    {
+      "id": "R003",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and arXiv identifier agree."
+    },
+    {
+      "id": "R004",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and arXiv identifier agree."
+    },
+    {
+      "id": "R005",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and venue agree; TeX accents are equivalent to Unicode."
+    },
+    {
+      "id": "R006",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and conference agree; the title line break is harmless."
+    },
+    {
+      "id": "R007",
+      "status": "matched_metadata",
+      "reason": "Title, author, and year agree; the venue is a compatible conference short name."
+    },
+    {
+      "id": "R008",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and venue agree with the assigned record."
+    },
+    {
+      "id": "R009",
+      "status": "metadata_review",
+      "reason": "The title misspells the candidate's 'Variationally' as 'Variatinoally'; authors and year agree."
+    },
+    {
+      "id": "R010",
+      "status": "matched_metadata",
+      "reason": "Title, Unicode author names, year, and venue agree."
+    },
+    {
+      "id": "R011",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and venue agree; author-name ordering is equivalent."
+    },
+    {
+      "id": "R012",
+      "status": "metadata_review",
+      "reason": "The title omits 'A Gaussian Process Library using TensorFlow' from the candidate title."
+    },
+    {
+      "id": "R013",
+      "status": "metadata_review",
+      "reason": "The entry gives 2020, while the assigned candidate gives 2021."
+    },
+    {
+      "id": "R014",
+      "status": "matched_metadata",
+      "reason": "Title, authors, and year agree; NeurIPS is a compatible venue alias."
+    },
+    {
+      "id": "R015",
+      "status": "metadata_review",
+      "reason": "The title omits 'in Sparse Gaussian Processes' from the candidate title."
+    },
+    {
+      "id": "R016",
+      "status": "identity_conflict",
+      "reason": "The assigned GPflow candidate has a different title and author list from the ordinal-regression entry."
+    },
+    {
+      "id": "R017",
+      "status": "identity_conflict",
+      "reason": "The assigned inter-domain candidate has a different title and authors from the convolutional-GP entry."
+    },
+    {
+      "id": "R018",
+      "status": "metadata_review",
+      "reason": "The entry names Jane Smith, while the candidate lists Chu and Ghahramani; the title agrees."
+    },
+    {
+      "id": "R019",
+      "status": "matched_metadata",
+      "reason": "The packet contains an unambiguous matching record with the same title, authors, year, and arXiv identifier."
+    },
+    {
+      "id": "R020",
+      "status": "unresolved",
+      "reason": "No relevant candidate record for this title or author appears in the packet."
+    },
+    {
+      "id": "S001",
+      "status": "partially_supported",
+      "reason": "P2 supports improved performance at comparable training time against other conjugate-gradient approaches, but not all GP inference methods."
+    },
+    {
+      "id": "S002",
+      "status": "partially_supported",
+      "reason": "P4 supports application to MNIST and CIFAR-10, but provides no comparison with the best deep neural networks."
+    },
+    {
+      "id": "S003",
+      "status": "supported",
+      "reason": "P3 explicitly states application to regression and comparison with other approaches."
+    },
+    {
+      "id": "S004",
+      "status": "partially_supported",
+      "reason": "P1 supports the TensorFlow core and Python front end, but provides no guarantee of numerical correctness."
+    },
+    {
+      "id": "S005",
+      "status": "contradicted",
+      "reason": "P5 states O(m^2n), which still depends linearly on n when m is fixed."
+    },
+    {
+      "id": "S006",
+      "status": "supported",
+      "reason": "P5's O(m^2n) complexity grows linearly in n for fixed m."
+    },
+    {
+      "id": "S007",
+      "status": "not_assessed",
+      "reason": "No claim is supplied."
+    },
+    {
+      "id": "S008",
+      "status": "supported",
+      "reason": "P1 explicitly identifies TensorFlow core computations and a Python front end."
+    },
+    {
+      "id": "S009",
+      "status": "unresolved",
+      "reason": "Ambiguous OCR and unavailable rendered equations prevent symbol comparison."
+    },
+    {
+      "id": "S010",
+      "status": "not_supported",
+      "reason": "P2 discusses predictive performance and comparable training time, without a worst-case complexity bound or every-kernel guarantee."
+    },
+    {
+      "id": "S011",
+      "status": "not_supported",
+      "reason": "P3 describes regression and comparisons, without evidence about non-Gaussian classification likelihoods."
+    },
+    {
+      "id": "S012",
+      "status": "contradicted",
+      "reason": "P6 explicitly states that two inference techniques are derived, contradicting 'just one'."
+    },
+    {
+      "id": "S013",
+      "status": "partially_supported",
+      "reason": "P6 supports Laplace and expectation propagation for model selection, but gives no global-optimality guarantee."
+    },
+    {
+      "id": "S014",
+      "status": "not_supported",
+      "reason": "P4 reports application to MNIST and CIFAR-10, without medical-image deployment or distribution-shift validation."
+    },
+    {
+      "id": "S015",
+      "status": "unresolved",
+      "reason": "Neither the source equation nor the implementation is available for comparison."
+    }
+  ]
+}

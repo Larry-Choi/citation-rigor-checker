@@ -1,0 +1,3907 @@
+{
+  "analysis": "Retrospective development diagnosis; not new model runs or independent gold adjudication.",
+  "original_gold_sha256": "f31d26729c941beb27cfb77be1903a20251f07d2a4390166913dc62f55bd0feb",
+  "runs": {
+    "baseline-1": {
+      "original": {
+        "bibliographic": {
+          "total": 19,
+          "predicted": 19,
+          "coverage": 1.0,
+          "correct": 13,
+          "accuracy": 0.6842105263157895,
+          "macro_f1": 0.769327731092437,
+          "per_status": {
+            "identity_conflict": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 0,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8,
+              "support": 2
+            },
+            "matched_metadata": {
+              "tp": 6,
+              "fp": 5,
+              "fn": 0,
+              "precision": 0.5454545454545454,
+              "recall": 1.0,
+              "f1": 0.7058823529411764,
+              "support": 6
+            },
+            "metadata_review": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 6,
+              "precision": 1.0,
+              "recall": 0.4,
+              "f1": 0.5714285714285715,
+              "support": 10
+            },
+            "unresolved": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            }
+          },
+          "missing_ids": []
+        },
+        "semantic": {
+          "total": 15,
+          "predicted": 15,
+          "coverage": 1.0,
+          "correct": 15,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_status": {
+            "contradicted": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "not_assessed": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "not_supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "partially_supported": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 4
+            },
+            "supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "unresolved": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missing_ids": []
+        }
+      },
+      "remove_access_design_case_only": {
+        "bibliographic": {
+          "total": 18,
+          "predicted": 18,
+          "coverage": 1.0,
+          "correct": 12,
+          "accuracy": 0.6666666666666666,
+          "macro_f1": 0.6924369747899161,
+          "per_status": {
+            "identity_conflict": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 0,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8,
+              "support": 2
+            },
+            "matched_metadata": {
+              "tp": 6,
+              "fp": 5,
+              "fn": 0,
+              "precision": 0.5454545454545454,
+              "recall": 1.0,
+              "f1": 0.7058823529411764,
+              "support": 6
+            },
+            "metadata_review": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 6,
+              "precision": 1.0,
+              "recall": 0.4,
+              "f1": 0.5714285714285715,
+              "support": 10
+            }
+          },
+          "missing_ids": []
+        },
+        "semantic": {
+          "total": 15,
+          "predicted": 15,
+          "coverage": 1.0,
+          "correct": 15,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_status": {
+            "contradicted": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "not_assessed": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "not_supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "partially_supported": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 4
+            },
+            "supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "unresolved": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missing_ids": []
+        }
+      },
+      "retrospective_adjudicated": {
+        "primary": {
+          "bibliographic": {
+            "total": 17,
+            "predicted": 17,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 0.8823529411764706,
+            "macro_f1": 0.6523809523809524,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.6666666666666666,
+                "recall": 1.0,
+                "f1": 0.8,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 10,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.9090909090909091,
+                "f1": 0.9523809523809523,
+                "support": 11
+              },
+              "metadata_review": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.75,
+                "f1": 0.8571428571428571,
+                "support": 4
+              },
+              "unresolved": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "all_strict_secondary": {
+          "bibliographic": {
+            "total": 19,
+            "predicted": 19,
+            "coverage": 1.0,
+            "correct": 17,
+            "accuracy": 0.8947368421052632,
+            "macro_f1": 0.6613526570048309,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.6666666666666666,
+                "recall": 1.0,
+                "f1": 0.8,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 11,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.9166666666666666,
+                "f1": 0.9565217391304348,
+                "support": 12
+              },
+              "metadata_review": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.8,
+                "f1": 0.888888888888889,
+                "support": 5
+              },
+              "unresolved": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "acceptable_set_secondary": {
+          "bibliographic": {
+            "total": 19,
+            "predicted": 19,
+            "coverage": 1.0,
+            "correct": 17,
+            "accuracy": 0.8947368421052632,
+            "macro_f1": 0.6613526570048309,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.6666666666666666,
+                "recall": 1.0,
+                "f1": 0.8,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 11,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.9166666666666666,
+                "f1": 0.9565217391304348,
+                "support": 12
+              },
+              "metadata_review": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.8,
+                "f1": 0.888888888888889,
+                "support": 5
+              },
+              "unresolved": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "excluded_ids": [
+          "R002",
+          "R012"
+        ]
+      },
+      "disagreements_with_original": [
+        {
+          "id": "R002",
+          "status": "matched_metadata",
+          "reason": "Title, author list, year, journal, and URL match after normalizing LaTeX formatting and HTTP/HTTPS.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R003",
+          "status": "matched_metadata",
+          "reason": "Title, authors, year, arXiv venue, and identifier match the candidate.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R004",
+          "status": "matched_metadata",
+          "reason": "Title, authors, year, and arXiv identifier match the candidate.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R007",
+          "status": "matched_metadata",
+          "reason": "Title, author, and year match; the venue is a shortened form of the candidate conference name.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R014",
+          "status": "matched_metadata",
+          "reason": "Title, authors, and year match; 'NeurIPS' is an abbreviated venue designation.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R018",
+          "status": "identity_conflict",
+          "reason": "The entry attributes the paper to Jane Smith, conflicting with candidate authors Chu and Ghahramani.",
+          "original_status": "metadata_review"
+        }
+      ]
+    },
+    "baseline-2": {
+      "original": {
+        "bibliographic": {
+          "total": 19,
+          "predicted": 19,
+          "coverage": 1.0,
+          "correct": 14,
+          "accuracy": 0.7368421052631579,
+          "macro_f1": 0.8041666666666667,
+          "per_status": {
+            "identity_conflict": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 0,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8,
+              "support": 2
+            },
+            "matched_metadata": {
+              "tp": 6,
+              "fp": 4,
+              "fn": 0,
+              "precision": 0.6,
+              "recall": 1.0,
+              "f1": 0.7499999999999999,
+              "support": 6
+            },
+            "metadata_review": {
+              "tp": 5,
+              "fp": 0,
+              "fn": 5,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "support": 10
+            },
+            "unresolved": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            }
+          },
+          "missing_ids": []
+        },
+        "semantic": {
+          "total": 15,
+          "predicted": 15,
+          "coverage": 1.0,
+          "correct": 15,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_status": {
+            "contradicted": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "not_assessed": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "not_supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "partially_supported": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 4
+            },
+            "supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "unresolved": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missing_ids": []
+        }
+      },
+      "remove_access_design_case_only": {
+        "bibliographic": {
+          "total": 18,
+          "predicted": 18,
+          "coverage": 1.0,
+          "correct": 13,
+          "accuracy": 0.7222222222222222,
+          "macro_f1": 0.7388888888888889,
+          "per_status": {
+            "identity_conflict": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 0,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8,
+              "support": 2
+            },
+            "matched_metadata": {
+              "tp": 6,
+              "fp": 4,
+              "fn": 0,
+              "precision": 0.6,
+              "recall": 1.0,
+              "f1": 0.7499999999999999,
+              "support": 6
+            },
+            "metadata_review": {
+              "tp": 5,
+              "fp": 0,
+              "fn": 5,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "support": 10
+            }
+          },
+          "missing_ids": []
+        },
+        "semantic": {
+          "total": 15,
+          "predicted": 15,
+          "coverage": 1.0,
+          "correct": 15,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_status": {
+            "contradicted": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "not_assessed": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "not_supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "partially_supported": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 4
+            },
+            "supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "unresolved": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missing_ids": []
+        }
+      },
+      "retrospective_adjudicated": {
+        "primary": {
+          "bibliographic": {
+            "total": 17,
+            "predicted": 17,
+            "coverage": 1.0,
+            "correct": 14,
+            "accuracy": 0.8235294117647058,
+            "macro_f1": 0.6125,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.6666666666666666,
+                "recall": 1.0,
+                "f1": 0.8,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 9,
+                "fp": 0,
+                "fn": 2,
+                "precision": 1.0,
+                "recall": 0.8181818181818182,
+                "f1": 0.9,
+                "support": 11
+              },
+              "metadata_review": {
+                "tp": 3,
+                "fp": 1,
+                "fn": 1,
+                "precision": 0.75,
+                "recall": 0.75,
+                "f1": 0.75,
+                "support": 4
+              },
+              "unresolved": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "all_strict_secondary": {
+          "bibliographic": {
+            "total": 19,
+            "predicted": 19,
+            "coverage": 1.0,
+            "correct": 16,
+            "accuracy": 0.8421052631578947,
+            "macro_f1": 0.6272727272727273,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.6666666666666666,
+                "recall": 1.0,
+                "f1": 0.8,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 10,
+                "fp": 0,
+                "fn": 2,
+                "precision": 1.0,
+                "recall": 0.8333333333333334,
+                "f1": 0.9090909090909091,
+                "support": 12
+              },
+              "metadata_review": {
+                "tp": 4,
+                "fp": 1,
+                "fn": 1,
+                "precision": 0.8,
+                "recall": 0.8,
+                "f1": 0.8000000000000002,
+                "support": 5
+              },
+              "unresolved": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "acceptable_set_secondary": {
+          "bibliographic": {
+            "total": 19,
+            "predicted": 19,
+            "coverage": 1.0,
+            "correct": 16,
+            "accuracy": 0.8421052631578947,
+            "macro_f1": 0.6272727272727273,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.6666666666666666,
+                "recall": 1.0,
+                "f1": 0.8,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 10,
+                "fp": 0,
+                "fn": 2,
+                "precision": 1.0,
+                "recall": 0.8333333333333334,
+                "f1": 0.9090909090909091,
+                "support": 12
+              },
+              "metadata_review": {
+                "tp": 4,
+                "fp": 1,
+                "fn": 1,
+                "precision": 0.8,
+                "recall": 0.8,
+                "f1": 0.8000000000000002,
+                "support": 5
+              },
+              "unresolved": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "excluded_ids": [
+          "R002",
+          "R012"
+        ]
+      },
+      "disagreements_with_original": [
+        {
+          "id": "R002",
+          "status": "matched_metadata",
+          "reason": "Title, author sequence, year, journal, and URL match after normalizing LaTeX and punctuation.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R003",
+          "status": "matched_metadata",
+          "reason": "Title, authors, year, and arXiv identifier match the candidate.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R004",
+          "status": "matched_metadata",
+          "reason": "Title, authors, year, and arXiv identifier match the candidate.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R007",
+          "status": "matched_metadata",
+          "reason": "Title, author, and year match; the venue is a shortened form of the candidate conference name.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R018",
+          "status": "identity_conflict",
+          "reason": "The entry attributes the paper to Jane Smith, whereas the candidate authors are Chu and Ghahramani.",
+          "original_status": "metadata_review"
+        }
+      ]
+    },
+    "baseline-3": {
+      "original": {
+        "bibliographic": {
+          "total": 19,
+          "predicted": 19,
+          "coverage": 1.0,
+          "correct": 13,
+          "accuracy": 0.6842105263157895,
+          "macro_f1": 0.769327731092437,
+          "per_status": {
+            "identity_conflict": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 0,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8,
+              "support": 2
+            },
+            "matched_metadata": {
+              "tp": 6,
+              "fp": 5,
+              "fn": 0,
+              "precision": 0.5454545454545454,
+              "recall": 1.0,
+              "f1": 0.7058823529411764,
+              "support": 6
+            },
+            "metadata_review": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 6,
+              "precision": 1.0,
+              "recall": 0.4,
+              "f1": 0.5714285714285715,
+              "support": 10
+            },
+            "unresolved": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            }
+          },
+          "missing_ids": []
+        },
+        "semantic": {
+          "total": 15,
+          "predicted": 15,
+          "coverage": 1.0,
+          "correct": 15,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_status": {
+            "contradicted": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "not_assessed": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "not_supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "partially_supported": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 4
+            },
+            "supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "unresolved": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missing_ids": []
+        }
+      },
+      "remove_access_design_case_only": {
+        "bibliographic": {
+          "total": 18,
+          "predicted": 18,
+          "coverage": 1.0,
+          "correct": 12,
+          "accuracy": 0.6666666666666666,
+          "macro_f1": 0.6924369747899161,
+          "per_status": {
+            "identity_conflict": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 0,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8,
+              "support": 2
+            },
+            "matched_metadata": {
+              "tp": 6,
+              "fp": 5,
+              "fn": 0,
+              "precision": 0.5454545454545454,
+              "recall": 1.0,
+              "f1": 0.7058823529411764,
+              "support": 6
+            },
+            "metadata_review": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 6,
+              "precision": 1.0,
+              "recall": 0.4,
+              "f1": 0.5714285714285715,
+              "support": 10
+            }
+          },
+          "missing_ids": []
+        },
+        "semantic": {
+          "total": 15,
+          "predicted": 15,
+          "coverage": 1.0,
+          "correct": 15,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_status": {
+            "contradicted": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "not_assessed": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "not_supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "partially_supported": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 4
+            },
+            "supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "unresolved": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missing_ids": []
+        }
+      },
+      "retrospective_adjudicated": {
+        "primary": {
+          "bibliographic": {
+            "total": 17,
+            "predicted": 17,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 0.8823529411764706,
+            "macro_f1": 0.6523809523809524,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.6666666666666666,
+                "recall": 1.0,
+                "f1": 0.8,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 10,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.9090909090909091,
+                "f1": 0.9523809523809523,
+                "support": 11
+              },
+              "metadata_review": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.75,
+                "f1": 0.8571428571428571,
+                "support": 4
+              },
+              "unresolved": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "all_strict_secondary": {
+          "bibliographic": {
+            "total": 19,
+            "predicted": 19,
+            "coverage": 1.0,
+            "correct": 17,
+            "accuracy": 0.8947368421052632,
+            "macro_f1": 0.6613526570048309,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.6666666666666666,
+                "recall": 1.0,
+                "f1": 0.8,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 11,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.9166666666666666,
+                "f1": 0.9565217391304348,
+                "support": 12
+              },
+              "metadata_review": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.8,
+                "f1": 0.888888888888889,
+                "support": 5
+              },
+              "unresolved": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "acceptable_set_secondary": {
+          "bibliographic": {
+            "total": 19,
+            "predicted": 19,
+            "coverage": 1.0,
+            "correct": 17,
+            "accuracy": 0.8947368421052632,
+            "macro_f1": 0.6613526570048309,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.6666666666666666,
+                "recall": 1.0,
+                "f1": 0.8,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 11,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.9166666666666666,
+                "f1": 0.9565217391304348,
+                "support": 12
+              },
+              "metadata_review": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.8,
+                "f1": 0.888888888888889,
+                "support": 5
+              },
+              "unresolved": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "excluded_ids": [
+          "R002",
+          "R012"
+        ]
+      },
+      "disagreements_with_original": [
+        {
+          "id": "R002",
+          "status": "matched_metadata",
+          "reason": "Title, author list, year, journal, and URL match after normalizing formatting.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R003",
+          "status": "matched_metadata",
+          "reason": "Title, authors, year, and arXiv identifier match.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R004",
+          "status": "matched_metadata",
+          "reason": "Title, authors, year, and arXiv identifier match.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R007",
+          "status": "matched_metadata",
+          "reason": "Title, author, and year match; the venue is a recognizable shortened conference name.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R014",
+          "status": "matched_metadata",
+          "reason": "Title, authors, and year match; NeurIPS is a recognizable abbreviation of the supplied proceedings venue.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R018",
+          "status": "identity_conflict",
+          "reason": "The entry attributes the paper to Jane Smith, whereas the candidate lists Chu and Ghahramani.",
+          "original_status": "metadata_review"
+        }
+      ]
+    },
+    "skill-1": {
+      "original": {
+        "bibliographic": {
+          "total": 19,
+          "predicted": 19,
+          "coverage": 1.0,
+          "correct": 13,
+          "accuracy": 0.6842105263157895,
+          "macro_f1": 0.5833333333333333,
+          "per_status": {
+            "identity_conflict": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "matched_metadata": {
+              "tp": 6,
+              "fp": 6,
+              "fn": 0,
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6666666666666666,
+              "support": 6
+            },
+            "metadata_review": {
+              "tp": 5,
+              "fp": 0,
+              "fn": 5,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "support": 10
+            },
+            "unresolved": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            }
+          },
+          "missing_ids": []
+        },
+        "semantic": {
+          "total": 15,
+          "predicted": 15,
+          "coverage": 1.0,
+          "correct": 15,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_status": {
+            "contradicted": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "not_assessed": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "not_supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "partially_supported": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 4
+            },
+            "supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "unresolved": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missing_ids": []
+        }
+      },
+      "remove_access_design_case_only": {
+        "bibliographic": {
+          "total": 18,
+          "predicted": 18,
+          "coverage": 1.0,
+          "correct": 13,
+          "accuracy": 0.7222222222222222,
+          "macro_f1": 0.7908496732026143,
+          "per_status": {
+            "identity_conflict": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "matched_metadata": {
+              "tp": 6,
+              "fp": 5,
+              "fn": 0,
+              "precision": 0.5454545454545454,
+              "recall": 1.0,
+              "f1": 0.7058823529411764,
+              "support": 6
+            },
+            "metadata_review": {
+              "tp": 5,
+              "fp": 0,
+              "fn": 5,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "support": 10
+            }
+          },
+          "missing_ids": []
+        },
+        "semantic": {
+          "total": 15,
+          "predicted": 15,
+          "coverage": 1.0,
+          "correct": 15,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_status": {
+            "contradicted": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "not_assessed": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "not_supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "partially_supported": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 4
+            },
+            "supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "unresolved": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missing_ids": []
+        }
+      },
+      "retrospective_adjudicated": {
+        "primary": {
+          "bibliographic": {
+            "total": 17,
+            "predicted": 17,
+            "coverage": 1.0,
+            "correct": 17,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 11,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 11
+              },
+              "metadata_review": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "all_strict_secondary": {
+          "bibliographic": {
+            "total": 19,
+            "predicted": 19,
+            "coverage": 1.0,
+            "correct": 19,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 12,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 12
+              },
+              "metadata_review": {
+                "tp": 5,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 5
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "acceptable_set_secondary": {
+          "bibliographic": {
+            "total": 19,
+            "predicted": 19,
+            "coverage": 1.0,
+            "correct": 19,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 12,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 12
+              },
+              "metadata_review": {
+                "tp": 5,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 5
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "excluded_ids": [
+          "R002",
+          "R012"
+        ]
+      },
+      "disagreements_with_original": [
+        {
+          "id": "R002",
+          "status": "matched_metadata",
+          "reason": "After TeX and punctuation normalization, title, author surname order, year, and venue match GPflow2017; remaining publication fields are not supplied.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R003",
+          "status": "matched_metadata",
+          "reason": "Title, author surname order, year, and arXiv venue/identifier match GPflow2020multioutput.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R004",
+          "status": "matched_metadata",
+          "reason": "Title, author surnames, year, and arXiv identifier match hensman2013gaussian.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R007",
+          "status": "matched_metadata",
+          "reason": "Title, author surname, and year match titsias2009variational; the venue is a compatible shortened conference name. Pages are not supplied for comparison.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R014",
+          "status": "matched_metadata",
+          "reason": "Title, decoded author surnames, and year match NIPS2009_3876; 'NeurIPS' is a compatible shortened venue label, though it omits volume 22.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R019",
+          "status": "matched_metadata",
+          "reason": "Although no candidate is explicitly assigned, the packet includes hensman2013gaussian: its title, author surnames, year, and arXiv identifier match the entry.",
+          "original_status": "unresolved"
+        }
+      ]
+    },
+    "skill-2": {
+      "original": {
+        "bibliographic": {
+          "total": 19,
+          "predicted": 19,
+          "coverage": 1.0,
+          "correct": 14,
+          "accuracy": 0.7368421052631579,
+          "macro_f1": 0.8431372549019608,
+          "per_status": {
+            "identity_conflict": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "matched_metadata": {
+              "tp": 6,
+              "fp": 5,
+              "fn": 0,
+              "precision": 0.5454545454545454,
+              "recall": 1.0,
+              "f1": 0.7058823529411764,
+              "support": 6
+            },
+            "metadata_review": {
+              "tp": 5,
+              "fp": 0,
+              "fn": 5,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "support": 10
+            },
+            "unresolved": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            }
+          },
+          "missing_ids": []
+        },
+        "semantic": {
+          "total": 15,
+          "predicted": 15,
+          "coverage": 1.0,
+          "correct": 15,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_status": {
+            "contradicted": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "not_assessed": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "not_supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "partially_supported": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 4
+            },
+            "supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "unresolved": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missing_ids": []
+        }
+      },
+      "remove_access_design_case_only": {
+        "bibliographic": {
+          "total": 18,
+          "predicted": 18,
+          "coverage": 1.0,
+          "correct": 13,
+          "accuracy": 0.7222222222222222,
+          "macro_f1": 0.7908496732026143,
+          "per_status": {
+            "identity_conflict": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "matched_metadata": {
+              "tp": 6,
+              "fp": 5,
+              "fn": 0,
+              "precision": 0.5454545454545454,
+              "recall": 1.0,
+              "f1": 0.7058823529411764,
+              "support": 6
+            },
+            "metadata_review": {
+              "tp": 5,
+              "fp": 0,
+              "fn": 5,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "support": 10
+            }
+          },
+          "missing_ids": []
+        },
+        "semantic": {
+          "total": 15,
+          "predicted": 15,
+          "coverage": 1.0,
+          "correct": 15,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_status": {
+            "contradicted": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "not_assessed": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "not_supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "partially_supported": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 4
+            },
+            "supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "unresolved": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missing_ids": []
+        }
+      },
+      "retrospective_adjudicated": {
+        "primary": {
+          "bibliographic": {
+            "total": 17,
+            "predicted": 17,
+            "coverage": 1.0,
+            "correct": 16,
+            "accuracy": 0.9411764705882353,
+            "macro_f1": 0.7380952380952381,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 10,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.9090909090909091,
+                "f1": 0.9523809523809523,
+                "support": 11
+              },
+              "metadata_review": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "unresolved": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "all_strict_secondary": {
+          "bibliographic": {
+            "total": 19,
+            "predicted": 19,
+            "coverage": 1.0,
+            "correct": 18,
+            "accuracy": 0.9473684210526315,
+            "macro_f1": 0.7391304347826086,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 11,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.9166666666666666,
+                "f1": 0.9565217391304348,
+                "support": 12
+              },
+              "metadata_review": {
+                "tp": 5,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 5
+              },
+              "unresolved": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "acceptable_set_secondary": {
+          "bibliographic": {
+            "total": 19,
+            "predicted": 19,
+            "coverage": 1.0,
+            "correct": 18,
+            "accuracy": 0.9473684210526315,
+            "macro_f1": 0.7391304347826086,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 11,
+                "fp": 0,
+                "fn": 1,
+                "precision": 1.0,
+                "recall": 0.9166666666666666,
+                "f1": 0.9565217391304348,
+                "support": 12
+              },
+              "metadata_review": {
+                "tp": 5,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 5
+              },
+              "unresolved": {
+                "tp": 0,
+                "fp": 1,
+                "fn": 0,
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 0
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "excluded_ids": [
+          "R002",
+          "R012"
+        ]
+      },
+      "disagreements_with_original": [
+        {
+          "id": "R002",
+          "status": "matched_metadata",
+          "reason": "Title, author surnames/order, year, and journal match after TeX and punctuation normalization; remaining publication fields are not supplied for comparison.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R003",
+          "status": "matched_metadata",
+          "reason": "Title, author surnames/order, year, and arXiv identifier match the supplied candidate.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R004",
+          "status": "matched_metadata",
+          "reason": "Title, author surnames/order, year, and arXiv identifier match the supplied candidate.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R007",
+          "status": "matched_metadata",
+          "reason": "Title, author surname, and year match; the shortened conference name identifies the same venue. Candidate supplies no pages.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R014",
+          "status": "matched_metadata",
+          "reason": "Title, authors, and year match; 'NeurIPS' is a shortened venue label compatible with the supplied proceedings record.",
+          "original_status": "metadata_review"
+        }
+      ]
+    },
+    "skill-3": {
+      "original": {
+        "bibliographic": {
+          "total": 19,
+          "predicted": 19,
+          "coverage": 1.0,
+          "correct": 13,
+          "accuracy": 0.6842105263157895,
+          "macro_f1": 0.5833333333333333,
+          "per_status": {
+            "identity_conflict": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "matched_metadata": {
+              "tp": 6,
+              "fp": 6,
+              "fn": 0,
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6666666666666666,
+              "support": 6
+            },
+            "metadata_review": {
+              "tp": 5,
+              "fp": 0,
+              "fn": 5,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "support": 10
+            },
+            "unresolved": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            }
+          },
+          "missing_ids": []
+        },
+        "semantic": {
+          "total": 15,
+          "predicted": 15,
+          "coverage": 1.0,
+          "correct": 15,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_status": {
+            "contradicted": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "not_assessed": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "not_supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "partially_supported": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 4
+            },
+            "supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "unresolved": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missing_ids": []
+        }
+      },
+      "remove_access_design_case_only": {
+        "bibliographic": {
+          "total": 18,
+          "predicted": 18,
+          "coverage": 1.0,
+          "correct": 13,
+          "accuracy": 0.7222222222222222,
+          "macro_f1": 0.7908496732026143,
+          "per_status": {
+            "identity_conflict": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "matched_metadata": {
+              "tp": 6,
+              "fp": 5,
+              "fn": 0,
+              "precision": 0.5454545454545454,
+              "recall": 1.0,
+              "f1": 0.7058823529411764,
+              "support": 6
+            },
+            "metadata_review": {
+              "tp": 5,
+              "fp": 0,
+              "fn": 5,
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "support": 10
+            }
+          },
+          "missing_ids": []
+        },
+        "semantic": {
+          "total": 15,
+          "predicted": 15,
+          "coverage": 1.0,
+          "correct": 15,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "per_status": {
+            "contradicted": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            },
+            "not_assessed": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 1
+            },
+            "not_supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "partially_supported": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 4
+            },
+            "supported": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3
+            },
+            "unresolved": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 2
+            }
+          },
+          "missing_ids": []
+        }
+      },
+      "retrospective_adjudicated": {
+        "primary": {
+          "bibliographic": {
+            "total": 17,
+            "predicted": 17,
+            "coverage": 1.0,
+            "correct": 17,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 11,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 11
+              },
+              "metadata_review": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "all_strict_secondary": {
+          "bibliographic": {
+            "total": 19,
+            "predicted": 19,
+            "coverage": 1.0,
+            "correct": 19,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 12,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 12
+              },
+              "metadata_review": {
+                "tp": 5,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 5
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "acceptable_set_secondary": {
+          "bibliographic": {
+            "total": 19,
+            "predicted": 19,
+            "coverage": 1.0,
+            "correct": 19,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "identity_conflict": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "matched_metadata": {
+                "tp": 12,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 12
+              },
+              "metadata_review": {
+                "tp": 5,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 5
+              }
+            },
+            "missing_ids": []
+          },
+          "semantic": {
+            "total": 15,
+            "predicted": 15,
+            "coverage": 1.0,
+            "correct": 15,
+            "accuracy": 1.0,
+            "macro_f1": 1.0,
+            "per_status": {
+              "contradicted": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              },
+              "not_assessed": {
+                "tp": 1,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 1
+              },
+              "not_supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "partially_supported": {
+                "tp": 4,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 4
+              },
+              "supported": {
+                "tp": 3,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 3
+              },
+              "unresolved": {
+                "tp": 2,
+                "fp": 0,
+                "fn": 0,
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1": 1.0,
+                "support": 2
+              }
+            },
+            "missing_ids": []
+          }
+        },
+        "excluded_ids": [
+          "R002",
+          "R012"
+        ]
+      },
+      "disagreements_with_original": [
+        {
+          "id": "R002",
+          "status": "matched_metadata",
+          "reason": "GPflow2017 matches after normalizing TeX accents, capitalization braces, and punctuation; author surnames/order, year, and venue agree.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R003",
+          "status": "matched_metadata",
+          "reason": "GPflow2020multioutput matches title, author surnames/order, year, and arXiv identity; the supplied record describes a preprint.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R004",
+          "status": "matched_metadata",
+          "reason": "hensman2013gaussian matches title, author surnames/order, year, and arXiv identifier.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R007",
+          "status": "matched_metadata",
+          "reason": "titsias2009variational matches title, author surname, and year; the venue is a compatible shortened conference name.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R014",
+          "status": "matched_metadata",
+          "reason": "Title, author surnames/order, and year match NIPS2009_3876; 'NeurIPS' is a shortened venue label rather than an identity conflict.",
+          "original_status": "metadata_review"
+        },
+        {
+          "id": "R019",
+          "status": "matched_metadata",
+          "reason": "Although no candidate is assigned, the packet contains hensman2013gaussian, matching title, author surnames/order, year, and arXiv identifier.",
+          "original_status": "unresolved"
+        }
+      ]
+    }
+  },
+  "bibliographic_case_predictions": [
+    {
+      "id": "R001",
+      "old_status": "matched_metadata",
+      "v2_status": "matched_metadata",
+      "predictions": {
+        "baseline": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ],
+        "skill": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ]
+      }
+    },
+    {
+      "id": "R002",
+      "old_status": "metadata_review",
+      "v2_status": "matched_metadata",
+      "predictions": {
+        "baseline": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ],
+        "skill": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ]
+      }
+    },
+    {
+      "id": "R003",
+      "old_status": "metadata_review",
+      "v2_status": "matched_metadata",
+      "predictions": {
+        "baseline": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ],
+        "skill": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ]
+      }
+    },
+    {
+      "id": "R004",
+      "old_status": "metadata_review",
+      "v2_status": "matched_metadata",
+      "predictions": {
+        "baseline": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ],
+        "skill": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ]
+      }
+    },
+    {
+      "id": "R005",
+      "old_status": "matched_metadata",
+      "v2_status": "matched_metadata",
+      "predictions": {
+        "baseline": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ],
+        "skill": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ]
+      }
+    },
+    {
+      "id": "R006",
+      "old_status": "matched_metadata",
+      "v2_status": "matched_metadata",
+      "predictions": {
+        "baseline": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ],
+        "skill": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ]
+      }
+    },
+    {
+      "id": "R007",
+      "old_status": "metadata_review",
+      "v2_status": "matched_metadata",
+      "predictions": {
+        "baseline": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ],
+        "skill": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ]
+      }
+    },
+    {
+      "id": "R008",
+      "old_status": "matched_metadata",
+      "v2_status": "matched_metadata",
+      "predictions": {
+        "baseline": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ],
+        "skill": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ]
+      }
+    },
+    {
+      "id": "R009",
+      "old_status": "metadata_review",
+      "v2_status": "metadata_review",
+      "predictions": {
+        "baseline": [
+          "metadata_review",
+          "metadata_review",
+          "metadata_review"
+        ],
+        "skill": [
+          "metadata_review",
+          "metadata_review",
+          "metadata_review"
+        ]
+      }
+    },
+    {
+      "id": "R010",
+      "old_status": "matched_metadata",
+      "v2_status": "matched_metadata",
+      "predictions": {
+        "baseline": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ],
+        "skill": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ]
+      }
+    },
+    {
+      "id": "R011",
+      "old_status": "matched_metadata",
+      "v2_status": "matched_metadata",
+      "predictions": {
+        "baseline": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ],
+        "skill": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ]
+      }
+    },
+    {
+      "id": "R012",
+      "old_status": "metadata_review",
+      "v2_status": "metadata_review",
+      "predictions": {
+        "baseline": [
+          "metadata_review",
+          "metadata_review",
+          "metadata_review"
+        ],
+        "skill": [
+          "metadata_review",
+          "metadata_review",
+          "metadata_review"
+        ]
+      }
+    },
+    {
+      "id": "R013",
+      "old_status": "metadata_review",
+      "v2_status": "metadata_review",
+      "predictions": {
+        "baseline": [
+          "metadata_review",
+          "metadata_review",
+          "metadata_review"
+        ],
+        "skill": [
+          "metadata_review",
+          "metadata_review",
+          "metadata_review"
+        ]
+      }
+    },
+    {
+      "id": "R014",
+      "old_status": "metadata_review",
+      "v2_status": "matched_metadata",
+      "predictions": {
+        "baseline": [
+          "matched_metadata",
+          "metadata_review",
+          "matched_metadata"
+        ],
+        "skill": [
+          "matched_metadata",
+          "matched_metadata",
+          "matched_metadata"
+        ]
+      }
+    },
+    {
+      "id": "R015",
+      "old_status": "metadata_review",
+      "v2_status": "metadata_review",
+      "predictions": {
+        "baseline": [
+          "metadata_review",
+          "metadata_review",
+          "metadata_review"
+        ],
+        "skill": [
+          "metadata_review",
+          "metadata_review",
+          "metadata_review"
+        ]
+      }
+    },
+    {
+      "id": "R016",
+      "old_status": "identity_conflict",
+      "v2_status": "identity_conflict",
+      "predictions": {
+        "baseline": [
+          "identity_conflict",
+          "identity_conflict",
+          "identity_conflict"
+        ],
+        "skill": [
+          "identity_conflict",
+          "identity_conflict",
+          "identity_conflict"
+        ]
+      }
+    },
+    {
+      "id": "R017",
+      "old_status": "identity_conflict",
+      "v2_status": "identity_conflict",
+      "predictions": {
+        "baseline": [
+          "identity_conflict",
+          "identity_conflict",
+          "identity_conflict"
+        ],
+        "skill": [
+          "identity_conflict",
+          "identity_conflict",
+          "identity_conflict"
+        ]
+      }
+    },
+    {
+      "id": "R018",
+      "old_status": "metadata_review",
+      "v2_status": "metadata_review",
+      "predictions": {
+        "baseline": [
+          "identity_conflict",
+          "identity_conflict",
+          "identity_conflict"
+        ],
+        "skill": [
+          "metadata_review",
+          "metadata_review",
+          "metadata_review"
+        ]
+      }
+    },
+    {
+      "id": "R019",
+      "old_status": "unresolved",
+      "v2_status": "matched_metadata",
+      "predictions": {
+        "baseline": [
+          "unresolved",
+          "unresolved",
+          "unresolved"
+        ],
+        "skill": [
+          "matched_metadata",
+          "unresolved",
+          "matched_metadata"
+        ]
+      }
+    }
+  ]
+}

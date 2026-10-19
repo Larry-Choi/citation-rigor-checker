@@ -48,9 +48,25 @@ def metrics(gold, predictions):
     return output
 
 
+def score_views(gold, predictions):
+    """Separate primary unambiguous cases from strict and set-valued sensitivity."""
+    primary = [g for g in gold if not g.get('exclude_from_primary')]
+    ids = {g['id'] for g in primary}
+    # Validate the complete response before filtering; never hide invalid IDs.
+    strict = metrics(gold, predictions)
+    by_id = {g['id']: g for g in gold}
+    accepted = [dict(p, status=by_id[p['id']]['status'])
+                if p['status'] in by_id[p['id']].get('accepted_statuses', []) else p
+                for p in predictions]
+    return {'primary': metrics(primary, [p for p in predictions if p['id'] in ids]),
+            'all_strict_secondary': strict,
+            'acceptable_set_secondary': metrics(gold, accepted),
+            'excluded_ids': [g['id'] for g in gold if g.get('exclude_from_primary')]}
+
+
 def load_gold(dataset):
-    if dataset == 'real-world':
-        directory = ROOT / 'real-world'
+    if dataset in {'real-world', 'adjudicated-v2'}:
+        directory = ROOT / dataset
         return json.loads((directory / 'gold.json').read_text(encoding='utf-8')) + json.loads((directory / 'semantic_gold.json').read_text(encoding='utf-8'))
     gold = json.loads((ROOT / 'gold.json').read_text(encoding='utf-8'))
     semantic = json.loads((ROOT / 'semantic_cases.json').read_text(encoding='utf-8'))
@@ -59,24 +75,32 @@ def load_gold(dataset):
 
 def export_prompts(destination, dataset='real-world'):
     destination.mkdir(parents=True, exist_ok=True)
-    if dataset != 'real-world':
+    if dataset not in {'real-world', 'adjudicated-v2'}:
         raise ValueError('Model comparison exports use the real-world set; legacy is regression-only')
-    directory = ROOT / 'real-world'
+    directory = ROOT / dataset
     files = ['bibliographic_cases.json', 'records.json', 'semantic_cases.json', 'evidence.json']
     packet = {name.removesuffix('.json'): json.loads((directory / name).read_text(encoding='utf-8')) for name in files}
+    rubric = (directory / 'rubric.txt').read_text(encoding='utf-8') if dataset == 'adjudicated-v2' else ''
     common = '\n'.join([
         'Audit these bibliography entries against the supplied candidate records and the attributed claims against the supplied source passages. Use only this packet. No tools.',
         'Return JSON only: {"predictions": [{"id": "R001", "status": "...", "reason": "short evidence-based explanation"}, ...]}.',
         'Bibliographic statuses: matched_metadata, metadata_review, identity_conflict, unresolved.',
         'Semantic statuses: supported, partially_supported, contradicted, not_supported, unresolved, not_assessed.',
         'Label scope: metadata states concern the supplied candidate fields; semantic states concern support from the supplied passage, not the whole unseen paper. Assess each ID.',
+        *([rubric] if rubric else []),
         '\nINPUT PACKET\n' + json.dumps(packet, ensure_ascii=False, indent=2)])
     skill = (REPO / 'SKILL.md').read_text(encoding='utf-8')
     (destination / 'baseline.txt').write_text('Check these academic references and their claim-source alignment.\n' + common, encoding='utf-8', newline='\n')
     (destination / 'skill.txt').write_text(skill + '\nUse full mode for these cases. The JSON schema below replaces only report presentation.\n' + common, encoding='utf-8', newline='\n')
+    if dataset == 'adjudicated-v2':
+        old_skill = (ROOT / 'comparison/SKILL.original.txt').read_text(encoding='utf-8')
+        (destination / 'old_skill.txt').write_text(old_skill + '\nUse full mode for these cases. The JSON schema below replaces only report presentation.\n' + common, encoding='utf-8', newline='\n')
     manifest = {'dataset': dataset, 'case_count': len(load_gold(dataset)), 'skill_sha256': hashlib.sha256(skill.encode()).hexdigest(),
                 'inputs_sha256': {name: hashlib.sha256((directory / name).read_bytes()).hexdigest() for name in files},
                 'gold_excluded': True, 'model_runs_performed_by_exporter': 0}
+    if rubric:
+        manifest['rubric_sha256'] = hashlib.sha256(rubric.encode()).hexdigest()
+        manifest['original_skill_sha256'] = hashlib.sha256(old_skill.encode()).hexdigest()
     (destination / 'manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8', newline='\n')
 
 
@@ -85,7 +109,7 @@ def main():
     parser.add_argument('--predictions', type=Path)
     parser.add_argument('--out', type=Path)
     parser.add_argument('--export-prompts', type=Path)
-    parser.add_argument('--dataset', choices=['real-world', 'legacy'], default='real-world')
+    parser.add_argument('--dataset', choices=['real-world', 'adjudicated-v2', 'legacy'], default='real-world')
     args = parser.parse_args()
     if args.export_prompts:
         export_prompts(args.export_prompts, args.dataset)

@@ -1,0 +1,20 @@
+{
+  "upstream_file": "GPflow/GPflow doc/sphinx/refs.bib",
+  "git_blob_sha1": "7b023e6cf7699e22e8435ebf2da071b2585efee6",
+  "source_url": "https://api.github.com/repos/GPflow/GPflow/git/blobs/7b023e6cf7699e22e8435ebf2da071b2585efee6",
+  "upstream_sha256": "e5a696911da549455a5dd8b2f05eefac944ac32c7e8b5dea9b153d38026c1f1a",
+  "selected_keys": [
+    "chu2005gaussian",
+    "GPflow2017",
+    "GPflow2020multioutput",
+    "hensman2013gaussian",
+    "NIPS2009_3876",
+    "pmlr-v139-artemev21a",
+    "titsias2009variational",
+    "vdw2017convgp",
+    "hensman2015mcmc"
+  ],
+  "selection": "Targeted name/TeX/venue/date cases plus an observed title typo; not random sampling.",
+  "primary_record_method": "Separately inspected the linked JMLR, PMLR, NeurIPS and arXiv records.",
+  "annotation": "Session-authored labels; independent human adjudication pending."
+}

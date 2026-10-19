@@ -1,0 +1,140 @@
+# Citation Rigor Checker
+
+[English](README.md) · **한국어**
+
+**정상적인 참고문헌 표기를 오탐하지 않으면서, 논문의 실재 여부와 주장에 대한 근거를 따로 점검합니다.**
+
+학술 레코드와 참고문헌을 대조하고, 원고의 인용 문장을 실제 출처의 관련 구절에 연결하는 [Agent Skill](https://agentskills.io/specification)입니다.
+
+**실제 공개 BibTeX에서 발견한 오류:** GPflow 참고문헌의 `Variatinoally`가 공식 논문의 `Variationally`와 다릅니다. 별도의 실험용 초안에서는 “다른 conjugate-gradient 방법과의 비교”를 “모든 GP 방법보다 우수”로 부풀린 인용을 지적합니다. [입력·근거·수정 제안 보기](examples/caught-issues.md).
+
+**오탐 회귀 수정:** 악센트, 이름의 particle, 한글/로마자 이름, 부제 생략, 학회 약칭을 다룬 6개 합성 사례에서 심각한 identity-conflict 표시가 **5개에서 0개**로 줄었습니다. [수정 전후 결과](benchmarks/results/normalization-regression.json).
+
+빠른 **lite 보고서**, **심사자 수준의 full 감사**, 선택적 Python 서지 점검 도구를 제공합니다. 스크립트 없이 지침만으로도 사용할 수 있습니다.
+
+[잡아낸 사례](examples/caught-issues.md) · [평가 결과](benchmarks/README.md) · [낮은 점수의 원인 분석](benchmarks/DIAGNOSIS.ko.md) · [스킬 본문](SKILL.md)
+
+## 무엇을 확인하나요?
+
+- **참고문헌이 식별 가능한 실제 출판물/프리프린트와 일치하는가?**와 **그 출처가 이 문장을 뒷받침하는가?**를 따로 판정합니다.
+- 같은 논문을 여러 번 인용하거나 여러 출처를 함께 인용한 경우에도 각 인용 위치를 연결합니다.
+- 방법론의 변경, 실험 결과의 과장, 데이터셋과 시뮬레이터의 혼동을 확인합니다.
+- 참고문헌 전체에 서지 점검을 먼저 시도하고, 핵심 기여 → 차용한 방법/수식 → 비교 실험 → 배경 설명 순으로 의미 검증을 진행합니다.
+- 근거 위치, 구체적인 문장 수정안, 아직 확인하지 못한 항목을 남깁니다.
+
+PMLR의 높은 페이지 수, 본 학회 논문의 포스터 발표, 출판연도 차이, PDF 기호 추출 문제는 실제 출처와 대조합니다. 특이해 보인다는 이유만으로 오류로 판정하지 않습니다.
+
+## 설치
+
+GitHub의 **Code → Download ZIP**으로 내려받아 압축을 풀고, 폴더 이름을 `citation-rigor-checker`로 바꾼 뒤 아래 위치로 복사하세요. `SKILL.md`가 그 폴더 바로 아래에 있어야 합니다. 선택적 도구와 추가 지침을 사용하려면 `scripts/`, `references/`도 포함하고 `LICENSE`를 유지하세요.
+
+### Codex
+
+- 개인용: `~/.agents/skills/citation-rigor-checker/`
+- 프로젝트용: `<project>/.agents/skills/citation-rigor-checker/`
+- Windows 개인용: `%USERPROFILE%\.agents\skills\citation-rigor-checker\`
+
+Codex CLI/IDE에서 `$citation-rigor-checker`로 호출하거나 `/skills`에서 선택하세요. 새로 설치한 스킬이 보이지 않으면 다시 시작하세요. [OpenAI 스킬 문서](https://learn.chatgpt.com/docs/build-skills)를 참고하세요.
+
+### Claude Code
+
+- 개인용: `~/.claude/skills/citation-rigor-checker/`
+- 프로젝트용: `<project>/.claude/skills/citation-rigor-checker/`
+- Windows 개인용: `%USERPROFILE%\.claude\skills\citation-rigor-checker\`
+
+`/citation-rigor-checker`로 호출하세요. 검색·다시 불러오기·클라우드 세션 차이는 [Claude Code 스킬 문서](https://code.claude.com/docs/en/skills)를 참고하세요.
+
+이 저장소는 로컬 설치용 독립 스킬입니다. 다른 Agent Skills 호스트에서는 해당 호스트의 설치 경로와 호출 방식을 따릅니다.
+
+## 사용 예시
+
+파일을 첨부하거나 에이전트가 읽을 수 있는 위치에 두세요. 아래는 Codex용 예시입니다. Claude Code에서는 첫 줄을 `/citation-rigor-checker`로 바꾸면 됩니다.
+
+### 참고문헌 빠른 점검
+
+```text
+$citation-rigor-checker
+첨부한 references.bib를 lite 모드로 확인해 줘.
+외부 요청 40회 이내에서 모든 항목의 실재 여부와 서지를 점검하고,
+근거 링크와 미확인 항목을 보여 줘.
+원고는 없으니 주장에 대한 의미 검증은 Not assessed로 표시해 줘.
+한국어로 보고해 줘.
+```
+
+### 예산을 정한 심사자 수준 감사
+
+```text
+$citation-rigor-checker
+manuscript.pdf와 references.bib를 full 모드로 감사해 줘.
+모든 참고문헌과 인용 위치를 먼저 목록화하고 서지 점검을 전수 시도해 줘.
+의미 검증은 핵심 기여, 차용한 방법/수식, 비교 실험 주장 순으로 진행해 줘.
+외부 요청은 60회, 서로 다른 출처의 전문 열람은 10개 이내로 제한해 줘.
+진행 상태를 저장하고 주요 문제에는 정확한 문장 수정안을 제안해 줘.
+```
+
+### 원 방법의 변형 확인
+
+```text
+$citation-rigor-checker
+초안 3절을 첨부한 원 논문과 비교해 줘.
+추정량과 가정을 바꾼 부분을 정확하게 설명했는지 확인하고,
+원 논문의 기여와 우리가 변형한 부분을 구분해 줘.
+```
+
+### 오프라인 점검
+
+```text
+$citation-rigor-checker
+네트워크 없이 제공한 발췌문만 검토해 줘.
+인용 연결과 내부 일관성을 확인하고, 추가로 필요한 출처 구절을 알려 줘.
+자료가 부족한 판단은 unresolved로 남겨 줘.
+```
+
+lite 보고서는 서지와 주장 근거를 별도 항목으로 보여 줍니다. full 보고서는 참고문헌 등록부, 인용 위치별 감사, 근거 목록, 심사자 관점 검토를 추가합니다. 두 방식 모두 실제 확인 범위를 명시합니다. [오류를 발견한 예시](examples/caught-issues.md)와 [공개 논문 일부 감사](examples/attention-audit.md)를 참고하세요.
+
+## 선택적 서지 점검 도구
+
+Python 3.10 이상과 표준 라이브러리만 사용합니다. 저장소 폴더에서 실행하세요.
+
+```bash
+# 고정된 공개 메타데이터로 오프라인 재실행
+python scripts/bibliography.py benchmarks/references.bib --snapshot benchmarks/sources.json --out preflight.json
+
+# 요청 한도를 정한 실시간 조회 및 응답 캐시
+python scripts/bibliography.py references.bib --live --max-requests 40 --out preflight.json
+```
+
+문서화된 BibTeX 부분집합을 파싱하고 Crossref DOI와 arXiv 식별자를 조회하며 필드를 비교합니다. 식별자가 없는 제목 검색은 검토할 후보를 반환합니다. 일반적인 TeX 악센트, 이름의 particle, 부제를 처리하고 단일 신호의 불일치는 review로 보냅니다. 지원하지 않는 BibTeX 매크로/상속은 명시적으로 실패합니다. [도구 상세 설명](references/helper.md)을 참고하세요.
+
+같은 입력과 고정된 메타데이터로 결정론적 비교를 재실행할 수 있습니다. 실시간 검색과 모델 판정은 달라질 수 있습니다. 지침만 사용하는 흐름에는 Python이 필요 없으며, 검색·원문 열람에는 호스트의 도구와 사용량 제한이 적용됩니다.
+
+## 분야와 언어의 범위
+
+[출처 안내](references/sources.md)에는 ML/CS 자료 외에도 국문 KCI/RISS/DBpia, 의생명 PubMed, 도서·학위논문 조회 경로가 있습니다. 자동 조회 도구가 지원하는 서비스는 **Crossref와 arXiv**입니다. 국문 출처 경로가 있다는 사실이 국문 논문 정확도의 실증 검증을 의미하지는 않습니다.
+
+## 검증 현황
+
+실제 GPflow BibTeX 9개와 별도로 확인한 학술 레코드를 바탕으로 한 서지 사례, 여섯 의미 상태를 포함한 발췌문 사례를 제공합니다. 기존 40개 복사·변형 자료는 도구 회귀 점검용으로 보존합니다.
+
+첫 비교의 낮은 스킬 점수에는 표기 차이를 오류로 센 라벨과 잘못된 자료 부재 제어 항목이 영향을 줬습니다. 원본 결과는 보존하고, [케이스별 원인 분석](benchmarks/DIAGNOSIS.ko.md), [재비교 프로토콜](benchmarks/adjudicated-v2/PROTOCOL.md), [모든 실행과 점수](benchmarks/README.md)를 공개합니다. 평가 기준 변경과 스킬 수정 효과를 구분하기 위해 기본 프롬프트·기존 스킬·수정 스킬을 같은 조건에서 비교합니다.
+
+**재비교 9회 완료:** 기본 프롬프트·기존 스킬·수정 스킬을 각각 3회 실행했습니다. 모델은 `gpt-6.1-sol`, 추론 수준은 medium이며 입력·라벨 정의·도구 사용 조건이 같습니다. 모호한 2개를 제외한 서지 18개에서 평균 macro-F1은 순서대로 **1.000 / 1.000 / 1.000**, 의미 15개에서는 **1.000 / 1.000 / 1.000**입니다. 모호한 항목까지 포함한 보조 점수도 공개했습니다. 이 개발 자료에서 스킬의 일반적 우월성을 입증하지는 못했으며 의미 자료의 천장 효과도 남아 있습니다.
+
+```bash
+python -m unittest discover -s tests -v
+python benchmarks/check_real_world.py
+python benchmarks/diagnose.py
+python benchmarks/summarize.py --dataset adjudicated-v2 --directory benchmarks/comparison-v2 --include-old-skill
+```
+
+## 한계
+
+개발 중 선정하고 같은 세션에서 라벨링한 소규모 자료이며 독립 판정은 아직 없습니다. 의미 검증 발췌문에는 천장 효과가 있습니다. 모델 이름은 고정된 내부 버전이 아닌 별칭입니다. 전체 원고 검색, 다국어, 다른 호스트에서의 정확도를 입증하지 않습니다. 한글 이름 회귀 사례는 합성 표기 테스트입니다. 도구의 서지 판정은 검토가 필요한 예비 결과이며 토큰 겹침이 저자의 신원을 인증하지는 않습니다. 출처 접근성과 OCR 품질도 판단에 영향을 줍니다. 검색 실패는 허구의 증거가 아닙니다. 최종 인용 결정은 저자가 내리며, 기밀 자료는 공개 이슈나 허용되지 않은 외부 서비스에 올리지 마세요.
+
+## 기여
+
+독립 판정을 거친 사례, 어려운 정상 인용, 다른 언어, 호스트 호환성 보고, 설정과 근거가 공개된 비교 실행을 환영합니다. 버그에는 최소한의 공개/합성 입력, 기대 결과와 실제 결과, 호스트·모델 또는 Python 버전을 포함해 주세요. 성능 향상을 주장하기 전 [평가 방법](benchmarks/README.md)을 확인해 주세요.
+
+## 라이선스
+
+[MIT](LICENSE)입니다. 이 저장소의 자료를 재사용할 때 저작권·허가 문구를 유지하세요. 인용한 논문·데이터셋·원고의 권리는 각 원 저작물의 조건을 따릅니다.

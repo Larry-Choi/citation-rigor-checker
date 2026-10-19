@@ -1,4 +1,5 @@
 import io
+import hashlib
 import json
 import sys
 import tempfile
@@ -11,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 sys.path.insert(0, str(ROOT / 'benchmarks'))
 from bibliography import BibError, Resolver, arxiv_value, audit, author_families, compare, doi_value, parse_bibtex
-from evaluate import export_prompts, load_gold, metrics
+from evaluate import export_prompts, load_gold, metrics, score_views
 
 
 class BibtexTests(unittest.TestCase):
@@ -200,6 +201,43 @@ class SnapshotRegressionTests(unittest.TestCase):
 
 
 class EvaluationTests(unittest.TestCase):
+    def test_original_skill_control_matches_original_run_hash(self):
+        frozen = ROOT/'benchmarks/comparison/SKILL.original.txt'
+        digest = hashlib.sha256(frozen.read_bytes()).hexdigest()
+        for repeat in [1,2,3]:
+            run = json.loads((ROOT/f'benchmarks/comparison/skill-{repeat}.json').read_text(encoding='utf-8'))
+            self.assertEqual(digest,run['run']['manifest']['skill_sha256'])
+
+    def test_ambiguous_labels_are_separate_not_silently_relabelled(self):
+        gold = [{'id':'a','task':'bibliographic','status':'matched_metadata'},
+                {'id':'b','task':'bibliographic','status':'metadata_review',
+                 'accepted_statuses':['matched_metadata','metadata_review'],'exclude_from_primary':True}]
+        result = score_views(gold,[{'id':'a','status':'matched_metadata'},{'id':'b','status':'matched_metadata'}])
+        self.assertEqual(result['primary']['bibliographic']['total'],1)
+        self.assertEqual(result['all_strict_secondary']['bibliographic']['correct'],1)
+        self.assertEqual(result['acceptable_set_secondary']['bibliographic']['correct'],2)
+        with self.assertRaises(ValueError):
+            score_views(gold,[{'id':'unknown','status':'matched_metadata'}])
+
+    def test_v2_conditions_share_rubric_and_packet_but_not_gold(self):
+        with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+            export_prompts(Path(directory),'adjudicated-v2')
+            prompts = [(Path(directory)/f'{condition}.txt').read_text(encoding='utf-8') for condition in ['baseline','old_skill','skill']]
+            self.assertEqual(len({p.split('Shared operational definitions',1)[1] for p in prompts}),1)
+            packet = json.loads(prompts[0].split('\nINPUT PACKET\n',1)[1])
+            encoded = json.dumps(packet)
+            for field in ['accepted_statuses','exclude_from_primary','rationale','status']:
+                self.assertNotIn('"'+field+'"',encoded)
+            cases = {c['id']:c for c in packet['bibliographic_cases']}
+            self.assertIsNone(cases['R019']['candidate_record_id'])
+            self.assertIn(cases['R019']['entry']['id'],packet['records'])
+            self.assertIsNone(cases['R020']['candidate_record_id'])
+            self.assertNotIn(cases['R020']['entry']['id'],packet['records'])
+            self.assertFalse(any(r['title'] == cases['R020']['entry']['title'] for r in packet['records'].values()))
+            gold = load_gold('adjudicated-v2')
+            self.assertEqual({g['id'] for g in gold if g.get('exclude_from_primary')},{'R002','R012'})
+            self.assertEqual(sum(g['task']=='bibliographic' and not g.get('exclude_from_primary') for g in gold),18)
+
     def test_paired_packets_are_identical_and_exclude_annotations(self):
         with tempfile.TemporaryDirectory(dir=ROOT) as directory:
             self.assertEqual(Path(directory).resolve().parent, ROOT.resolve())

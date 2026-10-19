@@ -1,0 +1,38 @@
+{
+  "P1": {
+    "url": "https://jmlr.org/papers/v18/16-537.html",
+    "locator": "Abstract, first sentence",
+    "text": "GPflow is a Gaussian process library that uses TensorFlow for its core computations and Python for its front end.",
+    "access": "Primary-source excerpt inspected 2026-10-19; evaluate support from this passage only."
+  },
+  "P2": {
+    "url": "https://proceedings.mlr.press/v139/artemev21a.html",
+    "locator": "Abstract, final sentence (fragment)",
+    "text": "improved predictive performance with our model for a comparable amount of training time compared to other conjugate gradient based approaches.",
+    "access": "Primary-source excerpt inspected 2026-10-19; evaluate support from this passage only."
+  },
+  "P3": {
+    "url": "https://proceedings.mlr.press/v5/titsias09a.html",
+    "locator": "Abstract, final sentence",
+    "text": "We apply this technique to regression and we compare it with other approaches in the literature.",
+    "access": "Primary-source excerpt inspected 2026-10-19; evaluate support from this passage only."
+  },
+  "P4": {
+    "url": "https://proceedings.neurips.cc/paper/2017/hash/1c54985e4f95b7819ca0357c0cb9a09f-Abstract.html",
+    "locator": "Abstract, evaluation sentence (fragment)",
+    "text": "We investigate several variations of the convolutional kernel, and apply it to MNIST and CIFAR-10",
+    "access": "Primary-source excerpt inspected 2026-10-19; evaluate support from this passage only."
+  },
+  "P5": {
+    "url": "https://proceedings.neurips.cc/paper/2009/hash/5ea1649a31336092c05438df996a3e59-Abstract.html",
+    "locator": "Abstract, complexity sentence",
+    "text": "This reduces inference and model selection computation time from O(n^3) to O(m^2n), where m << n.",
+    "access": "Primary-source excerpt inspected 2026-10-19; evaluate support from this passage only."
+  },
+  "P6": {
+    "url": "https://jmlr.org/papers/v6/chu05a.html",
+    "locator": "Abstract, inference-method sentence",
+    "text": "Two inference techniques, based on the Laplace approximation and the expectation propagation algorithm respectively, are derived for hyperparameter learning and model selection.",
+    "access": "Primary-source excerpt inspected 2026-10-19; evaluate support from this passage only."
+  }
+}

@@ -1,0 +1,13 @@
+# V2 development comparison protocol
+
+Frozen before the v2 model calls on 2026-10-19. This is a development rerun after inspecting v1 errors, not a held-out evaluation.
+
+- Conditions: short baseline, unchanged v1 skill from [SKILL.original.txt](../comparison/SKILL.original.txt), revised root SKILL.md. Every condition receives the same [operational rubric](rubric.txt), records, passages, IDs, and output contract. The rubric defines labels, including conservative identity-conflict routing; the baseline is therefore stronger than a bare prompt. This tests additional skill guidance beyond a defined task, not the rubric itself.
+- Model: gpt-6.1-sol, medium reasoning, same CLI and tool-free ephemeral sessions as v1. Three repeats each; order baseline/old/new, old/new/baseline, new/baseline/old balances position. No best-run selection or further prompt edits during execution.
+- Inputs: 20 bibliography + 15 semantic cases. R001–R019 and every semantic case retain their v1 inputs. R019 is now a recoverable missing-link case; new synthetic R020 supplies a genuine unavailable-evidence control. No source for R020 appears anywhere in the packet. Identifiers and source URLs in the original public cases are unchanged.
+- Primary: exact-label accuracy and per-status precision/recall/F1, with bibliographic R002 (double-escaped accent rendering) and R012 (short-title style) excluded in advance. Thus 18 bibliographic + 15 semantic cases. These two labels are not uniquely defensible without a rendering/style decision.
+- Secondary: all 20 bibliographic cases under the specified strict labels; and acceptable-set sensitivity allowing matched_metadata or metadata_review for R002/R012. Retain both results, even if they disagree with the primary conclusion. Semantic scores use all 15 cases in every view.
+- Diagnosis: retain all v1 gold and runs unchanged. Re-score v1 under the revised rubric separately and label that analysis retrospective. Treat policy boundaries, invalid gold, and actual model mistakes separately. Gold remains session-authored; independent adjudication is pending.
+- Interpretation: report every run and token/time cost. A tie is a tie; a higher development score is not proof of transfer or a causal improvement over v1, since the rubric and available cases changed. The old-skill control isolates additional revised-skill effects under the same new packet. Semantic cases were retained to measure regressions but already showed a ceiling in v1.
+
+The exported manifest records input, rubric, original-skill, and revised-skill SHA-256 hashes. Gold, accepted sets, and rationales are not supplied to the models. Runtime logs stay local; predictions, settings, hashes, and usage are published.

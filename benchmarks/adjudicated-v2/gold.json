@@ -1,0 +1,171 @@
+[
+  {
+    "id": "R001",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "kind": "upstream_original",
+    "rationale": "Title, authors, year and journal agree.",
+    "upstream_key": "chu2005gaussian"
+  },
+  {
+    "id": "R002",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "kind": "upstream_original",
+    "rationale": "TeX/Unicode spelling is compatible; double escaping leaves a defensible rendering-review interpretation.",
+    "upstream_key": "GPflow2017",
+    "accepted_statuses": [
+      "matched_metadata",
+      "metadata_review"
+    ],
+    "exclude_from_primary": true
+  },
+  {
+    "id": "R003",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "kind": "upstream_original",
+    "rationale": "Same arXiv identity; including the identifier in the venue is harmless representation.",
+    "upstream_key": "GPflow2020multioutput"
+  },
+  {
+    "id": "R004",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "kind": "upstream_original",
+    "rationale": "Same arXiv identity; preprint label and identifier are harmless representation.",
+    "upstream_key": "hensman2013gaussian"
+  },
+  {
+    "id": "R005",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "kind": "upstream_original",
+    "rationale": "LaTeX accents encode the same author names.",
+    "upstream_key": "NIPS2009_3876"
+  },
+  {
+    "id": "R006",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "kind": "upstream_original",
+    "rationale": "Name particles and protected capitalization do not change identity.",
+    "upstream_key": "pmlr-v139-artemev21a"
+  },
+  {
+    "id": "R007",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "kind": "upstream_original",
+    "rationale": "Short and full conference names refer to the same venue; no contradictory field.",
+    "upstream_key": "titsias2009variational"
+  },
+  {
+    "id": "R008",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "kind": "upstream_original",
+    "rationale": "Name particles and capitalization do not change identity.",
+    "upstream_key": "vdw2017convgp"
+  },
+  {
+    "id": "R009",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "kind": "upstream_original",
+    "rationale": "The upstream title says Variatinoally; the proceedings say Variationally. The venue is abbreviated.",
+    "upstream_key": "hensman2015mcmc"
+  },
+  {
+    "id": "R010",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "kind": "surface_variant",
+    "rationale": "Unicode instead of TeX accents.",
+    "upstream_key": "NIPS2009_3876"
+  },
+  {
+    "id": "R011",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "kind": "surface_variant",
+    "rationale": "Uncommaed author names retain particles.",
+    "upstream_key": "vdw2017convgp"
+  },
+  {
+    "id": "R012",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "kind": "surface_variant",
+    "rationale": "Bare GPflow identifies the work but omits its descriptive subtitle; title-completeness review is reasonable, as is acceptance under a short-title style.",
+    "upstream_key": "GPflow2017",
+    "accepted_statuses": [
+      "metadata_review",
+      "matched_metadata"
+    ],
+    "exclude_from_primary": true
+  },
+  {
+    "id": "R013",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "kind": "surface_variant",
+    "rationale": "A one-year difference needs version/date checking, not identity rejection.",
+    "upstream_key": "pmlr-v139-artemev21a"
+  },
+  {
+    "id": "R014",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "kind": "surface_variant",
+    "rationale": "Established NIPS/NeurIPS venue alias is accepted under this packet rubric; no separate volume is compared.",
+    "upstream_key": "NIPS2009_3876"
+  },
+  {
+    "id": "R015",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "kind": "surface_variant",
+    "rationale": "A recognizable prefix omits the rest of the title.",
+    "upstream_key": "titsias2009variational"
+  },
+  {
+    "id": "R016",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "kind": "wrong_candidate",
+    "rationale": "Both title and leading author identify a different work.",
+    "upstream_key": "chu2005gaussian"
+  },
+  {
+    "id": "R017",
+    "task": "bibliographic",
+    "status": "identity_conflict",
+    "kind": "wrong_candidate",
+    "rationale": "Both title and leading author identify a different work.",
+    "upstream_key": "vdw2017convgp"
+  },
+  {
+    "id": "R018",
+    "task": "bibliographic",
+    "status": "metadata_review",
+    "kind": "author_only",
+    "rationale": "Author mismatch alone warrants review; the title still matches.",
+    "upstream_key": "chu2005gaussian"
+  },
+  {
+    "id": "R019",
+    "task": "bibliographic",
+    "status": "matched_metadata",
+    "kind": "access_control",
+    "rationale": "No assigned link, but the complete matching hensman2013gaussian record is present in the packet.",
+    "upstream_key": "hensman2013gaussian"
+  },
+  {
+    "id": "R020",
+    "task": "bibliographic",
+    "status": "unresolved",
+    "kind": "synthetic_access_control",
+    "rationale": "Synthetic nonexistence-neutral control: no relevant record supplied; packet-only task cannot establish existence or metadata."
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "revision": "v2",
+  "authorship": "Session-authored retrospective adjudication, not independent human review.",
+  "original_gold_sha256": "f31d26729c941beb27cfb77be1903a20251f07d2a4390166913dc62f55bd0feb",
+  "primary_excluded_ids": [
+    "R002",
+    "R012"
+  ],
+  "changes": [
+    {
+      "id": "R002",
+      "original_status": "metadata_review",
+      "v2_status": "matched_metadata",
+      "issue": "ambiguous_rendering",
+      "rationale": "TeX/Unicode spelling is compatible; double escaping leaves a defensible rendering-review interpretation.",
+      "accepted_statuses": [
+        "matched_metadata",
+        "metadata_review"
+      ]
+    },
+    {
+      "id": "R003",
+      "original_status": "metadata_review",
+      "v2_status": "matched_metadata",
+      "issue": "label_defect",
+      "rationale": "Same arXiv identity; including the identifier in the venue is harmless representation.",
+      "accepted_statuses": [
+        "matched_metadata"
+      ]
+    },
+    {
+      "id": "R004",
+      "original_status": "metadata_review",
+      "v2_status": "matched_metadata",
+      "issue": "label_defect",
+      "rationale": "Same arXiv identity; preprint label and identifier are harmless representation.",
+      "accepted_statuses": [
+        "matched_metadata"
+      ]
+    },
+    {
+      "id": "R007",
+      "original_status": "metadata_review",
+      "v2_status": "matched_metadata",
+      "issue": "policy_boundary",
+      "rationale": "Short and full conference names refer to the same venue; no contradictory field.",
+      "accepted_statuses": [
+        "matched_metadata"
+      ]
+    },
+    {
+      "id": "R012",
+      "original_status": "metadata_review",
+      "v2_status": "metadata_review",
+      "issue": "ambiguous_title_style",
+      "rationale": "Bare GPflow identifies the work but omits its descriptive subtitle; title-completeness review is reasonable, as is acceptance under a short-title style.",
+      "accepted_statuses": [
+        "metadata_review",
+        "matched_metadata"
+      ]
+    },
+    {
+      "id": "R014",
+      "original_status": "metadata_review",
+      "v2_status": "matched_metadata",
+      "issue": "policy_boundary",
+      "rationale": "Established NIPS/NeurIPS venue alias is accepted under this packet rubric; no separate volume is compared.",
+      "accepted_statuses": [
+        "matched_metadata"
+      ]
+    },
+    {
+      "id": "R019",
+      "original_status": "unresolved",
+      "v2_status": "matched_metadata",
+      "issue": "evidence_design_defect",
+      "rationale": "No assigned link, but the complete matching hensman2013gaussian record is present in the packet.",
+      "accepted_statuses": [
+        "matched_metadata"
+      ]
+    }
+  ],
+  "new_control": "R020 is synthetic, absent from all supplied records; R019 retains recoverable missing-link test."
+}

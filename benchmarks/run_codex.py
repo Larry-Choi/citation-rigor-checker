@@ -1,4 +1,4 @@
-"""Run six isolated, tool-free Codex CLI evaluation sessions (no API-key handling).
+"""Run isolated, tool-free Codex CLI evaluation sessions (no API-key handling).
 
 Model and reasoning settings must be explicit. This consumes the signed-in
 account's ordinary model usage. Inputs must be public/synthetic and pre-exported.
@@ -23,7 +23,10 @@ def main():
     parser.add_argument('--reasoning-effort', required=True)
     parser.add_argument('--cli', default='codex')
     parser.add_argument('--timeout', type=int, default=240)
+    parser.add_argument('--include-old-skill', action='store_true', help='Three conditions, three repeats, balanced position order')
     args = parser.parse_args()
+    if args.out.exists() and list(args.out.glob('*.json')):
+        parser.error('Output directory already has results; use a fresh directory')
     for directory in [args.out, args.raw, args.isolation_dir]:
         directory.mkdir(parents=True, exist_ok=True)
     if list(args.isolation_dir.iterdir()):
@@ -40,6 +43,10 @@ def main():
     manifest = json.loads((args.prompts / 'manifest.json').read_text(encoding='utf-8'))
     cli_version = subprocess.check_output([args.cli, '--version'], text=True, encoding='utf-8').strip()
     order = [('baseline', 1), ('skill', 1), ('skill', 2), ('baseline', 2), ('baseline', 3), ('skill', 3)]
+    if args.include_old_skill:
+        order = [(condition, repeat) for repeat, conditions in enumerate([
+            ['baseline', 'old_skill', 'skill'], ['old_skill', 'skill', 'baseline'],
+            ['skill', 'baseline', 'old_skill']], start=1) for condition in conditions]
     runs = []
     for condition, repeat in order:
         name = f'{condition}-{repeat}'

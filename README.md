@@ -1,5 +1,7 @@
 # Citation Rigor Checker
 
+**English** · [한국어](README.ko.md)
+
 **Check references and claims without rejecting normal bibliographic variants.**
 
 An [Agent Skill](https://agentskills.io/specification) that audits references against scholarly records and maps manuscript claims to the passages that support—or fail to support—them.
@@ -112,9 +114,11 @@ The workflow can route to publisher records, subject indexes, and institutional 
 
 ## Validation status
 
-The current pilot uses **19 bibliographic cases** from nine actual GPflow BibTeX entries and separately inspected primary records, plus **15 passage-level semantic cases** covering all six statuses. The previous copy-and-mutate 40-entry set is retained for engineering regression checks.
+The first pilot's lower skill score involved benign-formatting labels and an invalid unavailable-record control. [Case-by-case diagnosis in Korean](benchmarks/DIAGNOSIS.ko.md) separates actual entry defects from ambiguous labels and evidence-design errors; all original runs remain public.
 
-**Six model runs completed:** baseline and skill, three repeats each, `gpt-6.1-sol`, medium reasoning, identical frozen inputs, no tool use. Mean bibliographic macro-F1 was **0.781 baseline / 0.670 skill**; semantic macro-F1 was **1.000 for both**. This pilot found no overall skill advantage and retained a semantic ceiling effect. Full responses, per-status precision/recall, timing, token usage, and paired results are in the [experiment report](benchmarks/README.md).
+**Nine new runs completed:** baseline, unchanged original skill, and revised skill, three repeats each, `gpt-6.1-sol`, medium reasoning, the same frozen packet and shared label definitions, with no tool use. Primary bibliographic macro-F1: **1.000 / 1.000 / 1.000**, respectively, on 18 unambiguous cases. Two ambiguous cases are scored separately as sensitivity checks. Semantic macro-F1: **1.000 / 1.000 / 1.000** on 15 cases. [Full results, per-status precision/recall, cost, protocol, and all responses](benchmarks/README.md).
+
+These are development cases, and semantic ceiling effects persist. This comparison does not demonstrate a general skill advantage. The earlier 40-entry copy-and-mutate set remains an engineering regression suite.
 
 ```bash
 python -m unittest discover -s tests -v
