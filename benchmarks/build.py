@@ -40,8 +40,8 @@ def build():
         bib.append(f'@article{{{key},\n{fields}\n}}')
         gold.append({'id': key, 'task': 'bibliographic', 'status': status,
                      'mutation': mutation, 'source_doi': source})
-    (ROOT / 'references.bib').write_text('\n\n'.join(bib) + '\n', encoding='utf-8')
-    (ROOT / 'gold.json').write_text(json.dumps(gold, indent=2) + '\n', encoding='utf-8')
+    (ROOT / 'references.bib').write_text('\n\n'.join(bib) + '\n', encoding='utf-8', newline='\n')
+    (ROOT / 'gold.json').write_text(json.dumps(gold, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(f'Built {len(gold)} cases from {len(sources)} frozen records')
 
 

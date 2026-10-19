@@ -65,13 +65,13 @@ def export_prompts(destination):
         '\nMETADATA EVIDENCE\n' + (ROOT / 'sources.json').read_text(encoding='utf-8'),
         '\nSEMANTIC INPUT\n' + json.dumps(semantic_inputs, ensure_ascii=False, indent=2)])
     skill = (REPO / 'SKILL.md').read_text(encoding='utf-8')
-    (destination / 'baseline.txt').write_text('Check these academic references and their claim-source alignment.\n' + common, encoding='utf-8')
-    (destination / 'skill.txt').write_text(skill + '\nUse full mode for these cases. The JSON schema below replaces only report presentation.\n' + common, encoding='utf-8')
+    (destination / 'baseline.txt').write_text('Check these academic references and their claim-source alignment.\n' + common, encoding='utf-8', newline='\n')
+    (destination / 'skill.txt').write_text(skill + '\nUse full mode for these cases. The JSON schema below replaces only report presentation.\n' + common, encoding='utf-8', newline='\n')
     manifest = {'case_count': len(gold) + len(semantic), 'skill_sha256': hashlib.sha256(skill.encode()).hexdigest(),
                 'inputs_sha256': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
                                   for name in ['references.bib', 'sources.json', 'semantic_cases.json']},
                 'gold_excluded': True, 'model_runs_performed_by_exporter': 0}
-    (destination / 'manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')
+    (destination / 'manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8', newline='\n')
 
 
 def main():
@@ -97,7 +97,7 @@ def main():
     result = {'run': run, 'metrics': metrics(gold, predictions),
               'note': 'Development-set results only. Missing cases are penalized. Zero predicted positives use precision=0. No evidence of a prompt advantage without actual matched model runs.'}
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
+    args.out.write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(json.dumps(result['metrics'], indent=2))
 
 

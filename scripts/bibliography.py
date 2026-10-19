@@ -264,7 +264,7 @@ class Resolver:
         payload = {'retrieved_at': datetime.now(timezone.utc).isoformat(), 'body': body}
         if cache_file:
             cache_file.parent.mkdir(parents=True, exist_ok=True)
-            cache_file.write_text(json.dumps(payload), encoding='utf-8')
+            cache_file.write_text(json.dumps(payload), encoding='utf-8', newline='\n')
         self.log.append({'url': url, 'result': 'fetched', 'retrieved_at': payload['retrieved_at']})
         return body
 
@@ -356,7 +356,7 @@ def main():
     if args.snapshot:
         output['snapshot_sha256'] = hashlib.sha256(args.snapshot.read_bytes()).hexdigest()
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(output, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    args.out.write_text(json.dumps(output, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(json.dumps(output['coverage']))
 
 
