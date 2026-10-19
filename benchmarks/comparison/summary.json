@@ -1,0 +1,202 @@
+{
+  "dataset": "real-world",
+  "case_count": 34,
+  "repeat_count": 3,
+  "model_alias": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "cli_version": "codex-cli 0.163.0-alpha.10.2",
+  "conditions": {
+    "baseline": {
+      "wall_seconds_mean": 23.083666666666666,
+      "tasks": {
+        "bibliographic": {
+          "total_per_repeat": 19,
+          "correct_by_repeat": [
+            13,
+            14,
+            13
+          ],
+          "accuracy_mean": 0.7017543859649122,
+          "macro_f1_mean": 0.7809407096171802,
+          "coverage_mean": 1.0,
+          "per_status_mean": {
+            "identity_conflict": {
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8
+            },
+            "matched_metadata": {
+              "precision": 0.5636363636363636,
+              "recall": 1.0,
+              "f1": 0.7205882352941175
+            },
+            "metadata_review": {
+              "precision": 1.0,
+              "recall": 0.43333333333333335,
+              "f1": 0.6031746031746033
+            },
+            "unresolved": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          }
+        },
+        "semantic": {
+          "total_per_repeat": 15,
+          "correct_by_repeat": [
+            15,
+            15,
+            15
+          ],
+          "accuracy_mean": 1.0,
+          "macro_f1_mean": 1.0,
+          "coverage_mean": 1.0,
+          "per_status_mean": {
+            "contradicted": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "not_assessed": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "not_supported": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "partially_supported": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "supported": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "unresolved": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          }
+        }
+      },
+      "tool_events_total": 0,
+      "usage_mean": {
+        "input_tokens": 19103,
+        "cached_input_tokens": 0,
+        "output_tokens": 1182.6666666666667
+      }
+    },
+    "skill": {
+      "wall_seconds_mean": 27.245,
+      "tasks": {
+        "bibliographic": {
+          "total_per_repeat": 19,
+          "correct_by_repeat": [
+            13,
+            14,
+            13
+          ],
+          "accuracy_mean": 0.7017543859649122,
+          "macro_f1_mean": 0.6699346405228758,
+          "coverage_mean": 1.0,
+          "per_status_mean": {
+            "identity_conflict": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "matched_metadata": {
+              "precision": 0.5151515151515151,
+              "recall": 1.0,
+              "f1": 0.6797385620915032
+            },
+            "metadata_review": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666
+            },
+            "unresolved": {
+              "precision": 0.3333333333333333,
+              "recall": 0.3333333333333333,
+              "f1": 0.3333333333333333
+            }
+          }
+        },
+        "semantic": {
+          "total_per_repeat": 15,
+          "correct_by_repeat": [
+            15,
+            15,
+            15
+          ],
+          "accuracy_mean": 1.0,
+          "macro_f1_mean": 1.0,
+          "coverage_mean": 1.0,
+          "per_status_mean": {
+            "contradicted": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "not_assessed": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "not_supported": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "partially_supported": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "supported": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "unresolved": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          }
+        }
+      },
+      "tool_events_total": 0,
+      "usage_mean": {
+        "input_tokens": 23265,
+        "cached_input_tokens": 4053.3333333333335,
+        "output_tokens": 1386
+      }
+    }
+  },
+  "paired_skill_minus_baseline": [
+    {
+      "repeat": 1,
+      "bibliographic": -0.18599439775910376,
+      "semantic": 0.0
+    },
+    {
+      "repeat": 2,
+      "bibliographic": 0.03897058823529409,
+      "semantic": 0.0
+    },
+    {
+      "repeat": 3,
+      "bibliographic": -0.18599439775910376,
+      "semantic": 0.0
+    }
+  ],
+  "annotation_sha256": "6f294ed27d376e92cdd836b7e7afe9808f6556371aeb1862b721f99483dbdfb3"
+}

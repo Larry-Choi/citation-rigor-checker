@@ -1,0 +1,92 @@
+[
+  {
+    "id": "S001",
+    "task": "semantic",
+    "status": "partially_supported",
+    "rationale": "The supported comparison is other conjugate-gradient approaches, not all GP inference methods."
+  },
+  {
+    "id": "S002",
+    "task": "semantic",
+    "status": "partially_supported",
+    "rationale": "The named evaluations are supported; matching leading deep networks is an additional result not supplied."
+  },
+  {
+    "id": "S003",
+    "task": "semantic",
+    "status": "supported",
+    "rationale": "This is the scope stated in the passage."
+  },
+  {
+    "id": "S004",
+    "task": "semantic",
+    "status": "partially_supported",
+    "rationale": "Software roles are supported; universal numerical correctness is not established."
+  },
+  {
+    "id": "S005",
+    "task": "semantic",
+    "status": "contradicted",
+    "rationale": "O(m^2n) retains linear dependence on n when m is fixed."
+  },
+  {
+    "id": "S006",
+    "task": "semantic",
+    "status": "supported",
+    "rationale": "This follows from the supplied O(m^2n) expression under the stated fixed-m condition."
+  },
+  {
+    "id": "S007",
+    "task": "semantic",
+    "status": "not_assessed",
+    "rationale": "A reference is supplied but no attributed proposition is given."
+  },
+  {
+    "id": "S008",
+    "task": "semantic",
+    "status": "supported",
+    "rationale": "Both software roles are explicitly stated."
+  },
+  {
+    "id": "S009",
+    "task": "semantic",
+    "status": "unresolved",
+    "rationale": "An epsilon/eta extraction ambiguity cannot be resolved without rendered/source equations."
+  },
+  {
+    "id": "S010",
+    "task": "semantic",
+    "status": "not_supported",
+    "rationale": "Predictive performance at comparable measured time does not establish a worst-case complexity guarantee."
+  },
+  {
+    "id": "S011",
+    "task": "semantic",
+    "status": "not_supported",
+    "rationale": "The supplied passage addresses regression, without a classification evaluation or likelihood result."
+  },
+  {
+    "id": "S012",
+    "task": "semantic",
+    "status": "contradicted",
+    "rationale": "The passage explicitly identifies two techniques."
+  },
+  {
+    "id": "S013",
+    "task": "semantic",
+    "status": "partially_supported",
+    "rationale": "The techniques and purpose are stated; a global-optimality guarantee is not."
+  },
+  {
+    "id": "S014",
+    "task": "semantic",
+    "status": "not_supported",
+    "rationale": "The passage provides neither medical-image nor distribution-shift evidence."
+  },
+  {
+    "id": "S015",
+    "task": "semantic",
+    "status": "unresolved",
+    "rationale": "The source equation and implementation are not supplied."
+  }
+]

@@ -26,7 +26,7 @@ def build():
         if i < 4:
             composite = copy.deepcopy(clean)
             composite['author'] = sources[(i + 1) % len(sources)]['author_bibtex']
-            cases.append((composite, 'identity_conflict', 'composite_authors', source['doi']))
+            cases.append((composite, 'metadata_review', 'composite_authors', source['doi']))
         else:
             fake = {'title': f'Unified evidence calibration for scholarly reasoning systems {i}',
                     'author': 'Example, Researcher', 'year': '2024',

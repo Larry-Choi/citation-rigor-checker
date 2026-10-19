@@ -14,15 +14,19 @@ Online mode sends DOI/arXiv identifiers or no-ID titles to public services. Use 
 
 ## Supported BibTeX subset
 
-Accepts ordinary entries with braced, quoted, or numeric values, nested braces, concatenation (`#`), month constants, `%` line comments, and braced `@comment` entries. Preserves original field strings in output. Rejects duplicate keys/fields, unresolved bare macros, `@string`, `@preamble`, `crossref`/`xdata` inheritance, and malformed input. Export expanded entries from a full BibTeX/BibLaTeX processor when using those features. This is a documented subset parser, not a replacement for a complete BibTeX implementation. TeX accents and complex personal-name syntax are not fully interpreted; inspect resulting review flags manually.
+Accepts ordinary entries with braced, quoted, or numeric values, nested braces, concatenation (`#`), month constants, `%` line comments, and braced `@comment` entries. Preserves original field strings in output. Rejects duplicate keys/fields, unresolved bare macros, `@string`, `@preamble`, `crossref`/`xdata` inheritance, and malformed input. Export expanded entries from a full BibTeX/BibLaTeX processor when using those features. Common TeX accents are decoded before normalization. Names without commas remain intact; particle-insensitive token overlap provides a compatibility signal.
 
 ## Provisional statuses
 
 - `matched_metadata`: Compared fields agree after conservative normalization. This excludes semantic verification, comprehensive version/authorship authentication, retraction checks, and publication-status adjudication.
 - `metadata_review`: Missing fields or differences in title, author list, year, venue, volume, or pages need review. A journal abbreviation or alternate edition can be legitimate.
-- `identity_conflict`: A large title difference or first-author conflict with the identifier's record warrants inspection. This is not an allegation of fabrication.
+- `identity_conflict`: Both the title and leading-author signals conflict with the candidate record. A difference in only one signal goes to metadata review.
 - `unresolved`: No usable record, discovery candidates only, invalid identifier, API failure, cache miss, or exhausted request budget.
 
-Fuzzy title similarity is a deterministic triage heuristic with a fixed 0.85 conflict threshold; it is not a calibrated probability. This threshold has not been validated on a held-out multilingual corpus. No-ID live queries return up to three discovery candidates, never automatically approve the top hit. First/last-name parsing and translated titles are deliberately conservative and can produce false flags. The preflight never assesses an occurrence's semantic support.
+Title comparison uses normalized complete titles, Crossref subtitles, recognizable prefix/token subsets, and fuzzy similarity. A similarity below 0.85 is only one disagreement signal; it cannot trigger identity conflict by itself. Shortened titles remain reviewable. No-ID live queries return up to three discovery candidates for manual resolution.
 
 Use fixed snapshots for exact replay. Live API contents can change; caches can become stale. Keep input/snapshot hashes, retrieval dates, and manual adjudications when reporting an audit. A request count is a network count, not a count of references verified. Parsing failure exits with code 2; a completed report can contain unresolved cases and exits with code 0, so inspect the statuses rather than using the exit code as an approval signal.
+
+## Limitations
+
+The parser supports a documented BibTeX subset and common accent commands, not every TeX macro. Name-token overlap does not authenticate an author, and translated titles or cross-script names require review. The thresholds have not been calibrated on a held-out multilingual corpus. The helper reports metadata comparisons and does not assess semantic support. Crossref/arXiv are the automated lookup routes; other registries and regional sources need separate access.

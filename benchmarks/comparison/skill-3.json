@@ -1,0 +1,209 @@
+{
+  "run": {
+    "condition": "skill",
+    "repeat": 3,
+    "model_alias": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "cli_version": "codex-cli 0.163.0-alpha.10.2",
+    "started_at": "2026-10-19T03:34:55.224598+00:00",
+    "wall_seconds": 24.625,
+    "returncode": 0,
+    "timed_out": false,
+    "observed_tool_events": [],
+    "usage": {
+      "input_tokens": 23265,
+      "cached_input_tokens": 12160,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1389,
+      "reasoning_output_tokens": 79
+    },
+    "prompt_sha256": "d4ce66d7af38e2bb1f7f62fb3b1afe38a4585822a4d54943ff61eaf716c343ba",
+    "manifest": {
+      "dataset": "real-world",
+      "case_count": 34,
+      "skill_sha256": "69ee0bba22b0adbc913df6b0fe6c536439f614051cc2d8bf3465bd3f0e01f58b",
+      "inputs_sha256": {
+        "bibliographic_cases.json": "d9d649b32069fd01d99214a87785ca1bbbd353d2df8ef7fe9d8c195e8556c721",
+        "records.json": "35a8db98e3b9a5823a60274aeeeda40a88637130c4765f779a1e89f31fe3ebf4",
+        "semantic_cases.json": "5319978e8e868a9c5ced4ce759af9f1e629faf6aff555f8439f031423ad99971",
+        "evidence.json": "94f12db2593d7209ecbdfb0d42e6364618bd174bbbe464101c75a59bcddf9e84"
+      },
+      "gold_excluded": true,
+      "model_runs_performed_by_exporter": 0
+    },
+    "valid_tool_free_run": true,
+    "runtime_errors": []
+  },
+  "predictions": [
+    {
+      "id": "R001",
+      "status": "matched_metadata",
+      "reason": "Supplied chu2005gaussian record matches title, author surnames/order, year, and venue; pagination and issue are not supplied for comparison."
+    },
+    {
+      "id": "R002",
+      "status": "matched_metadata",
+      "reason": "GPflow2017 matches after normalizing TeX accents, capitalization braces, and punctuation; author surnames/order, year, and venue agree."
+    },
+    {
+      "id": "R003",
+      "status": "matched_metadata",
+      "reason": "GPflow2020multioutput matches title, author surnames/order, year, and arXiv identity; the supplied record describes a preprint."
+    },
+    {
+      "id": "R004",
+      "status": "matched_metadata",
+      "reason": "hensman2013gaussian matches title, author surnames/order, year, and arXiv identifier."
+    },
+    {
+      "id": "R005",
+      "status": "matched_metadata",
+      "reason": "NIPS2009_3876 matches title, author surnames/order after TeX accent decoding, proceedings volume, and year."
+    },
+    {
+      "id": "R006",
+      "status": "matched_metadata",
+      "reason": "pmlr-v139-artemev21a matches title after whitespace normalization, author surnames/order, venue, and year; pages are unavailable for comparison."
+    },
+    {
+      "id": "R007",
+      "status": "matched_metadata",
+      "reason": "titsias2009variational matches title, author surname, and year; the venue is a compatible shortened conference name."
+    },
+    {
+      "id": "R008",
+      "status": "matched_metadata",
+      "reason": "vdw2017convgp matches title, author surnames/order, proceedings volume, and year."
+    },
+    {
+      "id": "R009",
+      "status": "metadata_review",
+      "reason": "hensman2015mcmc gives 'Variationally', whereas the entry misspells it 'Variatinoally'; authors and year agree."
+    },
+    {
+      "id": "R010",
+      "status": "matched_metadata",
+      "reason": "NIPS2009_3876 matches title, Unicode author surnames/order, proceedings volume, and year."
+    },
+    {
+      "id": "R011",
+      "status": "matched_metadata",
+      "reason": "vdw2017convgp matches; natural-order author formatting preserves the same surnames and order."
+    },
+    {
+      "id": "R012",
+      "status": "metadata_review",
+      "reason": "The title 'GPflow' omits ': A Gaussian Process Library using TensorFlow' from GPflow2017; other comparable fields agree."
+    },
+    {
+      "id": "R013",
+      "status": "metadata_review",
+      "reason": "The entry gives 2020, but pmlr-v139-artemev21a supplies 2021 for the cited proceedings record."
+    },
+    {
+      "id": "R014",
+      "status": "matched_metadata",
+      "reason": "Title, author surnames/order, and year match NIPS2009_3876; 'NeurIPS' is a shortened venue label rather than an identity conflict."
+    },
+    {
+      "id": "R015",
+      "status": "metadata_review",
+      "reason": "The title omits 'in Sparse Gaussian Processes' from titsias2009variational; author, year, and conference identity agree."
+    },
+    {
+      "id": "R016",
+      "status": "identity_conflict",
+      "reason": "Assigned candidate GPflow2017 has a different title, author list, and year from the submitted Chu–Ghahramani entry."
+    },
+    {
+      "id": "R017",
+      "status": "identity_conflict",
+      "reason": "Assigned candidate NIPS2009_3876 describes the inter-domain paper with different authors and year, not Convolutional Gaussian Processes."
+    },
+    {
+      "id": "R018",
+      "status": "metadata_review",
+      "reason": "Title, year, and venue match chu2005gaussian, but 'Smith, Jane' conflicts with the supplied authors Chu and Ghahramani."
+    },
+    {
+      "id": "R019",
+      "status": "matched_metadata",
+      "reason": "Although no candidate is assigned, the packet contains hensman2013gaussian, matching title, author surnames/order, year, and arXiv identifier."
+    },
+    {
+      "id": "S001",
+      "status": "partially_supported",
+      "reason": "P2, abstract final fragment, reports improvement at comparable training time against other conjugate-gradient approaches; it does not establish superiority against all GP inference methods."
+    },
+    {
+      "id": "S002",
+      "status": "partially_supported",
+      "reason": "P4, abstract evaluation fragment, confirms application to MNIST and CIFAR-10 but supplies no comparison establishing parity with the best deep networks."
+    },
+    {
+      "id": "S003",
+      "status": "supported",
+      "reason": "P3, abstract final sentence, explicitly states regression application and comparison with other approaches."
+    },
+    {
+      "id": "S004",
+      "status": "partially_supported",
+      "reason": "P1, abstract first sentence, supports TensorFlow core computations and a Python front end, but provides no numerical-correctness guarantee."
+    },
+    {
+      "id": "S005",
+      "status": "contradicted",
+      "reason": "P5 states O(m^2 n); fixing m leaves explicit linear dependence on n."
+    },
+    {
+      "id": "S006",
+      "status": "supported",
+      "reason": "P5 states O(m^2 n), which scales linearly with n for fixed m."
+    },
+    {
+      "id": "S007",
+      "status": "not_assessed",
+      "reason": "No attributed claim is supplied for comparison with P1."
+    },
+    {
+      "id": "S008",
+      "status": "supported",
+      "reason": "P1, abstract first sentence, explicitly identifies TensorFlow core computations and a Python front end."
+    },
+    {
+      "id": "S009",
+      "status": "unresolved",
+      "reason": "Only ambiguous OCR is available and neither equation can be rendered; symbol identity cannot be established."
+    },
+    {
+      "id": "S010",
+      "status": "not_supported",
+      "reason": "P2 reports a predictive-performance and training-time comparison; the supplied fragment gives no worst-case complexity bound or every-kernel guarantee."
+    },
+    {
+      "id": "S011",
+      "status": "not_supported",
+      "reason": "P3 describes regression and comparisons; the supplied sentence does not establish effectiveness with non-Gaussian classification likelihoods."
+    },
+    {
+      "id": "S012",
+      "status": "contradicted",
+      "reason": "P6 explicitly says two inference techniques are derived, contradicting 'just one'."
+    },
+    {
+      "id": "S013",
+      "status": "partially_supported",
+      "reason": "P6 supports deriving Laplace and expectation-propagation techniques for model selection, but supplies no global-optimality guarantee."
+    },
+    {
+      "id": "S014",
+      "status": "not_supported",
+      "reason": "P4 mentions MNIST and CIFAR-10 applications; the supplied fragment provides no medical-image deployment or distribution-shift validation."
+    },
+    {
+      "id": "S015",
+      "status": "unresolved",
+      "reason": "Neither Equation 7 nor the implementation is available, preventing an exact-match assessment."
+    }
+  ]
+}

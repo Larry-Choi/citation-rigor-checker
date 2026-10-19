@@ -1,0 +1,11 @@
+{
+  "provenance": "Synthetic regression fixtures reproducing six reviewer-reported formatting cases; not a corpus of real publications.",
+  "cases": [
+    {"id": "accent", "entry": {"title": "A study of evidence", "author": "M{\\\"u}ller, Anna", "year": "2024", "journal": "Test Journal"}, "record": {"title": "A study of evidence", "authors": ["Müller"], "years": [2024], "venue": "Test Journal"}, "expected": "matched_metadata"},
+    {"id": "particle", "entry": {"title": "A study of evidence", "author": "Laurens van der Maaten", "year": "2024", "journal": "Test Journal"}, "record": {"title": "A study of evidence", "authors": ["van der Maaten"], "years": [2024], "venue": "Test Journal"}, "expected": "matched_metadata"},
+    {"id": "transliteration", "entry": {"title": "A study of evidence", "author": "Choi, Minjun", "year": "2024", "journal": "Test Journal"}, "record": {"title": "A study of evidence", "authors": ["최"], "years": [2024], "venue": "Test Journal"}, "expected": "metadata_review"},
+    {"id": "unsegmented_korean", "entry": {"title": "A study of evidence", "author": "최민준", "year": "2024", "journal": "Test Journal"}, "record": {"title": "A study of evidence", "authors": ["최"], "years": [2024], "venue": "Test Journal"}, "expected": "metadata_review"},
+    {"id": "omitted_subtitle", "entry": {"title": "Learning Representations", "author": "Kim, Anna", "year": "2024", "journal": "Test Journal"}, "record": {"title": "Learning Representations: A Comprehensive Analysis of Methods and Evaluation Protocols", "authors": ["Kim"], "years": [2024], "venue": "Test Journal"}, "expected": "metadata_review"},
+    {"id": "venue_abbreviation", "entry": {"title": "A study of evidence", "author": "Kim, Anna", "year": "2024", "booktitle": "NeurIPS"}, "record": {"title": "A study of evidence", "authors": ["Kim"], "years": [2024], "venue": "Advances in Neural Information Processing Systems"}, "expected": "metadata_review"}
+  ]
+}

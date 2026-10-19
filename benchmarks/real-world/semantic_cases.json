@@ -1,0 +1,107 @@
+[
+  {
+    "id": "S001",
+    "task": "semantic",
+    "claim": "The experiments improve predictive performance at comparable training time against all Gaussian-process inference methods.",
+    "evidence_id": "P2",
+    "access_note": null
+  },
+  {
+    "id": "S002",
+    "task": "semantic",
+    "claim": "The method was evaluated on MNIST and CIFAR-10 and therefore matches the best deep neural networks on those tasks.",
+    "evidence_id": "P4",
+    "access_note": null
+  },
+  {
+    "id": "S003",
+    "task": "semantic",
+    "claim": "The technique was applied to regression and compared with other approaches.",
+    "evidence_id": "P3",
+    "access_note": null
+  },
+  {
+    "id": "S004",
+    "task": "semantic",
+    "claim": "The library uses TensorFlow and a Python front end, which establishes that every supported GP model is numerically correct.",
+    "evidence_id": "P1",
+    "access_note": null
+  },
+  {
+    "id": "S005",
+    "task": "semantic",
+    "claim": "Once the inducing count m is fixed, the reported inference complexity no longer depends on the number n of training points.",
+    "evidence_id": "P5",
+    "access_note": null
+  },
+  {
+    "id": "S006",
+    "task": "semantic",
+    "claim": "For fixed inducing count m, the stated complexity grows linearly in n.",
+    "evidence_id": "P5",
+    "access_note": null
+  },
+  {
+    "id": "S007",
+    "task": "semantic",
+    "claim": null,
+    "evidence_id": "P1",
+    "access_note": null
+  },
+  {
+    "id": "S008",
+    "task": "semantic",
+    "claim": "The library uses TensorFlow for core computations and a Python front end.",
+    "evidence_id": "P1",
+    "access_note": null
+  },
+  {
+    "id": "S009",
+    "task": "semantic",
+    "claim": "The OCR symbol in the copied equation is identical to the source symbol.",
+    "evidence_id": null,
+    "access_note": "Only ambiguous OCR text is available; neither equation can be rendered."
+  },
+  {
+    "id": "S010",
+    "task": "semantic",
+    "claim": "This passage establishes strictly subcubic worst-case training complexity for every kernel.",
+    "evidence_id": "P2",
+    "access_note": null
+  },
+  {
+    "id": "S011",
+    "task": "semantic",
+    "claim": "This passage establishes effectiveness with non-Gaussian classification likelihoods.",
+    "evidence_id": "P3",
+    "access_note": null
+  },
+  {
+    "id": "S012",
+    "task": "semantic",
+    "claim": "The paper derives just one inference technique for hyperparameter learning and model selection.",
+    "evidence_id": "P6",
+    "access_note": null
+  },
+  {
+    "id": "S013",
+    "task": "semantic",
+    "claim": "Laplace and expectation propagation are derived for model selection, guaranteeing that the selected model is globally optimal.",
+    "evidence_id": "P6",
+    "access_note": null
+  },
+  {
+    "id": "S014",
+    "task": "semantic",
+    "claim": "The reported evaluation validates medical-image deployment under distribution shift.",
+    "evidence_id": "P4",
+    "access_note": null
+  },
+  {
+    "id": "S015",
+    "task": "semantic",
+    "claim": "Our implementation exactly matches Equation 7 in the source.",
+    "evidence_id": null,
+    "access_note": "Neither the source equation nor the implementation is available."
+  }
+]

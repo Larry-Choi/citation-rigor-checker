@@ -1,0 +1,209 @@
+{
+  "run": {
+    "condition": "baseline",
+    "repeat": 3,
+    "model_alias": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "cli_version": "codex-cli 0.163.0-alpha.10.2",
+    "started_at": "2026-10-19T03:34:29.162901+00:00",
+    "wall_seconds": 26.047,
+    "returncode": 0,
+    "timed_out": false,
+    "observed_tool_events": [],
+    "usage": {
+      "input_tokens": 18663,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1238,
+      "reasoning_output_tokens": 189
+    },
+    "prompt_sha256": "54df116e12268281e0b9c2455dbdf6a8351f7bb8d90ea1e86a3e88222d49c6ac",
+    "manifest": {
+      "dataset": "real-world",
+      "case_count": 34,
+      "skill_sha256": "69ee0bba22b0adbc913df6b0fe6c536439f614051cc2d8bf3465bd3f0e01f58b",
+      "inputs_sha256": {
+        "bibliographic_cases.json": "d9d649b32069fd01d99214a87785ca1bbbd353d2df8ef7fe9d8c195e8556c721",
+        "records.json": "35a8db98e3b9a5823a60274aeeeda40a88637130c4765f779a1e89f31fe3ebf4",
+        "semantic_cases.json": "5319978e8e868a9c5ced4ce759af9f1e629faf6aff555f8439f031423ad99971",
+        "evidence.json": "94f12db2593d7209ecbdfb0d42e6364618bd174bbbe464101c75a59bcddf9e84"
+      },
+      "gold_excluded": true,
+      "model_runs_performed_by_exporter": 0
+    },
+    "valid_tool_free_run": true,
+    "runtime_errors": []
+  },
+  "predictions": [
+    {
+      "id": "R001",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and journal match the candidate."
+    },
+    {
+      "id": "R002",
+      "status": "matched_metadata",
+      "reason": "Title, author list, year, journal, and URL match after normalizing formatting."
+    },
+    {
+      "id": "R003",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and arXiv identifier match."
+    },
+    {
+      "id": "R004",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and arXiv identifier match."
+    },
+    {
+      "id": "R005",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and proceedings match after decoding LaTeX accents."
+    },
+    {
+      "id": "R006",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and conference proceedings match after normalizing whitespace."
+    },
+    {
+      "id": "R007",
+      "status": "matched_metadata",
+      "reason": "Title, author, and year match; the venue is a recognizable shortened conference name."
+    },
+    {
+      "id": "R008",
+      "status": "matched_metadata",
+      "reason": "Title, authors, year, and proceedings match the candidate."
+    },
+    {
+      "id": "R009",
+      "status": "metadata_review",
+      "reason": "Authors and year match, but the title misspells 'Variationally' as 'Variatinoally'."
+    },
+    {
+      "id": "R010",
+      "status": "matched_metadata",
+      "reason": "Title, Unicode author names, year, and proceedings match."
+    },
+    {
+      "id": "R011",
+      "status": "matched_metadata",
+      "reason": "Authors match in given-name-first format; title, year, and proceedings also match."
+    },
+    {
+      "id": "R012",
+      "status": "metadata_review",
+      "reason": "Other identity fields match, but the title omits 'A Gaussian Process Library using TensorFlow'."
+    },
+    {
+      "id": "R013",
+      "status": "metadata_review",
+      "reason": "Title, authors, and venue match, but the entry gives 2020 instead of the candidate's 2021."
+    },
+    {
+      "id": "R014",
+      "status": "matched_metadata",
+      "reason": "Title, authors, and year match; NeurIPS is a recognizable abbreviation of the supplied proceedings venue."
+    },
+    {
+      "id": "R015",
+      "status": "metadata_review",
+      "reason": "Author, year, and conference match, but the title omits 'in Sparse Gaussian Processes'."
+    },
+    {
+      "id": "R016",
+      "status": "identity_conflict",
+      "reason": "The entry describes Chu and Ghahramani's ordinal-regression paper, while the candidate describes GPflow."
+    },
+    {
+      "id": "R017",
+      "status": "identity_conflict",
+      "reason": "The entry's convolutional-GP title, authors, and year differ from the candidate's 2009 inter-domain paper."
+    },
+    {
+      "id": "R018",
+      "status": "identity_conflict",
+      "reason": "The entry attributes the paper to Jane Smith, whereas the candidate lists Chu and Ghahramani."
+    },
+    {
+      "id": "R019",
+      "status": "unresolved",
+      "reason": "No candidate record is assigned for comparison."
+    },
+    {
+      "id": "S001",
+      "status": "partially_supported",
+      "reason": "P2 reports improved performance at comparable training time against other conjugate-gradient approaches, not all GP inference methods."
+    },
+    {
+      "id": "S002",
+      "status": "partially_supported",
+      "reason": "P4 supports evaluation on MNIST and CIFAR-10 but gives no comparison with the best deep networks."
+    },
+    {
+      "id": "S003",
+      "status": "supported",
+      "reason": "P3 explicitly states application to regression and comparison with other approaches."
+    },
+    {
+      "id": "S004",
+      "status": "partially_supported",
+      "reason": "P1 confirms TensorFlow computations and a Python front end but provides no universal numerical-correctness guarantee."
+    },
+    {
+      "id": "S005",
+      "status": "contradicted",
+      "reason": "P5 states O(m^2 n), which still depends linearly on n when m is fixed."
+    },
+    {
+      "id": "S006",
+      "status": "supported",
+      "reason": "The O(m^2 n) complexity in P5 is linear in n for fixed m."
+    },
+    {
+      "id": "S007",
+      "status": "not_assessed",
+      "reason": "No claim is supplied."
+    },
+    {
+      "id": "S008",
+      "status": "supported",
+      "reason": "P1 explicitly identifies TensorFlow for core computations and Python for the front end."
+    },
+    {
+      "id": "S009",
+      "status": "unresolved",
+      "reason": "Ambiguous OCR and unavailable equation renderings prevent symbol comparison."
+    },
+    {
+      "id": "S010",
+      "status": "not_supported",
+      "reason": "P2 discusses predictive performance and training-time comparisons, without a worst-case complexity bound or universal kernel coverage."
+    },
+    {
+      "id": "S011",
+      "status": "not_supported",
+      "reason": "P3 discusses regression comparisons and supplies no evidence about non-Gaussian classification likelihoods."
+    },
+    {
+      "id": "S012",
+      "status": "contradicted",
+      "reason": "P6 explicitly describes two inference techniques, not one."
+    },
+    {
+      "id": "S013",
+      "status": "partially_supported",
+      "reason": "P6 supports Laplace and expectation propagation for model selection but gives no global-optimality guarantee."
+    },
+    {
+      "id": "S014",
+      "status": "not_supported",
+      "reason": "P4 names MNIST and CIFAR-10 evaluations but provides no medical-image or distribution-shift validation."
+    },
+    {
+      "id": "S015",
+      "status": "unresolved",
+      "reason": "Neither Equation 7 nor the implementation is available for comparison."
+    }
+  ]
+}

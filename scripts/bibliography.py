@@ -141,10 +141,28 @@ def parse_bibtex(text):
         entries.append(item)
 
 
+def decode_latex(text):
+    """Decode common bibliographic accents; never execute TeX."""
+    letters = {'ss': 'ß', 'ae': 'æ', 'AE': 'Æ', 'oe': 'œ', 'OE': 'Œ',
+               'aa': 'å', 'AA': 'Å', 'o': 'ø', 'O': 'Ø', 'l': 'ł', 'L': 'Ł',
+               'i': 'ı', 'j': 'ȷ'}
+    marks = dict(zip(['"', "'", '`', '^', '~', '=', '.', 'u', 'v', 'H', 'c', 'k', 'b', 'd', 'r'],
+                     ['\u0308', '\u0301', '\u0300', '\u0302', '\u0303', '\u0304', '\u0307', '\u0306', '\u030c', '\u030b', '\u0327', '\u0328', '\u0331', '\u0323', '\u030a']))
+    text = re.sub(r'\\(?:textit|textbf|emph|mathrm|mathbf)\s*', '', text)
+    text = re.sub(r'\\(ss|ae|AE|oe|OE|aa|AA|o|O|l|L|i|j)(?![A-Za-z])', lambda m: letters[m[1]], text)
+    accent = re.compile(r'''\\(["'`^~=.uvHckbdr])\s*(?:\{([^{}])\}|([A-Za-zıȷ]))''')
+    def apply_accent(match):
+        char = (match[2] or match[3]).replace('ı', 'i').replace('ȷ', 'j')
+        return unicodedata.normalize('NFC', char + marks[match[1]])
+    text = accent.sub(apply_accent, text)
+    return text.replace('{', '').replace('}', '')
+
+
 def normalize(text):
-    text = unicodedata.normalize('NFKD', text).casefold()
-    return ' '.join(''.join(c if c.isalnum() else ' ' for c in text
-                            if not unicodedata.combining(c)).split())
+    text = unicodedata.normalize('NFKD', decode_latex(text)).casefold()
+    # Recompose non-Latin scripts after removing accent marks.
+    text = unicodedata.normalize('NFC', ''.join(c for c in text if not unicodedata.combining(c)))
+    return ' '.join(''.join(c if c.isalnum() else ' ' for c in text).split())
 
 
 def doi_value(value):
@@ -176,30 +194,66 @@ def author_families(value):
             parts.append(value[start:match.start()].strip())
             start = match.end()
     parts.append(value[start:].strip())
-    return [normalize(p.split(',')[0] if ',' in p or p.startswith('{') else p.split()[-1])
+    # Without a comma, retain the name: guessing the last token loses particles
+    # and invents family-name boundaries in Korean and other naming systems.
+    return [normalize(p.split(',')[0] if ',' in p else p)
             for p in parts if p]
+
+
+PARTICLES = {'van', 'von', 'der', 'den', 'de', 'del', 'di', 'da', 'du', 'la', 'le', 'ten', 'ter', 'bin', 'al'}
+
+
+def name_relation(left, right):
+    if left == right:
+        return 'compatible'
+    left_tokens = {t for t in left.split() if t not in PARTICLES and len(t) > 1}
+    right_tokens = {t for t in right.split() if t not in PARTICLES and len(t) > 1}
+    if left_tokens & right_tokens:
+        return 'compatible'
+    # A transliteration or an unsegmented name is not negative identity evidence.
+    if not left_tokens or not right_tokens or any(ord(c) > 127 for c in left + right):
+        return 'uncertain'
+    return 'different'
+
+
+def title_relation(submitted, record):
+    title = normalize(submitted)
+    main = record.get('title', '')
+    subtitle = record.get('subtitle') or []
+    subtitle = [subtitle] if isinstance(subtitle, str) else subtitle
+    variants = {normalize(main), normalize(main + ': ' + ': '.join(subtitle))}
+    if not title or not normalize(main):
+        return 'missing', None
+    if title in variants:
+        return 'exact', 1.0
+    ratio = max(difflib.SequenceMatcher(None, title, v).ratio() for v in variants)
+    for variant in variants:
+        a, b = set(title.split()), set(variant.split())
+        shortest = min((title, variant), key=len)
+        if (len(shortest.split()) >= 2 or len(shortest) >= 8) and (a <= b or b <= a):
+            return 'abbreviated', ratio
+    return ('similar' if ratio >= 0.85 else 'different'), ratio
 
 
 def compare(entry, record):
     if not record:
         return {'status': 'unresolved', 'reasons': ['No usable record; not evidence of nonexistence']}
     reasons, missing = [], []
-    source_title, title = normalize(record.get('title', '')), normalize(entry.get('title', ''))
-    ratio = difflib.SequenceMatcher(None, title, source_title).ratio() if title and source_title else None
+    title_state, ratio = title_relation(entry.get('title', ''), record)
     authors = author_families(entry.get('author', ''))
     source_authors = [normalize(a) for a in record.get('authors', [])]
-    author_conflict = bool(authors and source_authors and authors[0] != source_authors[0])
-    if ratio is not None and ratio < 0.85 or author_conflict:
+    first_author = name_relation(authors[0], source_authors[0]) if authors and source_authors else 'uncertain'
+    if title_state == 'different' and first_author == 'different':
         return {'status': 'identity_conflict', 'title_similarity': ratio,
-                'reasons': ['Title or first-author conflict with resolved record; inspect versions/names manually']}
+                'reasons': ['Both title and first-author signals conflict with the resolved record; inspect versions/names manually']}
     if ratio is None:
         missing.append('title')
-    elif ratio < 1:
-        reasons.append('Title differs; fuzzy similarity is a triage signal, not identity proof')
+    elif title_state != 'exact':
+        reasons.append('Title is shortened, differs, or may be translated; review the complete title/subtitle')
     if not authors or not source_authors:
         missing.append('authors')
-    elif authors != source_authors:
-        reasons.append('Full author list differs or is abbreviated')
+    elif len(authors) != len(source_authors) or any(name_relation(a, b) != 'compatible' for a, b in zip(authors, source_authors)):
+        reasons.append('Author list differs, is abbreviated, or has unresolved naming/transliteration differences')
     years = {str(y) for y in record.get('years', [])}
     if not entry.get('year') or not years:
         missing.append('year')
@@ -286,6 +340,7 @@ class Resolver:
                 raise RuntimeError('Crossref returned an unexpected DOI')
             years = sorted({msg[k]['date-parts'][0][0] for k in ['published', 'published-print', 'published-online', 'issued'] if k in msg and msg[k].get('date-parts')})
             return {'doi': msg['DOI'].lower(), 'title': msg.get('title', [''])[0],
+                    'subtitle': msg.get('subtitle', []),
                     'authors': [a.get('family') or a.get('name', '') for a in msg.get('author', [])],
                     'years': years, 'venue': msg.get('container-title', [''])[0],
                     'volume': msg.get('volume'), 'pages': msg.get('page'), 'source_url': url}, []
@@ -302,7 +357,7 @@ class Resolver:
             if re.search(r'v\d+$', arxiv) and actual_id != arxiv:
                 raise RuntimeError('arXiv returned a different version than requested')
             return {'arxiv': actual_id, 'title': ' '.join(item.findtext('a:title', '', ns).split()),
-                    'authors': [a.findtext('a:name', '', ns).split()[-1] for a in item.findall('a:author', ns)],
+                    'authors': [a.findtext('a:name', '', ns) for a in item.findall('a:author', ns)],
                     'years': [int(item.findtext('a:published', '', ns)[:4])],
                     'venue': 'arXiv', 'source_url': url}, []
         if not entry.get('title'):

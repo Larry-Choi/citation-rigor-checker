@@ -1,82 +1,83 @@
-# Development benchmark and paired model protocol
+# Evaluation: real BibTeX, normalization regressions, and paired model runs
 
-This directory separates **deterministic metadata preflight**, **synthetic semantic cases**, and **actual model comparisons**. Only the first has measured results in this revision. No baseline-versus-skill model gain is claimed.
+## Findings
+
+The corrected helper routes the six reported formatting cases from **5 identity-conflict flags to 0**. [Before/after output](results/normalization-regression.json).
+
+It also flags a real title typo in the imported GPflow bibliography: **Variatinoally → Variationally**, case R009. [Caught-issues example](../examples/caught-issues.md).
+
+The paired model pilot completed on **2026-10-19**, with `gpt-6.1-sol`, medium reasoning, Codex CLI `0.163.0-alpha.10.2`, and three repeats per condition:
+
+- **Bibliography, 19 cases:** baseline correct counts 13/14/13; skill 13/14/13. Both average 70.2% label agreement. Mean macro-F1: **0.7809 baseline / 0.6699 skill**.
+- **Semantics, 15 cases:** both conditions scored 15/15 in every repeat, macro-F1 **1.0000**. The new passages still have a ceiling effect.
+- **Coverage:** every run returned all 34 predictions. No tool-use events were observed.
+- **Mean wall time:** 23.08 seconds baseline; 27.25 seconds skill.
+- **Mean input/output tokens:** baseline 19,103 / 1,183; skill 23,265 / 1,386. Cached-input tokens are recorded separately in the run files.
+
+**This pilot did not demonstrate an overall advantage for the skill.** Bibliographic identity-conflict precision improved from 0.667 to 1.000, but other routing decisions worsened; that isolated improvement does not overturn the overall result. All repeats and disagreements are retained.
+
+[Aggregate results](comparison/summary.json) · [Run manifest](comparison/run-manifest.json) · [Raw baseline response](comparison/baseline-1.json) · [Raw skill response](comparison/skill-1.json)
 
 ## Dataset
 
-- `sources.json`: eight frozen Crossref bibliographic records across ML, biology, and research reporting, with primary API URLs and retrieval timestamps. Only selected metadata is included, not abstracts or full texts.
-- `references.bib`: 40 entries generated from those records: 8 unmodified entries, 8 wrong DOIs, 8 changed years, 8 changed venues, 4 composite-author entries, and 4 invented fixtures.
-- `gold.json`: separate intended labels and mutation provenance. An invented fixture's label is **unresolved**, never proof of nonexistence. Snapshot absence is not a search of the world's literature.
-- `semantic_cases.json`: six assistant-authored cases: two supported, two contradicted, and two unresolved. Four use paraphrases from identified public papers; two test missing access/OCR ambiguity. These claims are evaluation constructions, not accusations of errors in the published papers.
+### Bibliographic cases
 
-The bibliographic target is a **preflight routing state**, not a fully verified publication. The development labels are authoring-assistant annotations, have not been independently adjudicated, and are not a held-out research benchmark. Only three of the six full semantic statuses are represented. No multilingual, PDF-extraction, comprehensive mapping, or large-document accuracy claim follows from this set.
+[originals.bib](real-world/originals.bib) preserves nine entries from the actual GPflow documentation bibliography, including protected capitalization, TeX accents, particles, venue abbreviations, preprint labels, and the observed title typo. The input entries are imported from an immutable upstream Git blob. The candidate records were inspected separately on JMLR, PMLR, NeurIPS, and arXiv pages.
 
-## Reproduce the deterministic run
+[provenance.json](real-world/provenance.json) records the upstream URL, blob ID, SHA-256, and selected keys. [records.json](real-world/records.json) contains the separately recorded primary metadata. [bibliographic_cases.json](real-world/bibliographic_cases.json) contains 19 cases: nine upstream entries, six surface variants, two wrong candidates, an author-only discrepancy, and one unavailable-record control. [gold.json](real-world/gold.json) stores labels and reasons separately.
 
-From the repository root, with Python 3.10+:
+The six Korean/romanized-name and other reported regression cases are [synthetic fixtures](../tests/fixtures/legitimate_variants.json), kept separate from the real BibTeX set.
+
+### Semantic cases
+
+[evidence.json](real-world/evidence.json) contains six short verbatim primary-source passages, URLs, and locators. Mathematical typography is rendered as plain text. Each claim is judged against its supplied passage, not the unseen full paper.
+
+[semantic_cases.json](real-world/semantic_cases.json) contains 15 constructed claims: 3 supported, 4 partially supported, 3 not supported, 2 contradicted, 2 unresolved, and 1 not assessed. Examples test comparator expansion, experimental time versus worst-case complexity, dataset-to-deployment generalization, fixed-parameter asymptotics, and a global-optimality claim. [semantic_gold.json](real-world/semantic_gold.json) holds the annotations.
+
+### Previous set
+
+The previous 40-entry copy-and-mutate corpus remains in this directory for parser/comparison regression testing. Its 39/40 result from the earlier release is retired as performance evidence. It does not measure the skill's added value.
+
+## Reproduce checks and scores
+
+From the repository root, using Python 3.10+:
 
 ```bash
 python -m unittest discover -s tests -v
-python benchmarks/build.py
-python scripts/bibliography.py benchmarks/references.bib --snapshot benchmarks/sources.json --out benchmarks/results/preflight.json
-python benchmarks/evaluate.py --predictions benchmarks/results/preflight.json --out benchmarks/results/metrics.json
+python benchmarks/check_real_world.py
+python benchmarks/summarize.py
 ```
 
-The snapshot run uses no network. `build.py` fixes the random seed at 20261019. Input/snapshot hashes are stored with the preflight output. `results/metrics.json` contains per-status precision, recall, F1, support, coverage, and missing IDs.
+The helper's recorded candidate comparison is [real-world-preflight.json](results/real-world-preflight.json). It agrees with 18/19 routing labels, with zero identity-conflict flags on the 15 upstream/surface-variant cases. Its disagreement at R002 concerns whether the GPflow author spelling should be accepted after normalization or sent for review; this is an annotation boundary requiring independent adjudication.
 
-### Measured result, 2026-10-19
+`summarize.py` scores all six model responses, computes per-status precision/recall/F1 and coverage, and retains paired skill-minus-baseline differences for every repeat. Missing predictions count as false negatives. A class with no predicted positives uses precision=0. Gold annotations are hashed with the summary.
 
-On these 40 synthetic metadata cases, preflight routing agreed with the intended label on **39/40 (97.5%)**, with **macro-F1 0.9758** and **40/40 coverage**. This is a small, deliberately simple development-set regression check—not an estimate of real-world citation-audit accuracy.
+## Re-run the paired model experiment
 
-- `matched_metadata`: precision 1.0000, recall 0.8750, support 8.
-- `metadata_review`: precision 0.9412, recall 1.0000, support 16.
-- `identity_conflict`: precision 1.0000, recall 1.0000, support 12.
-- `unresolved`: precision 1.0000, recall 1.0000, support 4.
-
-The disagreement is **B039**, the unmodified PRISMA record. The generated BibTeX renders its group author without protective braces; the helper's conservative personal-name interpretation routes it to review. This exposes a corporate-author export/parsing boundary, not an actual error in the paper. The case and prediction are retained rather than hiding the discrepancy or adjusting the classifier to force a perfect score. Correctly braced organization names are covered separately by a unit test. The fixture should be reviewed before using it as a formal research gold label.
-
-The helper does not assess semantic support: **0/6 semantic predictions were made**. The scorer penalizes missing predictions with zero recall and reports their IDs. Those zeros are not a measured LLM semantic score. Unit-test totals are engineering checks, not independent examples of successful paper auditing.
-
-Engineering validation: **29 automated tests passed** on Python 3.12.14 during authoring, including a frozen 40-entry replay check. A separate two-request live smoke check resolved the Crossref DOI but the arXiv API timed out and was recorded as unresolved. The arXiv response parser/version checks passed mocked tests; live arXiv success is not established by that smoke check. The public-paper example used browser-readable primary sources independently of the helper.
-
-## Run an honest baseline-versus-skill comparison
-
-Export prompt packs without gold labels:
+Export the inputs and schema contract:
 
 ```bash
 python benchmarks/evaluate.py --export-prompts benchmarks/runs/prompts
 ```
 
-`baseline.txt` contains a short audit instruction. `skill.txt` adds the exact current skill instructions. Both receive identical inputs, frozen evidence, and output schema; neither receives `gold.json` or semantic rationales. The export manifest records input and skill hashes. No model is executed by this command.
+The baseline receives a short audit instruction; the skill condition additionally receives the frozen SKILL.md instructions. Both receive the same evidence, case IDs, allowed output statuses, and output format. The old common instruction telling models how to classify invented-looking references was removed. Gold labels and rationales are excluded from the prompt packets.
 
-1. Run the two conditions in fresh isolated sessions. Keep model/version, host, tool policy, reasoning/temperature settings, and context capacity fixed. The frozen-evidence protocol disables external tools. For a separate live-retrieval experiment, give both conditions identical retrieval/request budgets and record the source snapshots; do not pool its scores with frozen-evidence scores.
-2. Use at least three independent repeats per condition when feasible; randomize condition order. Keep the evaluator/gold outside the model's accessible context, and do not grant an agent repository access that lets it read the gold files. Prompt export alone cannot enforce isolation.
-3. Record run date, condition, exact model and host versions, settings, skill/input hashes, completion/failure, wall time, token counts when available, and tool-call counts. If the host cannot expose a number, mark it unavailable. Do not invent zero usage.
-4. Save each output separately in the following format, with one prediction per case:
-
-```json
-{
-  "run": {
-    "condition": "baseline",
-    "model": "record-the-actual-model-version",
-    "host": "record-the-actual-host-version",
-    "tools": "disabled",
-    "repeat": 1
-  },
-  "predictions": [
-    {"id": "B001", "status": "unresolved"},
-    {"id": "S001", "status": "supported"}
-  ]
-}
-```
-
-The JSON above illustrates the shape only; it is not a result and its B001 status is not an expected answer. Include all 46 case IDs in a real run.
+The CLI runner uses six fresh ephemeral sessions, an empty working directory, disabled shell/search/multi-agent tools, and fixed order baseline-1, skill-1, skill-2, baseline-2, baseline-3, skill-3. It checks observed tool events and stops on an environment failure. Model calls use the signed-in account's ordinary usage allowance.
 
 ```bash
-python benchmarks/evaluate.py --predictions benchmarks/runs/baseline-1.json --out benchmarks/runs/baseline-1-metrics.json
-python benchmarks/evaluate.py --predictions benchmarks/runs/skill-1.json --out benchmarks/runs/skill-1-metrics.json
+python benchmarks/run_codex.py --prompts benchmarks/runs/prompts --out benchmarks/runs/comparison --raw benchmarks/runs/raw --isolation-dir benchmarks/runs/empty --model gpt-6.1-sol --reasoning-effort medium
 ```
 
-5. Report per-status precision/recall/F1, macro-F1, coverage, and abstention/failure rates separately for bibliography and semantics. Missing predictions remain false negatives; they are not dropped. Zero predicted positives use precision=0. Include per-repeat results and paired differences, not a selected best run. Do not interpret this tiny correlated development set as a population estimate.
+The output and isolation directories should be fresh. Raw runtime logs remain local. Use the actual model/settings you intend to test; the example above reproduces this pilot's requested model alias and effort.
 
-Before a workshop/demo paper, recruit independent domain annotators, resolve annotation disagreements, add naturally occurring and harder negative cases, hold out sources (not just mutated entries), expand missing semantic classes and languages, and measure retrieval/time costs on a larger manuscript. The current set is appropriate for development and protocol debugging, not claims of superiority.
+Score an individual exported response:
+
+```bash
+python benchmarks/evaluate.py --predictions benchmarks/comparison/baseline-1.json --out benchmarks/runs/recheck.json
+```
+
+Run files record the requested model alias, CLI version, reasoning effort, input/skill hashes, latency, token usage, observed tool events, and all predictions. Backend snapshot ID, temperature, and sampling seed were not exposed by this CLI. The model alias and shared runtime instructions are part of the recorded host context.
+
+## Limitations and next experiment
+
+The cases were selected during development, not sampled from a target population; related cases share sources. Gold labels await independent human adjudication, particularly benign formatting versus review routing. This frozen-passage experiment does not measure retrieval quality, full-paper coverage, actual Korean-paper accuracy, or transfer across models/hosts. The semantic ceiling prevents a claim of added semantic rigor. The next useful evaluation needs independently annotated, longer multi-passage cases with mixed supporting and limiting evidence, grouped citations, source/version conflicts, and held-out papers. Predefine the routing rubric, freeze it before execution, and report all conditions even when the skill ties or loses.

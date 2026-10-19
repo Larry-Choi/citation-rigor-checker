@@ -1,12 +1,16 @@
 # Citation Rigor Checker
 
-**A real paper can still be the wrong citation. Check both existence and claim support.**
+**Check references and claims without rejecting normal bibliographic variants.**
 
 An [Agent Skill](https://agentskills.io/specification) that audits references against scholarly records and maps manuscript claims to the passages that support—or fail to support—them.
 
+**Caught in public BibTeX:** `Variatinoally` in a GPflow bibliography entry differs from `Variationally` in the proceedings. A separate draft test catches a comparison stretched from conjugate-gradient methods to every GP method. [See the inputs, evidence, and findings](examples/caught-issues.md).
+
+**Fixed regression:** TeX accents, name particles, Korean/romanized names, omitted subtitles, and venue abbreviations produced **5 severe identity flags in 6 fixtures** before the fix and **0 after**. [Before/after results](benchmarks/results/normalization-regression.json).
+
 Start with a quick **lite report**, request a **full reviewer audit**, or use the optional Python helper for cached metadata preflight. The instruction workflow also works without scripts.
 
-[Read an executed public-paper audit](examples/attention-audit.md) · [Inspect the benchmark and results](benchmarks/README.md) · [Open the skill](SKILL.md)
+[See caught issues](examples/caught-issues.md) · [Inspect the paired experiment](benchmarks/README.md) · [Open the skill](SKILL.md)
 
 ## What you get
 
@@ -38,7 +42,7 @@ Invoke with `$citation-rigor-checker` in Codex CLI/IDE, or select it from `/skil
 
 Invoke with `/citation-rigor-checker`. See [Claude Code's skill documentation](https://code.claude.com/docs/en/skills) for discovery, reload behavior, and cloud-session differences.
 
-This is a standalone skill for local installation, not a plugin-directory package. Other Agent Skills hosts may load it using their own installation and invocation conventions. Compatibility is a packaging claim; end-to-end behavior has not been validated across hosts. GitHub hosting alone does not install the skill.
+This repository contains a standalone skill for local installation. Other Agent Skills hosts use their own discovery paths and invocation conventions.
 
 ## Try it
 
@@ -84,7 +88,7 @@ Check citation mapping and internal consistency. Explain which claims
 need additional source passages; leave unavailable evidence unresolved.
 ```
 
-Lite reports keep two axes—bibliography and claim support—with short findings and evidence locators. Full reports add the reference register, occurrence audit, source ledger, and reviewer notes. Both state actual coverage. See the [worked example](examples/attention-audit.md).
+Lite reports keep two axes—bibliography and claim support—with short findings and evidence locators. Full reports add the reference register, occurrence audit, source ledger, and reviewer notes. Both state actual coverage. See the [caught-issues example](examples/caught-issues.md) and [bounded public-paper audit](examples/attention-audit.md).
 
 ## Optional metadata helper
 
@@ -98,30 +102,29 @@ python scripts/bibliography.py benchmarks/references.bib --snapshot benchmarks/s
 python scripts/bibliography.py references.bib --live --max-requests 40 --out preflight.json
 ```
 
-The helper parses a documented BibTeX subset, resolves Crossref DOIs and arXiv eprints, compares fields, and returns no-ID title-search candidates. Unsupported BibTeX macros/inheritance fail explicitly. It does not verify semantic support; a metadata match is provisional. See [helper behavior and limitations](references/helper.md).
+The helper parses a documented BibTeX subset, resolves Crossref DOIs and arXiv eprints, compares fields, and returns no-ID title-search candidates. It decodes common TeX accents, preserves name particles, compares subtitles, and routes one-signal disagreements to review. Unsupported BibTeX macros/inheritance fail explicitly. See [helper documentation](references/helper.md).
 
 Fixed inputs and a frozen metadata snapshot enable deterministic replay. Live search results and model judgments can vary. The instruction workflow needs no Python; actual searches and source reading use the host's tools and normal usage limits.
 
 ## Scope by discipline and language
 
-The workflow can route to publisher records, subject indexes, and institutional repositories. [Source routing](references/sources.md) includes Korean-language KCI/RISS/DBpia checks, biomedical PubMed checks, and books/theses alongside ML/CS sources. These are guidance routes; the bundled API helper automates **Crossref and arXiv only**. Multilingual and domain-specific accuracy has not been benchmarked.
+The workflow can route to publisher records, subject indexes, and institutional repositories. [Source routing](references/sources.md) includes Korean-language KCI/RISS/DBpia checks, biomedical PubMed checks, and books/theses alongside ML/CS sources. The bundled API helper automates **Crossref and arXiv**.
 
 ## Validation status
 
-The repository includes executable engineering tests, 40 synthetic metadata cases built from eight frozen public records, six semantic evaluation cases, a per-status precision/recall scorer, and paired baseline/skill prompt export.
+The current pilot uses **19 bibliographic cases** from nine actual GPflow BibTeX entries and separately inspected primary records, plus **15 passage-level semantic cases** covering all six statuses. The previous copy-and-mutate 40-entry set is retained for engineering regression checks.
 
-The measured metadata preflight run agreed with intended routing labels on **39/40** cases. The disagreement and per-status metrics are published in the [benchmark report](benchmarks/README.md). This small development-set result is not an estimate of real-world audit accuracy. **Baseline-versus-skill model comparisons have not been run**, and no semantic-model score or accuracy advantage is claimed.
+**Six model runs completed:** baseline and skill, three repeats each, `gpt-6.1-sol`, medium reasoning, identical frozen inputs, no tool use. Mean bibliographic macro-F1 was **0.781 baseline / 0.670 skill**; semantic macro-F1 was **1.000 for both**. This pilot found no overall skill advantage and retained a semantic ceiling effect. Full responses, per-status precision/recall, timing, token usage, and paired results are in the [experiment report](benchmarks/README.md).
 
 ```bash
 python -m unittest discover -s tests -v
+python benchmarks/check_real_world.py
 python benchmarks/evaluate.py --export-prompts benchmarks/runs/prompts
 ```
 
-The [public-paper example](examples/attention-audit.md) inspects two references and three selected citation links in *Attention Is All You Need*. It demonstrates execution and scope reporting; it is not a full-paper audit or independent validation.
+## Limitations
 
-## Evidence and privacy
-
-An unavailable record or failed search does not prove fabrication. Detailed semantic checks need the relevant source text; OCR ambiguity needs visual/source confirmation. Human authors make the final citation decisions. Keep confidential manuscripts, reviewer material, and personal data out of public issues and unauthorized external services.
+This is a small development pilot with session-authored labels, not independently adjudicated research evidence. Semantic passages remain too easy to distinguish the two conditions. The model name is an alias rather than a pinned backend snapshot. The suite does not establish whole-manuscript retrieval, multilingual, or cross-host accuracy. Korean name regressions are synthetic formatting tests. The helper's metadata comparison is provisional; token overlap does not authenticate an author. Source access, OCR quality, and host tools affect semantic judgments, and a failed search does not prove fabrication. Human authors make final citation decisions. Keep confidential material out of public issues and unauthorized external services.
 
 ## Contribute
 

@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 sys.path.insert(0, str(ROOT / 'benchmarks'))
 from bibliography import BibError, Resolver, arxiv_value, audit, author_families, compare, doi_value, parse_bibtex
-from evaluate import metrics
+from evaluate import export_prompts, load_gold, metrics
 
 
 class BibtexTests(unittest.TestCase):
@@ -77,7 +77,30 @@ class ComparisonTests(unittest.TestCase):
 
     def test_composite_authors(self):
         self.entry['author'] = 'Other, Someone'
+        self.assertEqual(compare(self.entry, self.record)['status'], 'metadata_review')
+
+    def test_reported_legitimate_variants(self):
+        cases = json.loads((ROOT / 'tests/fixtures/legitimate_variants.json').read_text(encoding='utf-8'))['cases']
+        for case in cases:
+            with self.subTest(case=case['id']):
+                self.assertEqual(compare(case['entry'], case['record'])['status'], case['expected'])
+
+    def test_crossref_subtitle_is_compared(self):
+        self.record['subtitle'] = ['Methods and Results']
+        self.entry['title'] = 'A study of evidence: Methods and Results'
+        self.assertEqual(compare(self.entry, self.record)['status'], 'matched_metadata')
+
+    def test_title_only_disagreement_is_review(self):
+        self.entry['title'] = 'An entirely different topic'
+        self.assertEqual(compare(self.entry, self.record)['status'], 'metadata_review')
+
+    def test_both_signals_disagree_is_identity_conflict(self):
+        self.entry.update(title='An entirely different topic', author='Other, Someone')
         self.assertEqual(compare(self.entry, self.record)['status'], 'identity_conflict')
+
+    def test_translated_title_and_name_do_not_prove_conflict(self):
+        self.entry.update(title='근거에 관한 연구', author='최민준')
+        self.assertEqual(compare(self.entry, self.record)['status'], 'metadata_review')
 
     def test_no_record_is_unresolved(self):
         self.assertEqual(compare(self.entry, None)['status'], 'unresolved')
@@ -173,10 +196,32 @@ class SnapshotRegressionTests(unittest.TestCase):
         self.assertEqual({g['id'] for g in gold}, {r['id'] for r in first['results']})
         score = metrics(gold, [{'id': r['id'], 'status': r['status']} for r in first['results']])
         self.assertEqual(score['bibliographic']['total'], 40)
-        self.assertEqual(score['bibliographic']['correct'], 39)
+        self.assertEqual(score['bibliographic']['coverage'], 1.0)
 
 
 class EvaluationTests(unittest.TestCase):
+    def test_paired_packets_are_identical_and_exclude_annotations(self):
+        with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+            self.assertEqual(Path(directory).resolve().parent, ROOT.resolve())
+            export_prompts(Path(directory))
+            baseline = (Path(directory)/'baseline.txt').read_text(encoding='utf-8')
+            skill = (Path(directory)/'skill.txt').read_text(encoding='utf-8')
+            packet = json.loads(baseline.split('\nINPUT PACKET\n',1)[1])
+            self.assertEqual(packet,json.loads(skill.split('\nINPUT PACKET\n',1)[1]))
+            def check(value):
+                if isinstance(value,dict):
+                    self.assertFalse({'status','rationale','expected'} & value.keys())
+                    for child in value.values():
+                        check(child)
+                elif isinstance(value,list):
+                    for child in value:
+                        check(child)
+            check(packet)
+
+    def test_real_world_semantics_include_all_statuses(self):
+        semantic = [g for g in load_gold('real-world') if g['task']=='semantic']
+        self.assertEqual({g['status'] for g in semantic}, {'supported','partially_supported','not_supported','contradicted','unresolved','not_assessed'})
+
     def test_missing_predictions_are_false_negatives(self):
         gold = [{'id': 'a', 'task': 'bibliographic', 'status': 'matched_metadata'},
                 {'id': 'b', 'task': 'bibliographic', 'status': 'identity_conflict'}]

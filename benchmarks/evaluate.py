@@ -48,28 +48,34 @@ def metrics(gold, predictions):
     return output
 
 
-def export_prompts(destination):
-    destination.mkdir(parents=True, exist_ok=True)
+def load_gold(dataset):
+    if dataset == 'real-world':
+        directory = ROOT / 'real-world'
+        return json.loads((directory / 'gold.json').read_text(encoding='utf-8')) + json.loads((directory / 'semantic_gold.json').read_text(encoding='utf-8'))
     gold = json.loads((ROOT / 'gold.json').read_text(encoding='utf-8'))
     semantic = json.loads((ROOT / 'semantic_cases.json').read_text(encoding='utf-8'))
-    semantic_inputs = [{k: v for k, v in row.items() if k not in {'status', 'rationale'}} for row in semantic]
+    return gold + [{'id': row['id'], 'task': 'semantic', 'status': row['status']} for row in semantic]
+
+
+def export_prompts(destination, dataset='real-world'):
+    destination.mkdir(parents=True, exist_ok=True)
+    if dataset != 'real-world':
+        raise ValueError('Model comparison exports use the real-world set; legacy is regression-only')
+    directory = ROOT / 'real-world'
+    files = ['bibliographic_cases.json', 'records.json', 'semantic_cases.json', 'evidence.json']
+    packet = {name.removesuffix('.json'): json.loads((directory / name).read_text(encoding='utf-8')) for name in files}
     common = '\n'.join([
-        'Audit the following development cases using only the supplied frozen evidence pack. No external tools.',
-        'Treat invented-looking entries as unresolved if the evidence is insufficient, not proven nonexistent.',
-        'Return JSON only: {"predictions": [{"id": "B001", "status": "..."}, ...]}.',
+        'Audit these bibliography entries against the supplied candidate records and the attributed claims against the supplied source passages. Use only this packet. No tools.',
+        'Return JSON only: {"predictions": [{"id": "R001", "status": "...", "reason": "short evidence-based explanation"}, ...]}.',
         'Bibliographic statuses: matched_metadata, metadata_review, identity_conflict, unresolved.',
-        'matched_metadata means a provisional comparison of supplied fields, not final verification.',
         'Semantic statuses: supported, partially_supported, contradicted, not_supported, unresolved, not_assessed.',
-        'Process every ID. No gold labels are provided. Source summaries are supplied evidence, not authenticated full text.',
-        '\nBIBTEX INPUT\n' + (ROOT / 'references.bib').read_text(encoding='utf-8'),
-        '\nMETADATA EVIDENCE\n' + (ROOT / 'sources.json').read_text(encoding='utf-8'),
-        '\nSEMANTIC INPUT\n' + json.dumps(semantic_inputs, ensure_ascii=False, indent=2)])
+        'Label scope: metadata states concern the supplied candidate fields; semantic states concern support from the supplied passage, not the whole unseen paper. Assess each ID.',
+        '\nINPUT PACKET\n' + json.dumps(packet, ensure_ascii=False, indent=2)])
     skill = (REPO / 'SKILL.md').read_text(encoding='utf-8')
     (destination / 'baseline.txt').write_text('Check these academic references and their claim-source alignment.\n' + common, encoding='utf-8', newline='\n')
     (destination / 'skill.txt').write_text(skill + '\nUse full mode for these cases. The JSON schema below replaces only report presentation.\n' + common, encoding='utf-8', newline='\n')
-    manifest = {'case_count': len(gold) + len(semantic), 'skill_sha256': hashlib.sha256(skill.encode()).hexdigest(),
-                'inputs_sha256': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-                                  for name in ['references.bib', 'sources.json', 'semantic_cases.json']},
+    manifest = {'dataset': dataset, 'case_count': len(load_gold(dataset)), 'skill_sha256': hashlib.sha256(skill.encode()).hexdigest(),
+                'inputs_sha256': {name: hashlib.sha256((directory / name).read_bytes()).hexdigest() for name in files},
                 'gold_excluded': True, 'model_runs_performed_by_exporter': 0}
     (destination / 'manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8', newline='\n')
 
@@ -79,15 +85,14 @@ def main():
     parser.add_argument('--predictions', type=Path)
     parser.add_argument('--out', type=Path)
     parser.add_argument('--export-prompts', type=Path)
+    parser.add_argument('--dataset', choices=['real-world', 'legacy'], default='real-world')
     args = parser.parse_args()
     if args.export_prompts:
-        export_prompts(args.export_prompts)
+        export_prompts(args.export_prompts, args.dataset)
         return
     if not args.predictions or not args.out:
         parser.error('--predictions and --out are required when scoring')
-    gold = json.loads((ROOT / 'gold.json').read_text(encoding='utf-8'))
-    semantic = json.loads((ROOT / 'semantic_cases.json').read_text(encoding='utf-8'))
-    gold.extend({'id': row['id'], 'task': 'semantic', 'status': row['status']} for row in semantic)
+    gold = load_gold(args.dataset)
     payload = json.loads(args.predictions.read_text(encoding='utf-8'))
     if 'results' in payload:  # Direct metadata preflight output, with no semantic predictions.
         predictions = [{'id': r['id'], 'status': r['status']} for r in payload['results']]

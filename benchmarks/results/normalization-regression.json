@@ -1,0 +1,46 @@
+{
+  "before_commit": "b6bf6e2",
+  "implementation_sha256": "4d5ad1f150ac8e5f36e0cbd7029e6385f91296ab6130e76c84324888342f3bc0",
+  "fixture_count": 6,
+  "identity_conflict_before": 5,
+  "identity_conflict_after": 0,
+  "cases": [
+    {
+      "id": "accent",
+      "before": "identity_conflict",
+      "after": "matched_metadata",
+      "expected": "matched_metadata"
+    },
+    {
+      "id": "particle",
+      "before": "identity_conflict",
+      "after": "matched_metadata",
+      "expected": "matched_metadata"
+    },
+    {
+      "id": "transliteration",
+      "before": "identity_conflict",
+      "after": "metadata_review",
+      "expected": "metadata_review"
+    },
+    {
+      "id": "unsegmented_korean",
+      "before": "identity_conflict",
+      "after": "metadata_review",
+      "expected": "metadata_review"
+    },
+    {
+      "id": "omitted_subtitle",
+      "before": "identity_conflict",
+      "after": "metadata_review",
+      "expected": "metadata_review"
+    },
+    {
+      "id": "venue_abbreviation",
+      "before": "metadata_review",
+      "after": "metadata_review",
+      "expected": "metadata_review"
+    }
+  ],
+  "scope": "Six synthetic regression fixtures supplied to both versions; not a real-publication accuracy estimate."
+}
