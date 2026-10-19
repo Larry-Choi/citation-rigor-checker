@@ -2,13 +2,13 @@
 
 **English** · [한국어](README.ko.md)
 
-**Check references and claims without rejecting normal bibliographic variants.**
+**Reuse a structured citation-checking workflow without rewriting a long prompt every time.**
 
-An [Agent Skill](https://agentskills.io/specification) that audits references against scholarly records and maps manuscript claims to the passages that support—or fail to support—them.
+An [Agent Skill](https://agentskills.io/specification) that packages instructions for reference checks, claim–source comparison, evidence recording, and coverage reporting. Invoke it with your files and requested scope; the saved instructions provide the detailed procedure.
 
-**Caught in public BibTeX:** `Variatinoally` in a GPflow bibliography entry differs from `Variationally` in the proceedings. A separate draft test catches a comparison stretched from conjugate-gradient methods to every GP method. [See the inputs, evidence, and findings](examples/caught-issues.md).
+The practical value is less repeated prompt writing and a shared procedure across audits. You can reuse the same expectations for evidence, uncertainty, citation mapping, and reporting instead of reconstructing them for each paper. Actual model adherence and output quality still vary.
 
-**Fixed regression:** TeX accents, name particles, Korean/romanized names, omitted subtitles, and venue abbreviations produced **5 severe identity flags in 6 fixtures** before the fix and **0 after**. [Before/after results](benchmarks/results/normalization-regression.json).
+**Accuracy superiority is not established.** The recorded development comparison tied with a baseline that received explicit task and label definitions. Neither reduced prompt-writing effort nor real-world workflow consistency has been measured in a user study. [Inspect the results and limitations](benchmarks/README.md).
 
 Start with a quick **lite report**, request a **full reviewer audit**, or use the optional Python helper for cached metadata preflight. The instruction workflow also works without scripts.
 
@@ -49,6 +49,15 @@ This repository contains a standalone skill for local installation. Other Agent 
 ## Try it
 
 Attach the files or make them accessible to your agent. These examples use Codex invocation; in Claude Code replace the first line with `/citation-rigor-checker`.
+
+### Start with a short request
+
+```text
+$citation-rigor-checker
+Check manuscript.pdf and references.bib in lite mode. Report in English.
+```
+
+The skill supplies the detailed verification procedure. Add budget, scope, and reporting preferences when needed, as in the examples below.
 
 ### Quick reference check
 
@@ -120,6 +129,10 @@ The first pilot's lower skill score involved benign-formatting labels and an inv
 
 These are development cases, and semantic ceiling effects persist. This comparison does not demonstrate a general skill advantage. The earlier 40-entry copy-and-mutate set remains an engineering regression suite.
 
+The revised skill used a mean **23,802 input tokens**, versus **19,005** for the baseline, about **25% more**. Saved instructions reduce what you type; they still enter the model context and can increase usage and cost.
+
+Engineering checks also retain the six formatting regressions (**5 severe identity flags before the helper fix, 0 after**) and a real public-BibTeX typo, `Variatinoally` versus `Variationally`. These illustrate specific checks, not general accuracy. [Regression output](benchmarks/results/normalization-regression.json) · [Inputs and findings](examples/caught-issues.md).
+
 ```bash
 python -m unittest discover -s tests -v
 python benchmarks/check_real_world.py
@@ -128,7 +141,16 @@ python benchmarks/evaluate.py --export-prompts benchmarks/runs/prompts
 
 ## Limitations
 
-This is a small development pilot with session-authored labels, not independently adjudicated research evidence. Semantic passages remain too easy to distinguish the two conditions. The model name is an alias rather than a pinned backend snapshot. The suite does not establish whole-manuscript retrieval, multilingual, or cross-host accuracy. Korean name regressions are synthetic formatting tests. The helper's metadata comparison is provisional; token overlap does not authenticate an author. Source access, OCR quality, and host tools affect semantic judgments, and a failed search does not prove fabrication. Human authors make final citation decisions. Keep confidential material out of public issues and unauthorized external services.
+- **Fallible output:** The model can miss errors, flag legitimate citations, misread a source, or fail to follow the workflow. A clean report does not certify correctness, completeness, originality, or publication readiness. A failed search does not prove fabrication.
+- **Evidence and access:** Paywalls, missing versions, incomplete metadata, OCR, and host tools limit coverage. The helper is a provisional metadata comparison; token overlap does not authenticate an author. The workflow does not replace reading the relevant primary sources or independent scholarly review.
+- **Limited evaluation:** This small development pilot uses session-authored labels without independent adjudication. Semantic passages have a ceiling effect; the model is an alias rather than a pinned snapshot. Whole-manuscript retrieval, multilingual and cross-host accuracy, time savings, and workflow consistency are unvalidated. Korean name regressions are synthetic formatting tests.
+- **Resource and privacy constraints:** Long inputs can exceed context or usage limits; loading the skill and using tools consume resources. Users must ensure they are authorized to share manuscripts and source material with their chosen services. Keep confidential material out of public issues and unauthorized external services.
+
+## User responsibility and disclaimer
+
+Treat every result as assistance for your own review. **You are responsible for checking primary sources, verifying suggested edits, and making all final citation, submission, and publication decisions.** Do not rely on the report alone to allege fabrication or misconduct.
+
+The skill, helper, examples, and reports are provided **as is**, without warranties of accuracy, completeness, fitness for a particular purpose, or error-free operation. **To the fullest extent permitted by applicable law, the authors and copyright holders disclaim liability for claims, damages, or other liability arising from use of or reliance on this project**, including citation errors, omissions, and submission or publication outcomes. See the [MIT LICENSE](LICENSE) for the governing terms and the [official license text](https://opensource.org/license/mit). This notice does not exclude liability that applicable law does not allow to be excluded.
 
 ## Contribute
 
